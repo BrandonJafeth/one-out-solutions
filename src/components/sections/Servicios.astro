@@ -1,0 +1,57 @@
+---
+import Badge from '../common/Badge.astro';
+import servicios from '../../data/servicios.json';
+import { MonitorSmartphone, Code, ShoppingCart, PenTool } from 'lucide-react';
+
+const IconMap = {
+  MonitorSmartphone,
+  Code,
+  ShoppingCart,
+  PenTool
+};
+---
+
+<section id="servicios" class="py-32 bg-black">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 section-header">
+      <div>
+        <Badge className="mb-6">Capabilities</Badge>
+        <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tight max-w-2xl">
+          NUESTRO ARSENAL TECNOLÓGICO
+        </h2>
+      </div>
+      <p class="text-muted max-w-sm md:text-right">
+        Soluciones especializadas, implementadas con precisión absoluta para asegurar dominancia en tu sector.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-border group/grid pt-px pb-px pr-px pl-px">
+      {servicios.map((s, index) => {
+        const IconComponent = IconMap[s.icon as keyof typeof IconMap];
+        return (
+          <div class="servicio-card relative bg-black p-12 overflow-hidden group hover:bg-surface transition-colors duration-500 min-h-[300px] flex flex-col justify-end">
+            <!-- Neon glow on hover -->
+            <div class="absolute -right-40 -top-40 w-80 h-80 bg-orange/20 rounded-full blur-[100px] scale-0 group-hover:scale-100 transition-transform duration-700 pointer-events-none"></div>
+            
+            <div class="relative z-10">
+              <div class="mb-8 p-4 bg-surface inline-block rounded-xl text-cyan group-hover:text-orange transition-colors">
+                {IconComponent && <IconComponent size={32} />}
+              </div>
+              <h3 class="font-display font-bold text-xl mb-4 group-hover:text-cyan transition-colors">{s.title}</h3>
+              <p class="text-muted leading-relaxed max-w-sm">
+                {s.description}
+              </p>
+            </div>
+            
+            <!-- Index indicator -->
+            <div class="absolute top-12 right-12 font-display text-4xl font-bold text-border group-hover:text-white/10 transition-colors">
+              {(index + 1).toString().padStart(2, '0')}
+            </div>
+          </div>
+        )
+      })}
+    </div>
+
+  </div>
+</section>

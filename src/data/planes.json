@@ -1,0 +1,23 @@
+[
+  { 
+    "id": "landing", 
+    "name": "Landing de Impacto", 
+    "price": "Desde $600 USD", 
+    "features": [ "Diseño Premium A-Medida", "Astro SSG. 100% Velocidad", "SEO On-Page Técnico", "Integración de Formularios", "Animaciones Interactivas" ],
+    "recommended": false
+  },
+  { 
+    "id": "ecommerce", 
+    "name": "App / E-commerce", 
+    "price": "Desde $1,800 USD", 
+    "features": [ "Catálogo de Alta Demanda", "Panel Administrativo Dedicado", "Múltiples Métodos de Pago", "Flujos y Estadísticas de Venta", "Optimizaciones de Conversión" ],
+    "recommended": true
+  },
+  { 
+    "id": "enterprise", 
+    "name": "Enterprise / SaaS", 
+    "price": "Personalizado", 
+    "features": [ "Arquitectura Compleja Escalable", "Bases de Datos Robustas", "Sistemas de Roles Avanzados", "Monitorización en Tiempo Real", "Mantenimiento Continuo" ],
+    "recommended": false
+  }
+]

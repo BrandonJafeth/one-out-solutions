@@ -1,0 +1,47 @@
+---
+import Badge from '../common/Badge.astro';
+import Button from '../common/Button.astro';
+import planes from '../../data/planes.json';
+---
+
+<section id="planes" class="py-32 bg-black border-b border-border">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-20 section-header">
+      <Badge className="mb-6">Inversión</Badge>
+      <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tight max-w-2xl mx-auto">
+        ARQUITECTURAS PARA CADA ESCALA DE NEGOCIO
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center lg:items-stretch wrap-planes">
+      {planes.map(plan => (
+        <div class={`plan-card relative flex flex-col p-10 lg:p-12 transition-transform duration-500 ease-out bg-surface ${plan.recommended ? 'border border-orange lg:-translate-y-4 shadow-2xl shadow-orange/10 z-10' : 'border border-border opacity-80 hover:opacity-100 hover:-translate-y-2'}`}>
+          
+          {plan.recommended && (
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange text-white text-[10px] uppercase font-bold tracking-widest py-1 px-4 rounded-full">
+              Más Solicitado
+            </div>
+          )}
+
+          <h3 class="font-display font-bold text-2xl text-white mb-2">{plan.name}</h3>
+          <p class="text-cyan font-bold font-display text-lg mb-8">{plan.price}</p>
+
+          <ul class="space-y-4 mb-12 flex-grow">
+            {plan.features.map(f => (
+              <li class="flex items-start gap-3">
+                <span class="text-orange mt-1">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </span>
+                <span class="text-muted leading-tight">{f}</span>
+              </li>
+            ))}
+          </ul>
+
+          <Button href="#contacto" variant={plan.recommended ? 'primary' : 'outline'} className="w-full">
+            Elegir Plan
+          </Button>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

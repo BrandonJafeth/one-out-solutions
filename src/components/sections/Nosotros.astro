@@ -1,0 +1,48 @@
+---
+import Badge from '../common/Badge.astro';
+
+const stats = [
+  { value: '05+', label: 'Años Evolucionando' },
+  { value: '50+', label: 'Proyectos Entregados' },
+  { value: '100%', label: 'Código Propio' },
+];
+---
+
+<section id="nosotros" class="py-32 bg-surface border-y border-border">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      
+      <!-- Text Area -->
+      <div class="nosotros-reveal">
+        <Badge className="mb-6">Cultura & Misión</Badge>
+        <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tight mb-5">
+          NO HACEMOS PÁGINAS.<br />
+          <span class="text-orange">CREAMOS ACTIVOS.</span>
+        </h2>
+        <div class="space-y-6 text-muted text-lg">
+          <p>
+            One Out Solutions nace de la necesidad de elevar el estándar digital. Combinamos diseño cinemático con <strong>código de alta ingeniería</strong> para separar a nuestros clientes de su competencia.
+          </p>
+          <p>
+            No dependemos de plantillas genéricas. Cada línea de código y cada pixel es orquestado para comunicar autoridad, confianza y rendimiento extremo.
+          </p>
+        </div>
+      </div>
+
+      <!-- Stats Grid Area -->
+      <div class="grid relative border-l border-border pl-8 lg:pl-16">
+        <div class="absolute -left-[1px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-cyan via-orange to-orange/0"></div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 w-full nosotros-stats">
+          {stats.map(stat => (
+            <div>
+              <p class="font-display font-bold text-4xl md:text-5xl text-white mb-2">{stat.value}</p>
+              <p class="text-orange font-bold text-sm tracking-widest uppercase">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

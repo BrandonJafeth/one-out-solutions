@@ -1,0 +1,166 @@
+---
+import Button from '../common/Button.astro';
+import Badge from '../common/Badge.astro';
+---
+
+<section id="hero" class="relative h-[100svh] min-h-[700px] w-full flex items-center justify-center overflow-hidden cursor-none bg-black hero-section">
+  
+  <!-- Interactive Mesh Background -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+    <div id="glow-orb" class="absolute w-[600px] h-[600px] rounded-full blur-[100px] bg-cyan/10 opacity-60 top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2"></div>
+    <div id="glow-orb-2" class="absolute w-[800px] h-[800px] rounded-full blur-[120px] bg-orange/10 opacity-50 bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2"></div>
+  </div>
+
+  <div class="max-w-[95%] mx-auto px-4 relative z-10 w-full flex flex-col items-center text-center">
+    
+    <div class="hero-fade-up opacity-0 translate-y-12">
+      <Badge className="mb-6 md:mb-10">Digital Masterpieces</Badge>
+    </div>
+
+    <!-- Split-text wrapper styling the words. Emulates dialing web massive headers -->
+    <h1 class="font-display font-bold leading-[0.9] tracking-tighter text-white mb-8 md:mb-12 w-full max-w-[1400px] flex flex-col items-center justify-center pointer-events-none text-[clamp(2.5rem,8vw,8rem)]">
+      <div class="overflow-hidden pt-2"><div class="hero-split translate-y-full">FORJANDO</div></div>
+      <div class="overflow-hidden pt-2 flex flex-col md:flex-row gap-0 md:gap-[clamp(0.5rem,2vw,2rem)] items-center">
+        <div class="hero-split translate-y-full">IDENTIDADES</div> 
+        <div class="hero-split translate-y-full text-transparent bg-clip-text bg-gradient-to-r from-orange to-cyan italic pr-4">DIGITALES</div>
+      </div>
+      <div class="overflow-hidden pt-2"><div class="hero-split translate-y-full">CONTUNDENTES</div></div>
+    </h1>
+
+    <p class="hero-fade-up text-muted md:text-xl text-lg max-w-2xl mb-12 md:mb-16 opacity-0 translate-y-12 font-medium">
+      Nos asociamos con empresas exigentes para dominar la web. Desarrollo de alto impacto, rendimiento extremo y estéticas insuperables.
+    </p>
+
+    <!-- Interactions -->
+    <div class="hero-fade-up opacity-0 translate-y-12 flex flex-col sm:flex-row items-center gap-6">
+      <div class="magnetic-wrap">
+        <Button href="#contacto" variant="primary" className="px-10 py-5 text-sm magnetic-btn">
+          Iniciar Proyecto
+        </Button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Custom Cursor specific for Hero -->
+  <div id="hero-cursor" class="fixed top-0 left-0 w-24 h-24 rounded-full bg-white text-black font-display font-bold text-[10px] sm:text-xs flex items-center justify-center tracking-widest uppercase pointer-events-none z-[100] opacity-0 scale-0 -translate-x-1/2 -translate-y-1/2 transition-transform ease-out duration-300">
+    Explora
+  </div>
+
+</section>
+
+<script>
+  import gsap from 'gsap';
+
+  document.addEventListener('astro:page-load', () => {
+    const heroSection = document.querySelector('.hero-section');
+    if (!heroSection) return;
+
+    const orb1 = document.getElementById('glow-orb');
+    const orb2 = document.getElementById('glow-orb-2');
+    const customCursor = document.getElementById('hero-cursor');
+    const magneticBtns = document.querySelectorAll('.magnetic-btn');
+
+    // 1. Initial Timeline Reveals (Dialedweb style split reveals)
+    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+    // Set initial state
+    gsap.set('.hero-split', { yPercent: 120, rotateZ: 3 });
+
+    tl.to('.hero-split', {
+      yPercent: 0,
+      rotateZ: 0,
+      duration: 1.4,
+      stagger: 0.1,
+      delay: 0.1
+    })
+    .to('.hero-fade-up', {
+      y: 0,
+      opacity: 1,
+      duration: 1.2,
+      stagger: 0.15
+    }, "-=1.0");
+
+    // 2. Interactive Mouse move logic for Orbs and Cursor
+    let bounds = heroSection.getBoundingClientRect();
+    
+    // Adjust bounds if resized
+    window.addEventListener('resize', () => {
+      bounds = heroSection.getBoundingClientRect();
+    });
+
+    heroSection.addEventListener('mousemove', (e: Event) => {
+      const mouseEvent = e as MouseEvent;
+      const mouseX = mouseEvent.clientX;
+      const mouseY = mouseEvent.clientY;
+
+      // Move Custom Cursor
+      gsap.to(customCursor, {
+        x: mouseX,
+        y: mouseY,
+        duration: 0.1,
+        ease: "none"
+      });
+
+      if (!customCursor?.style.opacity || customCursor.style.opacity === '0') {
+         gsap.to(customCursor, { opacity: 1, scale: 1, duration: 0.3 });
+      }
+
+      // Parallax Orbs (inverse to mouse)
+      const xOffset = (mouseX / window.innerWidth - 0.5) * 100;
+      const yOffset = (mouseY / window.innerHeight - 0.5) * 100;
+      
+      gsap.to(orb1, {
+        xPercent: -xOffset * 3,
+        yPercent: -yOffset * 3,
+        duration: 2,
+        ease: "power2.out"
+      });
+
+      gsap.to(orb2, {
+        xPercent: xOffset * 2,
+        yPercent: yOffset * 2,
+        duration: 2.5,
+        ease: "power2.out"
+      });
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      gsap.to(customCursor, { opacity: 0, scale: 0, duration: 0.3 });
+      
+      // Reset orbs
+      gsap.to([orb1, orb2], {
+        xPercent: 0,
+        yPercent: 0,
+        duration: 2,
+        ease: "power2.out"
+      });
+    });
+
+    // Handle magnetic buttons
+    magneticBtns.forEach((btn: Element) => {
+      const htmlBtn = btn as HTMLElement;
+      htmlBtn.addEventListener('mouseenter', () => {
+        gsap.to(customCursor, { scale: 0, opacity: 0, duration: 0.2 });
+      });
+      htmlBtn.addEventListener('mouseleave', () => {
+        gsap.to(customCursor, { scale: 1, opacity: 1, duration: 0.2 });
+        gsap.to(htmlBtn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.3)' });
+      });
+
+      htmlBtn.addEventListener('mousemove', (e: Event) => {
+        const mouseEvent = e as MouseEvent;
+        const btnBounds = htmlBtn.getBoundingClientRect();
+        const mx = mouseEvent.clientX - btnBounds.left - btnBounds.width / 2;
+        const my = mouseEvent.clientY - btnBounds.top - btnBounds.height / 2;
+        
+        gsap.to(htmlBtn, {
+          x: mx * 0.4,
+          y: my * 0.4,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      });
+    });
+  });
+</script>

@@ -1,0 +1,71 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '@fontsource-variable/outfit';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "One Out Solutions | Desarrollo de software", 
+  description = "Soluciones tecnológicas empresariales en Costa Rica. Desarrollo a medida, sistemas escalables y diseño UX." 
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site || "https://oneoutsolutions.com")} />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:site_name" content="One Out Solutions" />
+    
+    <ClientRouter />
+    
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "One Out Solutions",
+        "url": "https://oneoutsolutions.com",
+        "logo": "https://oneoutsolutions.com/favicon.svg",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+506-0000-0000",
+          "contactType": "customer service",
+          "areaServed": "CR",
+          "availableLanguage": "Spanish"
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-black text-white selection:bg-orange selection:text-white antialiased overflow-x-hidden min-h-screen flex flex-col">
+    <slot />
+    
+    <script>
+      import gsap from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Define a custom setup on Astro page transitions
+      document.addEventListener('astro:page-load', () => {
+        // Refresh triggers on page navigations
+        ScrollTrigger.refresh();
+      });
+    </script>
+  </body>
+</html>

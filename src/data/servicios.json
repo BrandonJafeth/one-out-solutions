@@ -1,0 +1,6 @@
+[
+  { "id": "custom-software", "icon": "Code", "title": "Software a Medida", "description": "Desarrollamos soluciones personalizadas, arquitecturas limpias y código escalable." },
+  { "id": "web-experience", "icon": "MonitorSmartphone", "title": "Web Experiences", "description": "Aplicaciones web modernas y optimizadas para rendimiento y alto impacto visual." },
+  { "id": "ecommerce", "icon": "ShoppingCart", "title": "Comercio Electrónico", "description": "Plataformas de venta con integraciones a medida listas para escalar." },
+  { "id": "ui-ux", "icon": "PenTool", "title": "UX / UI Tecnológico", "description": "Integramos estética tecnológica agresiva con interfaces funcionales." }
+]

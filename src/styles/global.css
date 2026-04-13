@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-orange: #DB6923;
+  --color-cyan: #24BAEF;
+  --color-black: #0D0D0D;
+  --color-surface: #1A1A1A;
+  --color-white: #F5F5F5;
+  --color-muted: #888888;
+  --color-border: #2A2A2A;
+  --color-success: #2D9E6B;
+  --color-error: #D64045;
+  
+  --font-display: 'Outfit Variable', sans-serif;
+  --font-body: 'Outfit Variable', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white font-body antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-white;
+  }
+
+  ::selection {
+    @apply bg-orange text-white;
+  }
+}

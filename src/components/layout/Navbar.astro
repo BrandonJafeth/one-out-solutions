@@ -1,0 +1,40 @@
+---
+import NavbarMobile from './NavbarMobile';
+import Button from '../common/Button.astro';
+
+const links = [
+  { name: 'Nosotros', href: '#nosotros' },
+  { name: 'Servicios', href: '#servicios' },
+  { name: 'Proceso', href: '#proceso' },
+  { name: 'Planes', href: '#planes' },
+];
+---
+
+<header class="fixed top-0 inset-x-0 z-40 bg-black/80 backdrop-blur border-b border-border transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    
+    <a href="#" class="font-display font-bold text-2xl tracking-tighter text-white hover:text-orange transition-colors">
+      ONE OUT.
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-8">
+      {links.map((link) => (
+        <a 
+          href={link.href} 
+          class="font-display text-sm tracking-widest uppercase font-medium text-muted hover:text-white transition-colors"
+        >
+          {link.name}
+        </a>
+      ))}
+      
+      <Button href="#contacto" variant="primary">
+        Iniciar Cotización
+      </Button>
+    </nav>
+
+    <!-- Mobile Nav (React Island) -->
+    <NavbarMobile client:load />
+    
+  </div>
+</header>
