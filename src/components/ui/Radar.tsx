@@ -81,13 +81,18 @@ void main() {
   float theta = atan(st.y, st.x);
   float t = uTime * uSpeed;
 
-  float ringPhase = dist * uRingCount - t;
-  float ringDist = abs(fract(ringPhase) - 0.5);
-  float ringGlow = 1.0 - smoothstep(0.0, uRingThickness, ringDist);
+  // Anti-aliasing tuning
+  // We use a small epsilon for smoothing that scales with the screen space
+  float pixelSize = uScale / min(uResolution.x, uResolution.y);
+  float smoothing = pixelSize * 2.0;
 
-  float spokeAngle = abs(fract(theta * uSpokeCount / TAU + 0.5) - 0.5) * TAU / uSpokeCount;
-  float arcDist = spokeAngle * dist;
-  float spokeGlow = (1.0 - smoothstep(0.0, uSpokeThickness, arcDist)) * smoothstep(0.0, 0.1, dist);
+  float ringPhase = dist * uRingCount - t;
+  float ringDist = abs(fract(ringPhase + 0.5) - 0.5);
+  float ringGlow = smoothstep(uRingThickness * 0.5 + smoothing, uRingThickness * 0.5 - smoothing, ringDist);
+
+  float spokePhase = fract(theta * uSpokeCount / TAU + 0.5) - 0.5;
+  float spokeDist = abs(spokePhase) * TAU / uSpokeCount * dist;
+  float spokeGlow = smoothstep(uSpokeThickness + smoothing, uSpokeThickness - smoothing, spokeDist) * smoothstep(0.0, 0.1, dist);
 
   float sweepPhase = t * uSweepSpeed;
   float sweepBeam = pow(max(0.5 * sin(uSweepLobes * theta + sweepPhase) + 0.5, 0.0), uSweepWidth);

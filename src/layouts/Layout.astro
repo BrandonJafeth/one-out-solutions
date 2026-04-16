@@ -15,7 +15,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth overflow-x-hidden">
+<html lang="es" class="overflow-x-hidden">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -59,10 +59,32 @@ const {
     <script>
       import gsap from 'gsap';
       import { ScrollTrigger } from 'gsap/ScrollTrigger';
+      import Lenis from 'lenis';
+
       gsap.registerPlugin(ScrollTrigger);
 
       // Define a custom setup on Astro page transitions
       document.addEventListener('astro:page-load', () => {
+        // Inicializar Smooth Scroll con Lenis
+        const lenis = new Lenis({
+          duration: 1.2,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          orientation: 'vertical',
+          gestureOrientation: 'vertical',
+          smoothWheel: true,
+          wheelMultiplier: 1,
+          touchMultiplier: 2,
+        });
+
+        // Sincronizar Lenis con GSAP ScrollTrigger
+        lenis.on('scroll', ScrollTrigger.update);
+
+        gsap.ticker.add((time) => {
+          lenis.raf(time * 1000);
+        });
+
+        gsap.ticker.lagSmoothing(0);
+
         // Refresh triggers on page navigations
         ScrollTrigger.refresh();
       });

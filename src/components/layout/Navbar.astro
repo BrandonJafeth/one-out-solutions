@@ -2,12 +2,11 @@
 import NavbarMobile from './NavbarMobile';
 ---
 
-<header class="fixed top-0 inset-x-0 z-50 bg-black/50 backdrop-blur-xl border-b border-white/5 transition-all duration-300">
+<header class="fixed top-0 inset-x-0 z-50 bg-black border-b border-[rgba(214,235,253,0.19)] transition-all duration-300">
   <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
     
-    <a href="#" class="font-display font-bold text-xl tracking-[-0.08em] text-white flex items-center gap-2 group">
-      <div class="w-2 h-2 rounded-full bg-orange animate-pulse"></div>
-      ONE OUT <span class="text-silver hover:text-cyan transition-colors duration-500">SOLUTIONS.</span>
+    <a href="#" class="font-display font-bold text-xl tracking-tight text-[#f0f0f0] flex items-center gap-2 group">
+      ONE OUT <span class="text-[#a1a4a5] group-hover:text-[#f0f0f0] transition-colors duration-500">SOLUTIONS.</span>
     </a>
 
     <!-- Desktop Nav -->
@@ -17,19 +16,20 @@ import NavbarMobile from './NavbarMobile';
           { name: 'Nosotros', href: '#nosotros' },
           { name: 'Servicios', href: '#servicios' },
           { name: 'Proceso', href: '#proceso' },
-          { name: 'Planes', href: '#planes' },
+          { name: 'Proyectos', href: '#proyectos' },
         ].map((link) => (
           <a 
             href={link.href} 
-            class="font-display text-[13px] tracking-[0.15em] uppercase font-bold text-near-white/60 hover:text-white transition-all duration-300"
+            class="font-sans text-[14px] font-medium tracking-[0.35px] text-[#a1a4a5] hover:text-[#f0f0f0] transition-all duration-300"
+            style="font-feature-settings: 'ss01', 'ss03', 'ss04'"
           >
             {link.name}
           </a>
         ))}
       </div>
       
-      <a href="#contacto" class="pill-cta pill-cta-primary text-[13px] font-bold py-2.5 px-6">
-        INICIAR CRECIMIENTO
+      <a href="#contacto" class="bg-white text-black text-[14px] font-medium tracking-[0.35px] py-[5px] px-[12px] rounded-full hover:bg-white/90 transition-all duration-300" style="font-feature-settings: 'ss01', 'ss03', 'ss04'">
+        Iniciar Crecimiento
       </a>
     </nav>
 

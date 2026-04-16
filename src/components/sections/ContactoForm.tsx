@@ -3,10 +3,19 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { 
-  CheckCircle, AlertCircle, Globe, Laptop, LayoutTemplate, 
-  ShoppingCart, Cloud, Building2, Info, Check, Rocket, TrendingUp, BarChart3, ShieldCheck
+  CheckCircle, TrendingUp, BarChart3, Building2, Cloud, Rocket, ShieldCheck, Check
 } from 'lucide-react';
 import { twMerge } from 'tailwind-merge';
+
+const Badge = ({ children, className }: { children: React.ReactNode, className?: string }) => (
+  <div className={twMerge("inline-flex items-center gap-3 px-4 py-1.5 font-display text-[10px] tracking-[0.3em] uppercase font-bold text-white border border-white/10 bg-white/5 rounded-full backdrop-blur-md", className)}>
+    <div className="relative flex h-2 w-2">
+      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange opacity-75"></span>
+      <span className="relative inline-flex rounded-full h-2 w-2 bg-orange"></span>
+    </div>
+    {children}
+  </div>
+);
 
 const contactSchema = z.object({
   name: z.string().min(2, 'El nombre es muy corto'),
@@ -157,7 +166,7 @@ export default function ContactoForm() {
       {step === 2 && (
         <div className="animate-in fade-in slide-in-from-right-8 duration-700">
           <div className="flex items-center gap-6 mb-12 border-b border-white/5 pb-8">
-            <span className="font-display font-bold text-cyan text-2xl tracking-tighter">02.</span>
+            <span className="font-display font-bold text-orange text-2xl tracking-tighter">02.</span>
             <h3 className="font-display font-bold text-white tracking-[0.2em] text-xs uppercase">ESCALA DE INVERSIÓN ESTRATÉGICA</h3>
           </div>
 
@@ -203,16 +212,16 @@ export default function ContactoForm() {
                 <p className="text-silver text-lg font-light max-w-md leading-relaxed">Este valor representa el núcleo de ingeniería. Optimizaciones específicas se refinarán en la auditoría inicial.</p>
               </div>
               <div className="text-right">
-                <span className="font-display font-bold text-white text-6xl md:text-9xl tracking-tighter">${totalEstimate.toLocaleString('en-US')}</span>
-                <span className="text-orange text-sm block font-bold tracking-[0.3em] uppercase mt-4">INVERSIÓN TOTAL ESTIMADA</span>
+                <span className="font-display font-bold text-white text-[3rem] md:text-[6rem] tracking-tighter leading-none">${totalEstimate.toLocaleString('en-US')}</span>
+                <span className="text-orange text-[10px] md:text-xs block font-bold tracking-[0.3em] uppercase mt-4">INVERSIÓN TOTAL ESTIMADA</span>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-6">
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
               <button
                 disabled={selectedInvestments.length === 0}
                 onClick={() => setStep(3)}
-                className="flex-1 pill-cta pill-cta-primary py-6 font-bold text-base tracking-[0.15em] uppercase order-1 sm:order-2"
+                className="flex-1 pill-cta pill-cta-primary py-3.5 md:py-4 font-bold text-xs md:text-sm tracking-[0.15em] uppercase order-1 sm:order-2"
               >
                 FORMALIZAR ESTRATEGIA
               </button>
@@ -222,7 +231,7 @@ export default function ContactoForm() {
                   setSelectedInvestments([]);
                   setSelectedProjectType(null);
                 }}
-                className="pill-cta pill-cta-secondary px-12 py-6 font-bold text-xs tracking-[0.2em] uppercase order-2 sm:order-1"
+                className="pill-cta pill-cta-secondary px-8 md:px-12 py-3.5 md:py-4 font-bold text-xs tracking-[0.2em] uppercase order-2 sm:order-1"
               >
                 REINICIAR
               </button>
@@ -235,7 +244,7 @@ export default function ContactoForm() {
       {step === 3 && (
         <div className="max-w-4xl mx-auto animate-in fade-in slide-in-from-right-8 duration-700">
            <div className="text-center mb-20">
-              <Badge className="mb-8 border-cyan/20 bg-cyan/5 text-cyan">FINAL DEPLOYMENT</Badge>
+              <Badge className="mb-8 border-orange/20 bg-orange/5 text-orange">FINAL DEPLOYMENT</Badge>
               <h2 className="font-display font-bold text-5xl md:text-7xl leading-[0.9] tracking-[-0.07em] text-white">
                 NÚCLEO DE <span className="text-orange">AUTORIDAD.</span>
               </h2>

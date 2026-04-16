@@ -39,15 +39,12 @@ const stats = [
       <!-- Stats Grid Area -->
       <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/5 border border-white/5 p-px h-full nosotros-stats">
         {stats.map(stat => {
-          const isTechnical = stat.label.includes('Sistemas') || stat.label.includes('LCP');
-          const accentColor = isTechnical ? 'text-cyan' : 'text-orange';
-          
           return (
             <div class="bg-black p-8 md:p-12 flex flex-col justify-center items-center text-center group hover:bg-white/[0.02] transition-colors relative overflow-hidden">
-              <p class={`font-display font-bold text-5xl md:text-6xl text-white mb-4 group-hover:${accentColor} transition-colors relative z-10`}>{stat.value}</p>
+              <p class="font-display font-bold text-5xl md:text-6xl text-white mb-4 group-hover:text-orange transition-colors relative z-10">{stat.value}</p>
               <p class="text-silver/90 font-bold text-[10px] tracking-[0.25em] uppercase relative z-10">{stat.label}</p>
               
-              <div class={`absolute inset-0 ${isTechnical ? 'bg-cyan/5' : 'bg-orange/5'} translate-y-full group-hover:translate-y-0 transition-transform duration-500`}></div>
+              <div class="absolute inset-0 bg-orange/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
             </div>
           )
         })}
