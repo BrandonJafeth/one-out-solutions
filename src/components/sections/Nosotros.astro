@@ -2,45 +2,55 @@
 import Badge from '../common/Badge.astro';
 
 const stats = [
-  { value: '05+', label: 'Años Evolucionando' },
-  { value: '50+', label: 'Proyectos Entregados' },
-  { value: '100%', label: 'Código Propio' },
+  { value: '300%', label: 'Crecimiento Promedio' },
+  { value: '25+', label: 'Sistemas a Medida' },
+  { value: '0.4s', label: 'LCP Optimizado' },
+  { value: '24/7', label: 'Monitoreo de ROI' },
 ];
 ---
 
-<section id="nosotros" class="py-32 bg-surface border-y border-border">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<section id="nosotros" class="py-24 md:py-40 bg-black overflow-hidden relative border-y border-white/5">
+  <!-- Subtle pattern background -->
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+
+  <div class="max-w-[1400px] mx-auto px-6 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
       
       <!-- Text Area -->
-      <div class="nosotros-reveal">
-        <Badge className="mb-6">Cultura & Misión</Badge>
-        <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tight mb-5">
-          NO HACEMOS PÁGINAS.<br />
-          <span class="text-orange">CREAMOS ACTIVOS.</span>
+      <div class="lg:col-span-7 nosotros-reveal">
+        <Badge className="mb-10 border-orange/20 bg-orange/5 text-orange/80 ring-1 ring-orange/10">GROWTH STRATEGY</Badge>
+        <h2 class="font-display font-bold text-4xl md:text-7xl leading-[1.1] md:leading-[0.85] tracking-[-0.04em] md:tracking-[-0.07em] mb-10 text-left">
+          INGENIERÍA QUE <br />
+          <span class="text-orange-glow">MUEVE LA AGUJA.</span>
         </h2>
-        <div class="space-y-6 text-muted text-lg">
+        <div class="space-y-8 text-white/70 text-lg md:text-xl font-light leading-relaxed max-w-2xl text-left">
           <p>
-            One Out Solutions nace de la necesidad de elevar el estándar digital. Combinamos diseño cinemático con <strong>código de alta ingeniería</strong> para separar a nuestros clientes de su competencia.
+            No somos simplemente una agencia de desarrollo. Somos una extensión de tu equipo de ingeniería enfocada en el <strong class="text-white font-semibold italic">crecimiento exponencial</strong>. 
           </p>
           <p>
-            No dependemos de plantillas genéricas. Cada línea de código y cada pixel es orquestado para comunicar autoridad, confianza y rendimiento extremo.
+            Mientras otros se enfocan en la estética superficial, nosotros construimos <strong class="text-white font-semibold italic">infraestructuras digitales</strong> diseñadas para convertir, escalar y dominar. Cada decisión técnica que tomamos tiene un solo objetivo: maximizar tu retorno de inversión.
+          </p>
+          <p class="text-white font-medium border-l-2 border-orange pl-6 py-2 bg-white/5 backdrop-blur-sm">
+            "Dominamos el espectro técnico para que tú domines tu mercado."
           </p>
         </div>
       </div>
 
       <!-- Stats Grid Area -->
-      <div class="grid relative border-l border-border pl-8 lg:pl-16">
-        <div class="absolute -left-[1px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-cyan via-orange to-orange/0"></div>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-12 w-full nosotros-stats">
-          {stats.map(stat => (
-            <div>
-              <p class="font-display font-bold text-4xl md:text-5xl text-white mb-2">{stat.value}</p>
-              <p class="text-orange font-bold text-sm tracking-widest uppercase">{stat.label}</p>
+      <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/5 border border-white/5 p-px h-full nosotros-stats">
+        {stats.map(stat => {
+          const isTechnical = stat.label.includes('Sistemas') || stat.label.includes('LCP');
+          const accentColor = isTechnical ? 'text-cyan' : 'text-orange';
+          
+          return (
+            <div class="bg-black p-8 md:p-12 flex flex-col justify-center items-center text-center group hover:bg-white/[0.02] transition-colors relative overflow-hidden">
+              <p class={`font-display font-bold text-5xl md:text-6xl text-white mb-4 group-hover:${accentColor} transition-colors relative z-10`}>{stat.value}</p>
+              <p class="text-silver/90 font-bold text-[10px] tracking-[0.25em] uppercase relative z-10">{stat.label}</p>
+              
+              <div class={`absolute inset-0 ${isTechnical ? 'bg-cyan/5' : 'bg-orange/5'} translate-y-full group-hover:translate-y-0 transition-transform duration-500`}></div>
             </div>
-          ))}
-        </div>
+          )
+        })}
       </div>
 
     </div>

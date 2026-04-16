@@ -40,20 +40,21 @@ export default function NavbarMobile() {
             transition={{ type: 'tween', duration: 0.3, ease: 'easeOut' }}
             className="fixed inset-0 z-50 bg-black border-l border-border flex flex-col pt-6 pb-8 px-6"
           >
-            <div className="flex justify-between items-center mb-12">
-              <span className="font-display font-bold text-xl tracking-tight text-white">
-                ONE OUT
+            <div className="flex justify-between items-center mb-16">
+              <span className="font-display font-bold text-xl tracking-[-0.08em] text-white flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-orange animate-pulse"></div>
+                ONE OUT <span className="text-white/40">SOLUTIONS</span>
               </span>
               <button 
                 onClick={() => setIsOpen(false)}
-                className="p-2 text-muted hover:text-orange transition-colors"
+                className="p-2 text-white/40 hover:text-orange transition-colors"
                 aria-label="Cerrar menú"
               >
                 <X size={28} />
               </button>
             </div>
 
-            <nav className="flex flex-col gap-8">
+            <nav className="flex flex-col gap-10">
               {links.map((link, i) => (
                 <motion.a
                   key={link.name}
@@ -62,7 +63,7 @@ export default function NavbarMobile() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.1 + 0.2 }}
-                  className="font-display tracking-tight text-4xl text-muted hover:text-white transition-colors"
+                  className="font-display tracking-tight text-4xl font-bold text-white/50 hover:text-white transition-colors"
                 >
                   {link.name}
                 </motion.a>

@@ -3,11 +3,13 @@
 @theme {
   --color-orange: #DB6923;
   --color-cyan: #24BAEF;
-  --color-black: #0D0D0D;
-  --color-surface: #1A1A1A;
+  --color-black: #000000;
+  --color-surface: #0D0D0D;
   --color-white: #F5F5F5;
+  --color-near-white: #F0F0F0;
   --color-muted: #888888;
-  --color-border: #2A2A2A;
+  --color-silver: #A1A4A5;
+  --color-border: rgba(214, 235, 253, 0.19); /* Signature Frost Border */
   --color-success: #2D9E6B;
   --color-error: #D64045;
   
@@ -21,10 +23,41 @@
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-tight text-white;
+    @apply font-display tracking-[-0.05em] text-white; /* Aggressive editorial tracking */
   }
 
   ::selection {
     @apply bg-orange text-white;
+  }
+}
+
+@layer components {
+  .frost-card {
+    @apply bg-transparent border border-border rounded-2xl backdrop-blur-sm;
+  }
+
+  .pill-cta {
+    @apply rounded-full px-8 py-3 transition-all duration-300;
+  }
+
+  .pill-cta-primary {
+    @apply bg-white text-black hover:bg-neutral-200;
+  }
+
+  .pill-cta-secondary {
+    @apply bg-transparent border border-border text-near-white hover:bg-white/10;
+  }
+
+  .noise {
+    @apply fixed inset-0 pointer-events-none opacity-[0.03] z-[9999];
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  .text-cyan-glow {
+    @apply text-cyan drop-shadow-[0_0_8px_rgba(36,186,239,0.4)];
+  }
+
+  .text-orange-glow {
+    @apply text-orange drop-shadow-[0_0_8px_rgba(219,105,35,0.4)];
   }
 }

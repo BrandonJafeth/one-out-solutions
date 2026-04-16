@@ -6,7 +6,10 @@ interface Props {
 const { className = '' } = Astro.props;
 ---
 
-<div class={`inline-flex items-center gap-2 px-3 py-1 font-display text-xs tracking-[0.2em] uppercase font-bold text-cyan border border-border bg-surface rounded-full ${className}`}>
-  <span class="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse"></span>
+<div class={`inline-flex items-center gap-3 px-4 py-1.5 font-display text-[10px] tracking-[0.3em] uppercase font-bold text-white border border-white/10 bg-white/5 rounded-full backdrop-blur-md ${className}`}>
+  <div class="relative flex h-2 w-2">
+    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange opacity-75"></span>
+    <span class="relative inline-flex rounded-full h-2 w-2 bg-orange"></span>
+  </div>
   <slot />
 </div>

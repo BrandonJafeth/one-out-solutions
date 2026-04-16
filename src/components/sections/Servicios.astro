@@ -4,50 +4,67 @@ import servicios from '../../data/servicios.json';
 import { MonitorSmartphone, Code, ShoppingCart, PenTool } from 'lucide-react';
 
 const IconMap = {
-  MonitorSmartphone,
   Code,
+  MonitorSmartphone,
   ShoppingCart,
   PenTool
 };
 ---
 
-<section id="servicios" class="py-32 bg-black">
-  <div class="max-w-7xl mx-auto px-6">
+<section id="servicios" class="py-24 md:py-40 bg-black overflow-hidden relative">
+  <!-- Dynamic glow background -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-orange/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+  <div class="max-w-[1400px] mx-auto px-6 relative z-10">
     
-    <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 section-header">
-      <div>
-        <Badge className="mb-6">Capabilities</Badge>
-        <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tight max-w-2xl">
-          NUESTRO ARSENAL TECNOLÓGICO
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 md:mb-32 gap-12">
+      <div class="max-w-3xl">
+        <Badge className="mb-8 border-white/5 bg-white/5 text-silver">ENGINEERING CORE</Badge>
+        <h2 class="font-display font-bold text-4xl md:text-7xl leading-[1.1] md:leading-[0.9] tracking-[-0.04em] md:tracking-[-0.07em]">
+          SISTEMAS DISEÑADOS <br/> <span class="text-orange italic">PARA DOMINAR.</span>
         </h2>
       </div>
-      <p class="text-muted max-w-sm md:text-right">
-        Soluciones especializadas, implementadas con precisión absoluta para asegurar dominancia en tu sector.
+      <p class="text-silver text-lg md:text-xl font-light max-w-sm leading-relaxed border-l border-white/10 pl-8">
+        No construimos simples sitios web. Ingeniería de alto rendimiento para negocios que exigen resultados exponenciales.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-border group/grid pt-px pb-px pr-px pl-px">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/5">
       {servicios.map((s, index) => {
         const IconComponent = IconMap[s.icon as keyof typeof IconMap];
+        const isTechnical = s.id.includes('engineering') || s.id.includes('infrastructure');
+        const accentColor = isTechnical ? 'text-cyan' : 'text-orange';
+        const glowClass = isTechnical ? 'text-cyan-glow' : 'text-orange-glow';
+
         return (
-          <div class="servicio-card relative bg-black p-12 overflow-hidden group hover:bg-surface transition-colors duration-500 min-h-[300px] flex flex-col justify-end">
-            <!-- Neon glow on hover -->
-            <div class="absolute -right-40 -top-40 w-80 h-80 bg-orange/20 rounded-full blur-[100px] scale-0 group-hover:scale-100 transition-transform duration-700 pointer-events-none"></div>
+          <div class="servicio-card relative bg-black p-10 md:p-16 overflow-hidden group min-h-[400px] flex flex-col justify-between border border-transparent hover:border-white/10">
             
-            <div class="relative z-10">
-              <div class="mb-8 p-4 bg-surface inline-block rounded-xl text-cyan group-hover:text-orange transition-colors">
-                {IconComponent && <IconComponent size={32} />}
+            <div class="flex justify-between items-start">
+              <div class={`p-5 bg-white/5 rounded-2xl text-white group-hover:${accentColor} group-hover:bg-white/10 transition-all duration-500 transform group-hover:rotate-12`}>
+                {IconComponent && <IconComponent size={36} strokeWidth={1.5} />}
               </div>
-              <h3 class="font-display font-bold text-xl mb-4 group-hover:text-cyan transition-colors">{s.title}</h3>
-              <p class="text-muted leading-relaxed max-w-sm">
+              <span class={`font-display text-sm font-bold text-white/40 tracking-widest group-hover:${accentColor} transition-colors uppercase`}>
+                {(index + 1).toString().padStart(2, '0')}
+              </span>
+            </div>
+            
+            <div class="relative z-10 space-y-6">
+              <h3 class={`font-display font-bold text-3xl md:text-4xl tracking-[-0.05em] group-hover:text-white transition-colors`}>
+                {s.title}
+              </h3>
+              <p class="text-silver text-lg leading-relaxed max-w-md font-light">
                 {s.description}
               </p>
+              
+              <div class="pt-8 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                <a href="#contacto" class="text-cyan font-bold text-sm tracking-widest uppercase flex items-center gap-3 hover:text-cyan-glow transition-all">
+                  Ver metodología <span class="w-8 h-px bg-cyan group-hover:w-12 transition-all duration-500"></span>
+                </a>
+              </div>
             </div>
-            
-            <!-- Index indicator -->
-            <div class="absolute top-12 right-12 font-display text-4xl font-bold text-border group-hover:text-white/10 transition-colors">
-              {(index + 1).toString().padStart(2, '0')}
-            </div>
+
+            <!-- Dynamic Background Glow -->
+            <div class={`absolute -right-20 -bottom-20 w-64 h-64 ${isTechnical ? 'bg-cyan/10' : 'bg-orange/10'} rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700`}></div>
           </div>
         )
       })}

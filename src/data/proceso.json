@@ -1,6 +1,26 @@
 [
-  { "step": "01", "icon": "Search", "title": "Descubrimiento", "description": "Analizamos tus requerimientos y el estado del mercado competitivo." },
-  { "step": "02", "icon": "PencilRuler", "title": "Arquitectura", "description": "Diseñamos bases de datos y definimos la stack óptima para latencia baja y escalabilidad." },
-  { "step": "03", "icon": "Code2", "title": "Desarrollo Agile", "description": "Construimos incrementos de producto ofreciendo valor constante en ciclos cortos." },
-  { "step": "04", "icon": "Rocket", "title": "Lanzamiento", "description": "Despliegue a producción con validaciones absolutas de QA, SEO y métricas Lighthouse > 95." }
+  { 
+    "step": "01", 
+    "icon": "Search", 
+    "title": "Auditoría de Crecimiento", 
+    "description": "Analizamos tus cuellos de botella técnicos y de conversión para trazar una hoja de ruta centrada en el ROI." 
+  },
+  { 
+    "step": "02", 
+    "icon": "PencilRuler", 
+    "title": "Ingeniería de Estrategia", 
+    "description": "Diseñamos arquitecturas escalables y flujos de usuario optimizados para el crecimiento explosivo." 
+  },
+  { 
+    "step": "03", 
+    "icon": "Code2", 
+    "title": "Despliegue de Alto Rendimiento", 
+    "description": "Ejecutamos el desarrollo con estándares de ingeniería de élite, garantizando velocidad y estabilidad absoluta." 
+  },
+  { 
+    "step": "04", 
+    "icon": "Rocket", 
+    "title": "Optimización Continua", 
+    "description": "Monitoreamos métricas clave y refinamos el sistema para asegurar que la ventaja competitiva sea permanente." 
+  }
 ]

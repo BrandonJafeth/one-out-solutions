@@ -1,47 +1,63 @@
 ---
 import Badge from '../common/Badge.astro';
-import Button from '../common/Button.astro';
 import planes from '../../data/planes.json';
 ---
 
-<section id="planes" class="py-32 bg-black border-b border-border">
+<section id="planes" class="py-24 md:py-40 bg-black relative border-t border-white/5 overflow-hidden">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-20 section-header">
-      <Badge className="mb-6">Inversión</Badge>
-      <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tight max-w-2xl mx-auto">
-        ARQUITECTURAS PARA CADA ESCALA DE NEGOCIO
+    <div class="text-center mb-32 section-header">
+      <Badge className="mb-10 text-orange bg-orange/5 border-orange/10">INVESTMENT SCALES</Badge>
+      <h2 class="font-display font-bold text-5xl md:text-7xl leading-[0.9] tracking-[-0.07em]">
+        DISEÑADO PARA <br/> <span class="text-white italic">CADA ETAPA.</span>
       </h2>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center lg:items-stretch wrap-planes">
-      {planes.map(plan => (
-        <div class={`plan-card relative flex flex-col p-10 lg:p-12 transition-transform duration-500 ease-out bg-surface ${plan.recommended ? 'border border-orange lg:-translate-y-4 shadow-2xl shadow-orange/10 z-10' : 'border border-border opacity-80 hover:opacity-100 hover:-translate-y-2'}`}>
-          
-          {plan.recommended && (
-            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange text-white text-[10px] uppercase font-bold tracking-widest py-1 px-4 rounded-full">
-              Más Solicitado
-            </div>
-          )}
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 items-center lg:items-stretch wrap-planes">
+      {planes.map(plan => {
+        const isCustom = plan.name.includes('Dominance');
+        const accentColor = isCustom ? 'text-cyan' : 'text-orange';
+        const borderColor = isCustom ? 'border-cyan/40 group-hover:border-cyan' : (plan.recommended ? 'border-orange' : 'border-white/10 group-hover:border-white/30');
+        const shadowColor = isCustom ? 'shadow-cyan/10' : 'shadow-orange/20';
+        const buttonClass = plan.recommended ? 'pill-cta-primary' : (isCustom ? 'bg-cyan text-black hover:bg-cyan/80' : 'pill-cta-secondary');
 
-          <h3 class="font-display font-bold text-2xl text-white mb-2">{plan.name}</h3>
-          <p class="text-cyan font-bold font-display text-lg mb-8">{plan.price}</p>
+        return (
+          <div class={`plan-card relative flex flex-col p-10 md:p-12 bg-black border ${borderColor} ${plan.recommended || isCustom ? 'lg:scale-105 z-10' : ''} ${plan.recommended ? 'shadow-[0_0_60px_-15px_rgba(219,105,35,0.2)]' : (isCustom ? 'shadow-[0_0_60px_-15px_rgba(36,186,239,0.2)]' : '')} transition-all duration-500 group`}>
+            
+            {plan.recommended && (
+              <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-orange text-white text-[10px] uppercase font-bold tracking-[0.2em] py-2 px-6 rounded-full shadow-lg">
+                CRECIMIENTO ÓPTIMO
+              </div>
+            )}
 
-          <ul class="space-y-4 mb-12 flex-grow">
-            {plan.features.map(f => (
-              <li class="flex items-start gap-3">
-                <span class="text-orange mt-1">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </span>
-                <span class="text-muted leading-tight">{f}</span>
-              </li>
-            ))}
-          </ul>
+            {isCustom && (
+              <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-cyan text-black text-[10px] uppercase font-bold tracking-[0.2em] py-2 px-6 rounded-full shadow-lg">
+                INGENIERÍA DE ÉLITE
+              </div>
+            )}
 
-          <Button href="#contacto" variant={plan.recommended ? 'primary' : 'outline'} className="w-full">
-            Elegir Plan
-          </Button>
-        </div>
-      ))}
+            <h3 class="font-display font-bold text-3xl text-white mb-4 tracking-[-0.04em]">{plan.name}</h3>
+            <p class={`${accentColor} font-bold font-display text-xl mb-12 tracking-wider`}>{plan.price}</p>
+
+            <ul class="space-y-6 mb-16 flex-grow">
+              {plan.features.map(f => (
+                <li class="flex items-start gap-4 group/item">
+                  <span class={`${isCustom ? 'text-cyan/60 group-hover/item:text-cyan' : 'text-orange/60 group-hover/item:text-orange'} transition-colors mt-1`}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span>
+                  <span class="text-silver/80 group-hover/item:text-white transition-colors text-lg font-light leading-tight">{f}</span>
+                </li>
+              ))}
+            </ul>
+
+            <a 
+              href="#contacto" 
+              class={`pill-cta text-center font-bold tracking-[0.1em] text-sm py-4 transition-all duration-300 ${buttonClass}`}
+            >
+              INICIAR ESTRATEGIA
+            </a>
+          </div>
+        )
+      })}
     </div>
   </div>
 </section>

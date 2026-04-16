@@ -32,91 +32,107 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 document.addEventListener('astro:page-load', () => {
   gsap.registerPlugin(ScrollTrigger);
 
-  // 1. Hero Animations
-  gsap.to('[data-gsap="hero-elem"]', {
-    y: 0,
-    opacity: 1,
-    duration: 1,
-    stagger: 0.15,
-    ease: "power3.out"
-  });
-
+  // 1. Hero Animations - Handled inside Hero component for immediate feel
+  
   // 2. Nosotros Reveal
-  gsap.from('.nosotros-reveal', {
-    scrollTrigger: {
-      trigger: '#nosotros',
-      start: 'top 75%'
-    },
-    y: 40,
-    opacity: 0,
-    duration: 0.8,
-    ease: "power2.out"
-  });
+  gsap.fromTo('.nosotros-reveal', 
+    { y: 60, autoAlpha: 0 },
+    {
+      scrollTrigger: {
+        trigger: '#nosotros',
+        start: 'top 80%',
+      },
+      y: 0,
+      autoAlpha: 1,
+      duration: 1.2,
+      ease: "power3.out"
+    }
+  );
 
-  gsap.from('.nosotros-stats > div', {
-    scrollTrigger: {
-      trigger: '.nosotros-stats',
-      start: 'top 85%'
-    },
-    y: 30,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: "back.out(1.2)"
-  });
+  gsap.fromTo('.nosotros-stats > div', 
+    { y: 40, autoAlpha: 0 },
+    {
+      scrollTrigger: {
+        trigger: '.nosotros-stats',
+        start: 'top 85%'
+      },
+      y: 0,
+      autoAlpha: 1,
+      duration: 1,
+      stagger: 0.2,
+      ease: "expo.out"
+    }
+  );
 
   // 3. Servicios Grid
-  gsap.from('.servicio-card', {
-    scrollTrigger: {
-      trigger: '#servicios',
-      start: 'top 70%'
-    },
-    y: 50,
-    opacity: 0,
-    duration: 0.7,
-    stagger: 0.1,
-    ease: "power2.out"
-  });
+  gsap.fromTo('.servicio-card', 
+    { y: 80, autoAlpha: 0 },
+    {
+      scrollTrigger: {
+        trigger: '#servicios',
+        start: 'top 75%'
+      },
+      y: 0,
+      autoAlpha: 1,
+      duration: 1,
+      stagger: 0.15,
+      ease: "power4.out"
+    }
+  );
 
   // 4. Proceso Timeline
   const tlProceso = gsap.timeline({
     scrollTrigger: {
       trigger: '.wrap-proceso',
-      start: 'top 60%',
+      start: 'top 70%',
       end: 'bottom bottom',
     }
   });
 
-  tlProceso.to('.timeline-line', {
-    scaleY: 1,
-    duration: 1.5,
-    ease: "none"
-  });
+  tlProceso.fromTo('.timeline-line', 
+    { scaleY: 0 },
+    { scaleY: 1, duration: 1.5, ease: "none" }
+  );
 
-  gsap.to('.timeline-item', {
-    scrollTrigger: {
-      trigger: '.wrap-proceso',
-      start: 'top 70%',
-    },
-    y: 0,
-    opacity: 1,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: "power2.out"
-  });
+  gsap.fromTo('.timeline-item', 
+    { y: 40, autoAlpha: 0 },
+    {
+      scrollTrigger: {
+        trigger: '.wrap-proceso',
+        start: 'top 75%',
+      },
+      y: 0,
+      autoAlpha: 1,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power3.out"
+    }
+  );
 
   // 5. Planes cards
-  gsap.from('.plan-card', {
-    scrollTrigger: {
-      trigger: '.wrap-planes',
-      start: 'top 75%'
-    },
-    y: 40,
-    opacity: 0,
-    scale: 0.95,
-    duration: 0.6,
-    stagger: 0.15,
-    ease: "power2.out"
+  gsap.fromTo('.plan-card', 
+    { y: 60, autoAlpha: 0, scale: 0.95 },
+    {
+      scrollTrigger: {
+        trigger: '.wrap-planes',
+        start: 'top 80%'
+      },
+      y: 0,
+      autoAlpha: 1,
+      scale: 1,
+      duration: 1.2,
+      stagger: 0.2,
+      ease: "expo.out",
+      onComplete: () => {
+        // Refresh triggers just in case layout shifted
+        ScrollTrigger.refresh();
+      }
+    }
+  );
+
+  // Global refresh for any late-loading images
+  window.addEventListener('load', () => {
+    ScrollTrigger.refresh();
   });
 });
 </script>
