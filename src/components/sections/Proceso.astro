@@ -27,26 +27,26 @@ const IconMap = {
       <!-- Vertical line (desktop only) -->
       <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-white/10 -translate-x-1/2 z-0 timeline-line scale-y-100 origin-top"></div>
 
-      <div class="space-y-16 md:space-y-32 relative z-10">
+      <div class="space-y-12 md:space-y-16 relative z-10">
         {proceso.map((p, index) => {
           const isEven = index % 2 === 1;
           const IconComponent = IconMap[p.icon as keyof typeof IconMap];
           
           return (
-            <div class="timeline-item relative flex flex-col md:flex-row items-center w-full group py-8 md:py-12">
+            <div class="timeline-item relative flex flex-col md:flex-row items-center w-full group py-4 md:py-6">
               <!-- Content side -->
-              <div class={`w-full md:w-1/2 ${isEven ? 'md:ml-auto md:pl-16 lg:pl-24 text-left' : 'md:mr-auto md:pr-16 lg:pr-24 md:text-right text-left'}`}>
-                <div class={`inline-flex items-center gap-4 mb-6 ${isEven ? 'flex-row' : 'md:flex-row-reverse'}`}>
-                   <div class="p-4 bg-white/5 rounded-2xl text-orange ring-1 ring-white/10 group-hover:bg-white/10 transition-all transform group-hover:scale-110">
-                    {IconComponent && <IconComponent size={32} strokeWidth={1.5} />}
+              <div class={`w-full md:w-1/2 ${isEven ? 'md:ml-auto md:pl-12 lg:pl-16 text-left' : 'md:mr-auto md:pr-12 lg:pr-16 md:text-right text-left'}`}>
+                <div class={`inline-flex items-center gap-4 mb-4 ${isEven ? 'flex-row' : 'md:flex-row-reverse'}`}>
+                   <div class="p-3 bg-white/5 rounded-xl text-orange ring-1 ring-white/10 group-hover:bg-white/10 transition-all transform group-hover:scale-110">
+                    {IconComponent && <IconComponent size={24} strokeWidth={1.5} />}
                   </div>
-                  <span class="font-display text-4xl font-bold text-orange/30 group-hover:text-orange transition-colors duration-500">0{index + 1}</span>
+                  <span class="font-display text-3xl font-bold text-orange/30 group-hover:text-orange transition-colors duration-500">0{index + 1}</span>
                 </div>
                 
-                <h3 class={`font-display font-bold text-3xl md:text-4xl tracking-[-0.04em] mb-4 text-white group-hover:text-white transition-colors ${!isEven ? 'md:ml-auto' : ''}`}>
+                <h3 class={`font-display font-bold text-2xl md:text-3xl tracking-[-0.04em] mb-3 text-white group-hover:text-white transition-colors ${!isEven ? 'md:ml-auto' : ''}`}>
                   {p.title}
                 </h3>
-                <p class={`text-silver/60 text-lg md:text-xl font-light leading-relaxed max-w-lg ${!isEven ? 'md:ml-auto md:mr-0' : ''}`}>
+                <p class={`text-silver/60 text-base md:text-lg font-light leading-relaxed max-w-md ${!isEven ? 'md:ml-auto md:mr-0' : ''}`}>
                   {p.description}
                 </p>
               </div>
