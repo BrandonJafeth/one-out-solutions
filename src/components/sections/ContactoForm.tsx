@@ -122,7 +122,7 @@ export default function ContactoForm() {
             <h3 className="font-display font-bold text-white tracking-[0.2em] text-xs uppercase">IDENTIFICA TU FOCO DE CRECIMIENTO</h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5 mx-auto">
             {projectTypes.map(pt => {
               const Icon = pt.icon;
               const isSelected = selectedProjectType === pt.id;
@@ -132,18 +132,18 @@ export default function ContactoForm() {
                   key={pt.id}
                   onClick={() => setSelectedProjectType(pt.id)}
                   className={twMerge(
-                    "relative text-left p-12 bg-black transition-all duration-500 group outline-none min-h-[250px] flex flex-col justify-end",
+                    "relative text-left p-8 sm:p-12 bg-black transition-colors duration-500 group outline-none min-h-[250px] flex flex-col justify-end",
                     isSelected ? "bg-white/[0.03]" : "hover:bg-white/[0.01]"
                   )}
                 >
-                  <div className={twMerge("mb-12 transition-all duration-500", isSelected ? "text-orange scale-110" : "text-silver/40 group-hover:text-white")}>
+                  <div className={twMerge("mb-12 transition-transform duration-500 will-change-transform", isSelected ? "text-orange scale-110" : "text-silver/40 group-hover:text-white")}>
                     <Icon size={40} strokeWidth={1.5} />
                   </div>
-                  <h4 className="font-display font-bold text-white text-xl md:text-2xl mb-3 tracking-[-0.03em] uppercase">{pt.title}</h4>
-                  <p className="text-silver text-base font-light">{pt.desc}</p>
+                  <h4 className="font-display font-bold text-white text-xl md:text-2xl mb-3 tracking-[-0.03em] uppercase transition-colors duration-500">{pt.title}</h4>
+                  <p className="text-silver text-base font-light transition-colors duration-500">{pt.desc}</p>
                   
                   {isSelected && (
-                    <div className="absolute top-8 right-8 w-2 h-2 bg-orange rounded-full animate-pulse shadow-[0_0_15px_rgba(219,105,35,0.8)]"></div>
+                    <div className="absolute top-8 right-8 w-2 h-2 bg-orange rounded-full shadow-[0_0_15px_rgba(219,105,35,0.8)]"></div>
                   )}
                 </button>
               )
@@ -179,24 +179,24 @@ export default function ContactoForm() {
                   key={c.id}
                   onClick={() => toggleInvestment(c.id)}
                   className={twMerge(
-                    "w-full flex items-center justify-between p-12 md:p-16 bg-black transition-all duration-500 group outline-none",
+                    "w-full flex flex-col md:flex-row items-start md:items-center justify-between p-8 md:p-16 gap-6 md:gap-0 bg-black transition-colors duration-500 group outline-none",
                     isSelected ? "bg-white/[0.03]" : "hover:bg-white/[0.01]"
                   )}
                 >
-                  <div className="flex items-center gap-10">
+                  <div className="flex items-start md:items-center gap-6 md:gap-10">
                     <div className={twMerge(
-                      "w-4 h-4 rounded-full border border-white/20 flex items-center justify-center transition-all duration-500",
+                      "w-4 h-4 rounded-full border border-white/20 flex-shrink-0 flex items-center justify-center transition-all duration-500 will-change-transform mt-1 md:mt-0",
                       isSelected ? "bg-orange border-orange scale-125" : "bg-transparent group-hover:border-white"
                     )}>
                       {isSelected && <Check size={10} strokeWidth={4} className="text-white" />}
                     </div>
                     <div className="text-left">
                       <h4 className="font-display font-bold text-white text-xl md:text-3xl mb-2 tracking-[-0.04em]">{c.title}</h4>
-                      <p className="text-silver text-base font-light">{c.desc}</p>
+                      <p className="text-silver text-sm md:text-base font-light">{c.desc}</p>
                     </div>
                   </div>
                   
-                  <div className="text-right">
+                  <div className="text-left md:text-right pl-10 md:pl-0 w-full md:w-auto">
                     <span className={twMerge("font-display font-bold text-3xl md:text-5xl tracking-tighter transition-colors duration-500", isSelected ? "text-orange" : "text-white/20")}>${c.price.toLocaleString('en-US')}</span>
                     <span className="text-silver/40 text-[10px] block font-bold tracking-[0.2em] uppercase mt-2">USD INIT</span>
                   </div>
@@ -253,14 +253,14 @@ export default function ContactoForm() {
            <form onSubmit={handleSubmit(onSubmit)} className="space-y-12">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
               <div className="relative group">
-                <label htmlFor="name" className="block text-[10px] font-bold text-silver/40 uppercase tracking-[0.3em] mb-4 group-focus-within:text-orange transition-colors">
+                <label htmlFor="name" className="block text-[10px] font-bold text-white/80 uppercase tracking-[0.3em] mb-4 group-focus-within:text-orange transition-colors">
                   NOMBRE COMPLETO <span className="text-orange">*</span>
                 </label>
                 <input 
                   {...register('name')}
                   id="name"
                   className={twMerge(
-                    "w-full bg-transparent border-b border-white/10 px-0 py-4 text-white text-xl md:text-2xl outline-none focus:border-orange transition-all placeholder:text-white/5",
+                    "w-full bg-transparent border-b border-white/10 px-0 py-4 text-white text-xl md:text-2xl outline-none focus:border-orange transition-colors placeholder:text-white/50",
                     errors.name && "border-error focus:border-error"
                   )}
                   placeholder="Tu nombre o firma"
@@ -269,7 +269,7 @@ export default function ContactoForm() {
               </div>
 
               <div className="relative group">
-                <label htmlFor="email" className="block text-[10px] font-bold text-silver/40 uppercase tracking-[0.3em] mb-4 group-focus-within:text-orange transition-colors">
+                <label htmlFor="email" className="block text-[10px] font-bold text-white/80 uppercase tracking-[0.3em] mb-4 group-focus-within:text-orange transition-colors">
                   CORREO DE ENLACE <span className="text-orange">*</span>
                 </label>
                 <input 
@@ -277,7 +277,7 @@ export default function ContactoForm() {
                   id="email"
                   type="email"
                   className={twMerge(
-                    "w-full bg-transparent border-b border-white/10 px-0 py-4 text-white text-xl md:text-2xl outline-none focus:border-orange transition-all placeholder:text-white/5",
+                    "w-full bg-transparent border-b border-white/10 px-0 py-4 text-white text-xl md:text-2xl outline-none focus:border-orange transition-colors placeholder:text-white/50",
                     errors.email && "border-error focus:border-error"
                   )}
                   placeholder="email@corporacion.com"
@@ -287,19 +287,19 @@ export default function ContactoForm() {
             </div>
 
             <div className="relative group">
-              <label htmlFor="company" className="block text-[10px] font-bold text-silver/40 uppercase tracking-[0.3em] mb-4 group-focus-within:text-orange transition-colors">
+              <label htmlFor="company" className="block text-[10px] font-bold text-white/80 uppercase tracking-[0.3em] mb-4 group-focus-within:text-orange transition-colors">
                 EMPRESA / ENTIDAD
               </label>
               <input 
                 {...register('company')}
                 id="company"
-                className="w-full bg-transparent border-b border-white/10 px-0 py-4 text-white text-xl md:text-2xl outline-none focus:border-orange transition-all placeholder:text-white/5"
+                className="w-full bg-transparent border-b border-white/10 px-0 py-4 text-white text-xl md:text-2xl outline-none focus:border-orange transition-colors placeholder:text-white/50"
                 placeholder="Nombre de la marca a escalar"
               />
             </div>
 
             <div className="relative group">
-              <label htmlFor="message" className="block text-[10px] font-bold text-silver/40 uppercase tracking-[0.3em] mb-4 group-focus-within:text-orange transition-colors">
+              <label htmlFor="message" className="block text-[10px] font-bold text-white/80 uppercase tracking-[0.3em] mb-4 group-focus-within:text-orange transition-colors">
                 OBJETIVOS ESTRATÉGICOS <span className="text-orange">*</span>
               </label>
               <textarea 
@@ -307,7 +307,7 @@ export default function ContactoForm() {
                 id="message"
                 rows={3}
                 className={twMerge(
-                  "w-full bg-transparent border-b border-white/10 px-0 py-4 text-white text-xl md:text-2xl outline-none focus:border-orange transition-all resize-none placeholder:text-white/5",
+                  "w-full bg-transparent border-b border-white/10 px-0 py-4 text-white text-xl md:text-2xl outline-none focus:border-orange transition-colors resize-none placeholder:text-white/50",
                   errors.message && "border-error focus:border-error"
                 )}
                 placeholder="Descríbenos tu meta de crecimiento..."
