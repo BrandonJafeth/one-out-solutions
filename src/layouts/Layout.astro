@@ -85,8 +85,10 @@ const {
 
         gsap.ticker.lagSmoothing(0);
 
-        // Refresh triggers on page navigations
-        ScrollTrigger.refresh();
+        // Defer refresh to avoid layout thrashing synchronously on mount
+        requestAnimationFrame(() => {
+          ScrollTrigger.refresh();
+        });
       });
     </script>
   </body>

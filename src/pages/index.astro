@@ -122,17 +122,14 @@ document.addEventListener('astro:page-load', () => {
       scale: 1,
       duration: 1.2,
       stagger: 0.2,
-      ease: "expo.out",
-      onComplete: () => {
-        // Refresh triggers just in case layout shifted
-        ScrollTrigger.refresh();
-      }
+      ease: "expo.out"
     }
   );
 
   // Global refresh for any late-loading images
   window.addEventListener('load', () => {
-    ScrollTrigger.refresh();
+    // Use requestAnimationFrame to prevent forced reflow on load
+    requestAnimationFrame(() => ScrollTrigger.refresh());
   });
 });
 </script>
