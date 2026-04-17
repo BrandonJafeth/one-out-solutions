@@ -5,12 +5,12 @@ import ContactoForm from './ContactoForm';
 <section id="contacto" class="py-24 md:py-40 bg-black relative overflow-hidden border-t border-white/5">
   
   <!-- Atmospheric background -->
-  <div class="absolute top-0 left-0 w-[800px] h-[800px] bg-orange/5 blur-[150px] rounded-full pointer-events-none -translate-x-1/2 -translate-y-1/2"></div>
-  <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-orange/5 blur-[120px] rounded-full pointer-events-none translate-x-1/2 translate-y-1/2"></div>
+  <div class="absolute top-0 left-0 w-[800px] h-[800px] rounded-full pointer-events-none -translate-x-1/2 -translate-y-1/2" style="background: radial-gradient(circle at center, rgba(219,105,35,0.08) 0%, transparent 60%);"></div>
+  <div class="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none translate-x-1/2 translate-y-1/2" style="background: radial-gradient(circle at center, rgba(219,105,35,0.08) 0%, transparent 60%);"></div>
 
   <div class="max-w-[1400px] mx-auto px-6 relative z-10">
     <div class="w-full">
-      <ContactoForm client:visible />
+      <ContactoForm client:idle />
     </div>
   </div>
 
