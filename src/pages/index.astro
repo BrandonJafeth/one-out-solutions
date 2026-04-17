@@ -128,8 +128,10 @@ document.addEventListener('astro:page-load', () => {
 
   // Global refresh for any late-loading images
   window.addEventListener('load', () => {
-    // Use requestAnimationFrame to prevent forced reflow on load
-    requestAnimationFrame(() => ScrollTrigger.refresh());
+    // Retrasar el refresh de GSAP usando setTimeout y rAF para evitar el TBT inicial
+    setTimeout(() => {
+      requestAnimationFrame(() => ScrollTrigger.refresh());
+    }, 500);
   });
 });
 </script>

@@ -28,6 +28,31 @@
   ::selection {
     @apply bg-orange text-white;
   }
+
+  /* Custom Scrollbar - Estética Tecnológica/Agresiva */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #333333 #000000;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #000000;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #333333;
+    border-radius: 6px;
+    border: 2px solid #000000;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #DB6923; /* Naranja marca One Out Solutions */
+  }
 }
 
 @layer components {

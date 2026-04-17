@@ -56,12 +56,28 @@ const {
   <body class="bg-black text-white selection:bg-orange selection:text-white antialiased overflow-x-hidden min-h-screen flex flex-col">
     <slot />
     
+    <!-- Botón Volver Arriba -->
+    <button 
+      id="scrollToTopBtn" 
+      aria-label="Volver al inicio"
+      class="fixed bottom-6 right-6 md:bottom-10 md:right-10 w-12 h-12 flex items-center justify-center rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-white/70 hover:text-orange hover:border-orange hover:bg-orange/10 transition-all duration-500 z-[100] opacity-0 translate-y-8 pointer-events-none group"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="group-hover:-translate-y-1 transition-transform duration-300">
+        <path d="m18 15-6-6-6 6"/>
+      </svg>
+    </button>
+
     <script>
       import gsap from 'gsap';
       import { ScrollTrigger } from 'gsap/ScrollTrigger';
       import Lenis from 'lenis';
 
       gsap.registerPlugin(ScrollTrigger);
+
+      // Optimización GSAP: Evitar recalculos innecesarios por barras de URL en móviles
+      ScrollTrigger.config({
+        ignoreMobileResize: true,
+      });
 
       // Define a custom setup on Astro page transitions
       document.addEventListener('astro:page-load', () => {
@@ -79,16 +95,30 @@ const {
         // Sincronizar Lenis con GSAP ScrollTrigger
         lenis.on('scroll', ScrollTrigger.update);
 
+        // Botón Volver Arriba logic
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        if (scrollToTopBtn) {
+          lenis.on('scroll', () => {
+            const currentScroll = window.scrollY || document.documentElement.scrollTop;
+            if (currentScroll > 600) {
+              scrollToTopBtn.classList.remove('opacity-0', 'translate-y-8', 'pointer-events-none');
+              scrollToTopBtn.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            } else {
+              scrollToTopBtn.classList.add('opacity-0', 'translate-y-8', 'pointer-events-none');
+              scrollToTopBtn.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            }
+          });
+
+          scrollToTopBtn.addEventListener('click', () => {
+            lenis.scrollTo(0, { duration: 1.5, ease: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+          });
+        }
+
         gsap.ticker.add((time) => {
           lenis.raf(time * 1000);
         });
 
         gsap.ticker.lagSmoothing(0);
-
-        // Defer refresh to avoid layout thrashing synchronously on mount
-        requestAnimationFrame(() => {
-          ScrollTrigger.refresh();
-        });
       });
     </script>
   </body>
