@@ -1,9 +1,9 @@
 [
   { 
-    "name": "Foundational Scale", 
+    "name": "Arranque Escalable", 
     "price": "Desde $1,200", 
     "features": [
-      "Infraestructura escalable Core",
+      "Infraestructura escalable Principal",
       "Auditoría de Conversión Inicial",
       "Diseño Cinematográfico Premium",
       "Optimización SEO Técnica",
@@ -11,26 +11,26 @@
     ]
   },
   { 
-    "name": "Growth Acceleration", 
+    "name": "Aceleración de Crecimiento", 
     "price": "Desde $2,500", 
     "recommended": true,
     "features": [
-      "Todo en Foundational",
+      "Todo en Arranque Escalable",
       "Arquitectura de Micro-servicios",
       "Integraciones de CRM/Ventas",
-      "Panel de Métricas de ROI",
+      "Panel de Métricas de Conversión",
       "Optimización de Carga < 1s",
       "Soporte Prioritario 3 meses"
     ]
   },
   { 
-    "name": "Market Dominance", 
+    "name": "Dominio del Mercado", 
     "price": "Personalizado", 
     "features": [
-      "Todo en Acceleration",
+      "Todo en Aceleración",
       "Desarrollo MVP de Producto",
       "Consultoría de Estrategia Digital",
-      "Infraestructura Cloud de Élite",
+      "Infraestructura en la Nube de Élite",
       "Escalamiento Global",
       "Ingeniero Dedicado"
     ]

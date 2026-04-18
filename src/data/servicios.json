@@ -2,25 +2,25 @@
   { 
     "id": "growth-infrastructure", 
     "icon": "Code", 
-    "title": "Growth Infrastructure", 
+    "title": "Infraestructura Escalable", 
     "description": "Ingeniería de backend robusta diseñada para manejar el escalado explosivo de tu negocio sin fricciones." 
   },
   { 
     "id": "conversion-engineering", 
     "icon": "MonitorSmartphone", 
-    "title": "Conversion Engineering", 
-    "description": "Experiencias web de alto rendimiento donde cada píxel está optimizado para maximizar el ROI." 
+    "title": "Ingeniería de Conversión", 
+    "description": "Experiencias web de alto rendimiento donde cada píxel está optimizado para maximizar conversiones." 
   },
   { 
     "id": "scalable-commerce", 
     "icon": "ShoppingCart", 
-    "title": "Scalable Commerce", 
+    "title": "Comercio Escalable", 
     "description": "Sistemas de venta directa que transforman transacciones simples en motores de crecimiento predecible." 
   },
   { 
     "id": "strategic-identity", 
     "icon": "PenTool", 
-    "title": "Strategic Visual Identity", 
+    "title": "Identidad Visual Estratégica", 
     "description": "Dirección visual agresiva y editorial que posiciona tu marca como la autoridad absoluta en su nicho." 
   }
 ]

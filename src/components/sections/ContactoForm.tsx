@@ -27,16 +27,16 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const projectTypes = [
-  { id: 'growth-platform', title: 'GROWTH PLATFORM', desc: 'Sistemas diseñados para escalar tracción', icon: TrendingUp },
-  { id: 'conversion-engine', title: 'CONVERSION ENGINE', desc: 'Infraestructura de ventas de alto rendimiento', icon: BarChart3 },
-  { id: 'enterprise-system', title: 'ENTERPRISE SYSTEM', desc: 'Solución robusta a medida corporativa', icon: Building2 },
-  { id: 'saas-infrastructure', title: 'SAAS INFRASTRUCTURE', desc: 'Arquitectura escalable para software as a service', icon: Cloud },
-  { id: 'strategic-mvp', title: 'STRATEGIC MVP', desc: 'Lanzamiento rápido con estándares de élite', icon: Rocket },
-  { id: 'security-audit', title: 'SECURITY & AUDIT', desc: 'Optimización de infraestructura y seguridad', icon: ShieldCheck },
+  { id: 'growth-platform', title: 'PLATAFORMA DE CRECIMIENTO', desc: 'Sistemas diseñados para escalar tracción', icon: TrendingUp },
+  { id: 'conversion-engine', title: 'MOTOR DE CONVERSIÓN', desc: 'Infraestructura de ventas de alto rendimiento', icon: BarChart3 },
+  { id: 'enterprise-system', title: 'SISTEMA CORPORATIVO', desc: 'Solución robusta a medida corporativa', icon: Building2 },
+  { id: 'saas-infrastructure', title: 'INFRAESTRUCTURA SAAS', desc: 'Arquitectura escalable para software as a service', icon: Cloud },
+  { id: 'strategic-mvp', title: 'MVP ESTRATÉGICO', desc: 'Lanzamiento rápido con estándares de élite', icon: Rocket },
+  { id: 'security-audit', title: 'SEGURIDAD Y AUDITORÍA', desc: 'Optimización de infraestructura y seguridad', icon: ShieldCheck },
 ];
 
 const investmentOptions = [
-  { id: 'c1', title: 'Fase Inicial (Foundational)', desc: 'Estructura Core para tracción inicial', price: 1200 },
+  { id: 'c1', title: 'Fase Inicial', desc: 'Estructura Principal para tracción inicial', price: 1200 },
   { id: 'c2', title: 'Aceleración de Mercado', desc: 'Optimización agresiva y escala media', price: 2500 },
   { id: 'c3', title: 'Dominio de Sector', desc: 'Sistema complejo con integraciones totales', price: 5000 },
   { id: 'c4', title: 'Escalamiento Global', desc: 'Infraestructura de grado Enterprise', price: 10000 },

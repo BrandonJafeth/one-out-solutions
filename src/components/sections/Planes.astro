@@ -6,7 +6,7 @@ import planes from '../../data/planes.json';
 <section id="planes" class="py-24 md:py-40 bg-black relative border-t border-white/5 overflow-hidden">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-32 section-header">
-      <Badge className="mb-10 text-orange bg-orange/5 border-orange/10">INVESTMENT SCALES</Badge>
+      <Badge className="mb-10 text-orange bg-orange/5 border-orange/10">ESCALAS DE INVERSIÓN</Badge>
       <h2 class="font-display font-bold text-5xl md:text-7xl leading-[0.9] tracking-[-0.07em]">
         DISEÑADO PARA <br/> <span class="text-white italic">CADA ETAPA.</span>
       </h2>
@@ -14,7 +14,7 @@ import planes from '../../data/planes.json';
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch wrap-planes max-w-6xl mx-auto">
       {planes.map(plan => {
-        const isCustom = plan.name.includes('Dominance');
+        const isCustom = plan.name === 'Dominio del Mercado';
         const borderColor = plan.recommended ? 'border-white/20' : 'border-[#d6ebfd]/10';
 
         return (
