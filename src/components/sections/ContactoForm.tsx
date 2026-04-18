@@ -27,19 +27,19 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const projectTypes = [
-  { id: 'growth-platform', title: 'PLATAFORMA DE CRECIMIENTO', desc: 'Sistemas diseñados para escalar tracción', icon: TrendingUp },
-  { id: 'conversion-engine', title: 'MOTOR DE CONVERSIÓN', desc: 'Infraestructura de ventas de alto rendimiento', icon: BarChart3 },
-  { id: 'enterprise-system', title: 'SISTEMA CORPORATIVO', desc: 'Solución robusta a medida corporativa', icon: Building2 },
-  { id: 'saas-infrastructure', title: 'INFRAESTRUCTURA SAAS', desc: 'Arquitectura escalable para software as a service', icon: Cloud },
-  { id: 'strategic-mvp', title: 'MVP ESTRATÉGICO', desc: 'Lanzamiento rápido con estándares de élite', icon: Rocket },
-  { id: 'security-audit', title: 'SEGURIDAD Y AUDITORÍA', desc: 'Optimización de infraestructura y seguridad', icon: ShieldCheck },
+  { id: 'growth-platform', title: 'ATRAER MÁS CLIENTES', desc: 'Sistemas agresivos enfocados en conseguirte contactos 24/7', icon: TrendingUp },
+  { id: 'conversion-engine', title: 'AUTOMATIZA TUS VENTAS', desc: 'Tiendas online veloces para que tus productos se vendan solos', icon: BarChart3 },
+  { id: 'enterprise-system', title: 'PRESTIGIO CORPORATIVO', desc: 'Plataforma oficial para aumentar tus honorarios y destacar', icon: Building2 },
+  { id: 'saas-infrastructure', title: 'SISTEMA OPERATIVO PROPIO', desc: 'Una herramienta en línea construida según tus reglas de trabajo', icon: Cloud },
+  { id: 'strategic-mvp', title: 'LANZAR NUEVA IDEA', desc: 'Software rápido, bonito y sin fallos para probar un nuevo proyecto', icon: Rocket },
+  { id: 'security-audit', title: 'POTENCIAR LO QUE TENGO', desc: 'Una mejora radical si sientes que tu web o sistema se quedó atrás', icon: ShieldCheck },
 ];
 
 const investmentOptions = [
-  { id: 'c1', title: 'Fase Inicial', desc: 'Estructura Principal para tracción inicial', price: 1200 },
-  { id: 'c2', title: 'Aceleración de Mercado', desc: 'Optimización agresiva y escala media', price: 2500 },
-  { id: 'c3', title: 'Dominio de Sector', desc: 'Sistema complejo con integraciones totales', price: 5000 },
-  { id: 'c4', title: 'Escalamiento Global', desc: 'Infraestructura de grado Enterprise', price: 10000 },
+  { id: 'c1', title: 'Apertura de Marca', desc: 'Crear presencia y captar tus primeros clientes', price: 1200 },
+  { id: 'c2', title: 'Acelerador de Tracción', desc: 'Para recibir más personas y facilitar las compras', price: 2500 },
+  { id: 'c3', title: 'Líder en Software', desc: 'Aplicaciones complejas robustas para gobernar tu rama', price: 5000 },
+  { id: 'c4', title: 'Poder Empresarial', desc: 'Desarrollos monstruosos a la medida con soporte privado', price: 10000 },
 ];
 
 export default function ContactoForm() {
@@ -108,9 +108,9 @@ export default function ContactoForm() {
       {step < 3 && (
         <div className="text-center mb-24 animate-in fade-in slide-in-from-bottom-4 duration-700">
           <h2 className="font-display font-bold text-5xl md:text-7xl leading-[0.9] tracking-[-0.07em] text-white mb-6">
-            CONFIGURA TU <span className="text-orange italic">ESTRATEGIA.</span>
+            ES HORA DE AUMENTAR <span className="text-orange italic">TUS RESULTADOS.</span>
           </h2>
-          <p className="text-silver text-xl font-light tracking-wide">Define los parámetros de tu próximo motor de crecimiento</p>
+          <p className="text-silver text-xl font-light tracking-wide">Da el salto definitivo. Cuéntanos tu problema y lo destruimos con software.</p>
         </div>
       )}
 
@@ -119,7 +119,7 @@ export default function ContactoForm() {
         <div className="animate-in fade-in slide-in-from-right-8 duration-700">
           <div className="flex items-center gap-6 mb-12 border-b border-white/5 pb-8">
             <span className="font-display font-bold text-orange text-2xl tracking-tighter">01.</span>
-            <h3 className="font-display font-bold text-white tracking-[0.2em] text-xs uppercase">IDENTIFICA TU FOCO DE CRECIMIENTO</h3>
+            <h3 className="font-display font-bold text-white tracking-[0.2em] text-xs uppercase">ELIGE EL OBJETIVO PARA TU NEGOCIO</h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5 mx-auto">

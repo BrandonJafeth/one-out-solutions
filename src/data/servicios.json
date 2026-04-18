@@ -1,26 +1,26 @@
 [
   { 
     "id": "growth-infrastructure", 
-    "icon": "Code", 
-    "title": "Infraestructura Escalable", 
-    "description": "Ingeniería de backend robusta diseñada para manejar el escalado explosivo de tu negocio sin fricciones." 
+    "icon": "MonitorSmartphone", 
+    "title": "Máquinas de Captación", 
+    "description": "Tu sitio web guiando estratégicamente al usuario para convencerlo a dejarte sus datos o su dinero, reduciendo fricciones." 
   },
   { 
     "id": "conversion-engineering", 
-    "icon": "MonitorSmartphone", 
-    "title": "Ingeniería de Conversión", 
-    "description": "Experiencias web de alto rendimiento donde cada píxel está optimizado para maximizar conversiones." 
+    "icon": "Code", 
+    "title": "Sistemas de Negocio 24/7", 
+    "description": "Delega horas manuales al código. Creamos sistemas que atienden clientes, cotizan y agendan en piloto automático." 
   },
   { 
     "id": "scalable-commerce", 
     "icon": "ShoppingCart", 
-    "title": "Comercio Escalable", 
-    "description": "Sistemas de venta directa que transforman transacciones simples en motores de crecimiento predecible." 
+    "title": "Tiendas Imparables", 
+    "description": "Catálogos virtuales hiper-veloces estructurados bajo sesgos psicológicos de compra, subiendo el ticket online de inmediato." 
   },
   { 
     "id": "strategic-identity", 
     "icon": "PenTool", 
-    "title": "Identidad Visual Estratégica", 
-    "description": "Dirección visual agresiva y editorial que posiciona tu marca como la autoridad absoluta en su nicho." 
+    "title": "Autoridad de Marca", 
+    "description": "Si te ves igual a los demás, competirás por precio. Transformamos tu percepción visual para que logres cobrar honorarios premium sin excusas." 
   }
 ]

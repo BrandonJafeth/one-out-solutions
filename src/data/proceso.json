@@ -2,25 +2,25 @@
   { 
     "step": "01", 
     "icon": "Search", 
-    "title": "Auditoría de Crecimiento", 
-    "description": "Analizamos tus cuellos de botella técnicos y de conversión para trazar una hoja de ruta centrada en resultados." 
+    "title": "Diagnóstico de Pérdidas", 
+    "description": "Examinamos tu negocio para demostrarte cuánto podrías estar vendiendo online y qué debes hacer para conseguirlo rápido." 
   },
   { 
     "step": "02", 
     "icon": "PencilRuler", 
-    "title": "Ingeniería de Estrategia", 
-    "description": "Diseñamos arquitecturas escalables y flujos de usuario optimizados para el crecimiento explosivo." 
+    "title": "Ingeniería Persuasiva", 
+    "description": "Trazamos la fórmula perfecta de botones interactivos, copys punzantes y posicionamiento, convirtiendo simples visitas en clientes atados." 
   },
   { 
     "step": "03", 
     "icon": "Code2", 
-    "title": "Despliegue de Alto Rendimiento", 
-    "description": "Ejecutamos el desarrollo con estándares de ingeniería de élite, garantizando velocidad y estabilidad absoluta." 
+    "title": "Código en Alta Velocidad", 
+    "description": "El usuario abandona sitios web lentos. Nosotros te blindamos desarrollando todo limpio (Google te impulsará mágicamente a los primeros lugares)." 
   },
   { 
     "step": "04", 
     "icon": "Rocket", 
-    "title": "Optimización Continua", 
-    "description": "Monitoreamos métricas clave y refinamos el sistema para asegurar que la ventaja competitiva sea permanente." 
+    "title": "Arranque de Retorno", 
+    "description": "Colocamos de inmediato la nueva caja fuerte de ventas al público, empezando a atraer tráfico de inmediato midiendo el impacto del nuevo ecosistema." 
   }
 ]

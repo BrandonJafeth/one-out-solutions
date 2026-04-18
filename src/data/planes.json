@@ -1,38 +1,38 @@
 [
   { 
-    "name": "Arranque Escalable", 
+    "name": "Arranque Digital", 
     "price": "Desde $1,200", 
     "features": [
-      "Infraestructura escalable Principal",
-      "Auditoría de Conversión Inicial",
-      "Diseño Cinematográfico Premium",
-      "Optimización SEO Técnica",
-      "Soporte de Ingeniería 1 mes"
+      "Software 100% Persuasivo",
+      "Experiencia Ultra Rápida y Limpia",
+      "Posicionamiento Inmediato SEO",
+      "Estructuras Optimizadas para Clientes",
+      "1 mes Soporte Técnico"
     ]
   },
   { 
-    "name": "Aceleración de Crecimiento", 
+    "name": "Expansión Definitiva", 
     "price": "Desde $2,500", 
     "recommended": true,
     "features": [
-      "Todo en Arranque Escalable",
-      "Arquitectura de Micro-servicios",
-      "Integraciones de CRM/Ventas",
-      "Panel de Métricas de Conversión",
-      "Optimización de Carga < 1s",
-      "Soporte Prioritario 3 meses"
+      "Todo en Arranque Digital",
+      "CRM o Consecución Automatizada",
+      "Conexiones API con Otras Herramientas",
+      "Mediciones e-Commerce Activas",
+      "Mejora Continua e Inteligente",
+      "3 meses de Desarrollo Continuo"
     ]
   },
   { 
-    "name": "Dominio del Mercado", 
+    "name": "Marca Multimillonaria", 
     "price": "Personalizado", 
     "features": [
-      "Todo en Aceleración",
-      "Desarrollo MVP de Producto",
-      "Consultoría de Estrategia Digital",
-      "Infraestructura en la Nube de Élite",
-      "Escalamiento Global",
-      "Ingeniero Dedicado"
+      "Todo en Expansión",
+      "App Móvil Nivel Enterprise Segura",
+      "Servidores con Respaldo en la Nube",
+      "Sistema y Escalabilidad Inteligente",
+      "Vigilancia Proactiva Mensual",
+      "Ingeniero Privado 24/7"
     ]
   }
 ]
