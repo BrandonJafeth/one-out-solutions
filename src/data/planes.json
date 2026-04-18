@@ -1,38 +1,38 @@
 [
   { 
-    "name": "Arranque Digital", 
+    "name": "Ecosistema Inicial", 
     "price": "Desde $1,200", 
     "features": [
-      "Software 100% Persuasivo",
-      "Experiencia Ultra Rápida y Limpia",
-      "Posicionamiento Inmediato SEO",
-      "Estructuras Optimizadas para Clientes",
-      "1 mes Soporte Técnico"
+      "Plataforma Web Persuasiva",
+      "Alta Velocidad de Sistema",
+      "Estructura Técnica para SEO",
+      "Experiencia Intuitiva y Funcional",
+      "Acompañamiento 1 Mes"
     ]
   },
   { 
-    "name": "Expansión Definitiva", 
+    "name": "Escala Avanzada", 
     "price": "Desde $2,500", 
     "recommended": true,
     "features": [
-      "Todo en Arranque Digital",
-      "CRM o Consecución Automatizada",
-      "Conexiones API con Otras Herramientas",
-      "Mediciones e-Commerce Activas",
-      "Mejora Continua e Inteligente",
-      "3 meses de Desarrollo Continuo"
+      "Beneficios de Fase Inicial",
+      "Soluciones Ecommerce y Reservas",
+      "Enlace a Sistemas de Trabajo (CRM)",
+      "Paneles de Estadísticas en Vivo",
+      "Desarrollo Ágil Prioritario",
+      "Acompañamiento por Trimestre"
     ]
   },
   { 
-    "name": "Marca Multimillonaria", 
+    "name": "Socio Tecnológico", 
     "price": "Personalizado", 
     "features": [
-      "Todo en Expansión",
-      "App Móvil Nivel Enterprise Segura",
-      "Servidores con Respaldo en la Nube",
-      "Sistema y Escalabilidad Inteligente",
-      "Vigilancia Proactiva Mensual",
-      "Ingeniero Privado 24/7"
+      "Todos los Beneficios Anteriores",
+      "APPs Nativas o WebApps Privadas",
+      "Infraestructura en la Nube Fuerte",
+      "Desarrolladores Dedicados al Proyecto",
+      "Protección Total y Soporte de Liderazgo",
+      "Vanguardia y Actualizaciones Continuas"
     ]
   }
 ]

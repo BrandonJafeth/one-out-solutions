@@ -3,24 +3,24 @@
     "id": "growth-infrastructure", 
     "icon": "MonitorSmartphone", 
     "title": "Máquinas de Captación", 
-    "description": "Tu sitio web guiando estratégicamente al usuario para convencerlo a dejarte sus datos o su dinero, reduciendo fricciones." 
+    "description": "Tu sitio web diseñado estratégicamente para guiar al usuario de forma intuitiva, lo que incrementa las conversiones fácilmente." 
   },
   { 
     "id": "conversion-engineering", 
     "icon": "Code", 
     "title": "Sistemas de Negocio 24/7", 
-    "description": "Delega horas manuales al código. Creamos sistemas que atienden clientes, cotizan y agendan en piloto automático." 
+    "description": "Automatiza procesos constantes. Creamos sistemas fiables que ayudan a clientes a cotizar, agendar y comprar online en piloto automático." 
   },
   { 
     "id": "scalable-commerce", 
     "icon": "ShoppingCart", 
-    "title": "Tiendas Imparables", 
-    "description": "Catálogos virtuales hiper-veloces estructurados bajo sesgos psicológicos de compra, subiendo el ticket online de inmediato." 
+    "title": "Tiendas Eficaces", 
+    "description": "Catálogos virtuales veloces con estructuras hechas para facilitar la experiencia de compra y aumentar el ticket promedio." 
   },
   { 
     "id": "strategic-identity", 
     "icon": "PenTool", 
-    "title": "Autoridad de Marca", 
-    "description": "Si te ves igual a los demás, competirás por precio. Transformamos tu percepción visual para que logres cobrar honorarios premium sin excusas." 
+    "title": "Posicionamiento Activo", 
+    "description": "Transformamos y pulimos tu percepción visual y estructura web para destacar ante tu competencia." 
   }
 ]

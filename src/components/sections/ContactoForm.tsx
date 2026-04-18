@@ -27,19 +27,19 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const projectTypes = [
-  { id: 'growth-platform', title: 'ATRAER MÁS CLIENTES', desc: 'Sistemas agresivos enfocados en conseguirte contactos 24/7', icon: TrendingUp },
-  { id: 'conversion-engine', title: 'AUTOMATIZA TUS VENTAS', desc: 'Tiendas online veloces para que tus productos se vendan solos', icon: BarChart3 },
-  { id: 'enterprise-system', title: 'PRESTIGIO CORPORATIVO', desc: 'Plataforma oficial para aumentar tus honorarios y destacar', icon: Building2 },
-  { id: 'saas-infrastructure', title: 'SISTEMA OPERATIVO PROPIO', desc: 'Una herramienta en línea construida según tus reglas de trabajo', icon: Cloud },
-  { id: 'strategic-mvp', title: 'LANZAR NUEVA IDEA', desc: 'Software rápido, bonito y sin fallos para probar un nuevo proyecto', icon: Rocket },
-  { id: 'security-audit', title: 'POTENCIAR LO QUE TENGO', desc: 'Una mejora radical si sientes que tu web o sistema se quedó atrás', icon: ShieldCheck },
+  { id: 'growth-platform', title: 'ATRAER CLIENTES', desc: 'Soluciones que te consiguen presencia activa y prospectos', icon: TrendingUp },
+  { id: 'conversion-engine', title: 'VENDER ONLINE', desc: 'Sistemas para pagos, descargas o reservas directas', icon: BarChart3 },
+  { id: 'enterprise-system', title: 'PORTAL CORPORATIVO', desc: 'Tu oficina oficial en internet como líder del negocio', icon: Building2 },
+  { id: 'saas-infrastructure', title: 'APP PRIVADA / SAAS', desc: 'Software para manejar las reglas internas de tu equipo', icon: Cloud },
+  { id: 'strategic-mvp', title: 'VALIDAR UN PROYECTO', desc: 'La parte técnica veloz para que presentes una idea seria', icon: Rocket },
+  { id: 'security-audit', title: 'MODERNIZAR SISTEMA', desc: 'Arreglar páginas rotas o lentas que espantan tu público', icon: ShieldCheck },
 ];
 
 const investmentOptions = [
-  { id: 'c1', title: 'Apertura de Marca', desc: 'Crear presencia y captar tus primeros clientes', price: 1200 },
-  { id: 'c2', title: 'Acelerador de Tracción', desc: 'Para recibir más personas y facilitar las compras', price: 2500 },
-  { id: 'c3', title: 'Líder en Software', desc: 'Aplicaciones complejas robustas para gobernar tu rama', price: 5000 },
-  { id: 'c4', title: 'Poder Empresarial', desc: 'Desarrollos monstruosos a la medida con soporte privado', price: 10000 },
+  { id: 'c1', title: 'Módulo Básico', desc: 'Inversión enfocada a plataformas sólidas de información', price: 1200 },
+  { id: 'c2', title: 'Comercio Dinámico', desc: 'Ideal para quienes procesan compras y citas activamente', price: 2500 },
+  { id: 'c3', title: 'Sistemas Pro', desc: 'Apps grandes en la nube y sincronizadas a otros puntos', price: 5000 },
+  { id: 'c4', title: 'Acompañamiento Abierto', desc: 'La máxima prioridad ejecutando requerimientos mensuales', price: 10000 },
 ];
 
 export default function ContactoForm() {

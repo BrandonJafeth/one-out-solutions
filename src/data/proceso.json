@@ -2,25 +2,25 @@
   { 
     "step": "01", 
     "icon": "Search", 
-    "title": "Diagnóstico de Pérdidas", 
-    "description": "Examinamos tu negocio para demostrarte cuánto podrías estar vendiendo online y qué debes hacer para conseguirlo rápido." 
+    "title": "Análisis y Diagnóstico", 
+    "description": "Estudiamos tu presencia actual y te enseñamos la hoja de ruta que mejorará tus ventas con los recursos óptimos." 
   },
   { 
     "step": "02", 
     "icon": "PencilRuler", 
-    "title": "Ingeniería Persuasiva", 
-    "description": "Trazamos la fórmula perfecta de botones interactivos, copys punzantes y posicionamiento, convirtiendo simples visitas en clientes atados." 
+    "title": "Estrategia Digital", 
+    "description": "Organizamos la plataforma enfocándonos en lo más fácil de usar para el usuario a la hora de contactarte y consumir tu marca." 
   },
   { 
     "step": "03", 
     "icon": "Code2", 
-    "title": "Código en Alta Velocidad", 
-    "description": "El usuario abandona sitios web lentos. Nosotros te blindamos desarrollando todo limpio (Google te impulsará mágicamente a los primeros lugares)." 
+    "title": "Código en Alta Rendimiento", 
+    "description": "Desarrollamos de forma nativa e impecable. Asegurando cargas instantáneas que mejoran tu posición en internet frente a tu competencia." 
   },
   { 
     "step": "04", 
     "icon": "Rocket", 
-    "title": "Arranque de Retorno", 
-    "description": "Colocamos de inmediato la nueva caja fuerte de ventas al público, empezando a atraer tráfico de inmediato midiendo el impacto del nuevo ecosistema." 
+    "title": "Despliegue y Seguimiento", 
+    "description": "Una vez lanzado tus sistemas para vender, se acompaña el progreso evaluando puntos de éxito y áreas de mejora futuras de forma continua." 
   }
 ]
