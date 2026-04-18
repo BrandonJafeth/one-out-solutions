@@ -1,88 +1,152 @@
 ---
-import Badge from '../common/Badge.astro';
+import Badge from "../common/Badge.astro";
 
 const proyectos = [
   {
     name: "Gadea Fotografía",
     desc: "Plataforma visual de alto rendimiento para exhibición de portafolios.",
     url: "https://www.gadeafotografia.com/",
-    domain: "gadeafotografia.com",
+    image:
+      "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776530416/krdb7bkqstvs3vlgpflo.png",
     tag: "PORTFOLIO",
-    color: "orange"
+    color: "orange",
   },
   {
     name: "Roca Business",
     desc: "Sistema corporativo moderno para consultoría de negocios.",
     url: "https://www.rocabusiness.net/",
-    domain: "rocabusiness.net",
+    image:
+      "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776530717/qdvdugjx69u7j3qan0ji.png",
     tag: "CORPORATE",
-    color: "blue"
+    color: "blue",
   },
   {
     name: "D. Rodríguez Psicóloga",
     desc: "Presencia digital con agendamiento para servicios de salud mental.",
     url: "https://www.danielarodriguezpsicologa.com/",
-    domain: "danielarodriguezpsicologa.com",
+    image:
+      "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776530715/kbjggnqcqhvbvagsl6nq.png",
     tag: "HEALTH",
-    color: "green"
+    color: "green",
   },
   {
     name: "Emy & Asociados",
     desc: "Estructura digital sólida para firma de servicios legales.",
     url: "https://emyasociados.net/",
-    domain: "emyasociados.net",
+    image:
+      "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776529470/e7fn31bsjlkukvbmza9z.png",
     tag: "LEGAL",
-    color: "cyan"
-  }
+    color: "cyan",
+  },
 ];
 
 const colorMap = {
-  orange: { bg: 'bg-[#ff801f]/10', border: 'border-[#ff801f]/20', text: 'text-[#ff801f]' },
-  blue: { bg: 'bg-[#0075ff]/10', border: 'border-[#0075ff]/20', text: 'text-[#3b9eff]' },
-  green: { bg: 'bg-[#11ff99]/10', border: 'border-[#11ff99]/20', text: 'text-[#22ff99]' },
-  cyan: { bg: 'bg-[#24BAEF]/10', border: 'border-[#24BAEF]/20', text: 'text-[#24BAEF]' },
+  orange: {
+    bg: "bg-[#ff801f]/10",
+    border: "border-[#ff801f]/20",
+    text: "text-[#ff801f]",
+  },
+  blue: {
+    bg: "bg-[#0075ff]/10",
+    border: "border-[#0075ff]/20",
+    text: "text-[#3b9eff]",
+  },
+  green: {
+    bg: "bg-[#11ff99]/10",
+    border: "border-[#11ff99]/20",
+    text: "text-[#22ff99]",
+  },
+  cyan: {
+    bg: "bg-[#24BAEF]/10",
+    border: "border-[#24BAEF]/20",
+    text: "text-[#24BAEF]",
+  },
 };
 ---
 
-<section id="proyectos" class="py-24 md:py-40 bg-black relative border-t border-white/5 overflow-hidden">
+<section
+  id="proyectos"
+  class="py-24 md:py-40 bg-black relative border-t border-white/5 overflow-hidden"
+>
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-32 section-header">
-      <Badge className="mb-10 text-orange bg-orange/5 border-orange/10">SELECTED WORK</Badge>
-      <h2 class="font-display font-bold text-5xl md:text-7xl leading-[0.9] tracking-[-0.07em]">
-        SISTEMAS QUE <br/> <span class="text-white italic">DOMINAN.</span>
+      <Badge className="mb-10 text-orange bg-orange/5 border-orange/10"
+        >SELECTED WORK</Badge
+      >
+      <h2
+        class="font-display font-bold text-5xl md:text-7xl leading-[0.9] tracking-[-0.07em]"
+      >
+        SISTEMAS QUE <br />
+        <span class="text-white italic">DOMINAN.</span>
       </h2>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-6xl mx-auto wrap-planes">
-      {proyectos.map(p => (
-        <a 
-          href={p.url} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          class="group relative flex flex-col p-8 md:p-10 rounded-[16px] bg-transparent border border-[#d6ebfd]/10 transition-all duration-500 hover:border-[#d6ebfd]/30 hover:shadow-[rgba(176,199,217,0.145)_0px_0px_0px_1px] overflow-hidden"
-        >
-          <div class="absolute inset-0 bg-white/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          
-          <div class="relative z-10 flex justify-between items-start mb-10">
-            <div class={`inline-flex items-center justify-center ${colorMap[p.color as keyof typeof colorMap].bg} border ${colorMap[p.color as keyof typeof colorMap].border} ${colorMap[p.color as keyof typeof colorMap].text} text-[10px] uppercase font-semibold tracking-wider py-1.5 px-3 rounded-full`}>
-              {p.tag}
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch max-w-5xl mx-auto wrap-planes"
+    >
+      {
+        proyectos.map((p) => (
+          <a
+            href={p.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative flex w-full md:max-w-[520px] md:mx-auto flex-col rounded-[16px] bg-transparent border border-[#d6ebfd]/10 transition-all duration-500 hover:border-[#d6ebfd]/30 hover:shadow-[rgba(176,199,217,0.145)_0px_0px_0px_1px] overflow-hidden"
+          >
+            <div class="absolute inset-0 bg-white/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+            <div class="relative z-10 aspect-[16/9] md:aspect-[16/9] overflow-hidden border-b border-white/10">
+              <img
+                src={p.image}
+                alt={`Vista previa del proyecto ${p.name}`}
+                loading="lazy"
+                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
             </div>
-            <div class="text-[#d6ebfd]/30 group-hover:text-white transition-colors duration-300">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+
+            <div class="relative z-10 p-4 md:p-5 flex flex-col gap-3">
+              <div class="flex justify-between items-start gap-4">
+                <div
+                  class={`inline-flex items-center justify-center ${colorMap[p.color as keyof typeof colorMap].bg} border ${colorMap[p.color as keyof typeof colorMap].border} ${colorMap[p.color as keyof typeof colorMap].text} text-[10px] uppercase font-semibold tracking-wider py-1.5 px-3 rounded-full`}
+                >
+                  {p.tag}
+                </div>
+                <div class="text-[#d6ebfd]/30 group-hover:text-white transition-colors duration-300">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <>
+                      <line x1="7" y1="17" x2="17" y2="7" />
+                      <polyline points="7 7 17 7 17 17" />
+                    </>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="space-y-1.5">
+                <h3 class="font-display font-bold text-2xl md:text-[1.75rem] leading-[0.95] text-white tracking-[-0.02em] group-hover:text-[#d6ebfd] transition-colors">
+                  {p.name}
+                </h3>
+                <p class="font-light text-silver/80 text-base md:text-base leading-snug max-w-sm">
+                  {p.desc}
+                </p>
+              </div>
+
+              <div class="font-display text-base md:text-lg font-semibold tracking-[-0.02em] text-white/70 group-hover:text-white transition-colors inline-flex items-center gap-2 pt-1">
+                Ver proyecto
+                <span aria-hidden="true">↗</span>
+              </div>
             </div>
-          </div>
-          
-          <div class="relative z-10 mt-auto">
-            <h3 class="font-display font-bold text-3xl text-white mb-3 tracking-[-0.02em] group-hover:text-[#d6ebfd] transition-colors">{p.name}</h3>
-            <p class="font-light text-silver/80 text-lg mb-6 leading-relaxed max-w-sm">
-              {p.desc}
-            </p>
-            <div class="font-display text-sm font-semibold tracking-wide text-white/50 group-hover:text-white transition-colors">
-              {p.domain}
-            </div>
-          </div>
-        </a>
-      ))}
+          </a>
+        ))
+      }
     </div>
   </div>
 </section>
