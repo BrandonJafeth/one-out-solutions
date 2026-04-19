@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { 
-  CheckCircle, TrendingUp, BarChart3, Building2, Cloud, Rocket, ShieldCheck, Check
+  CheckCircle, Globe, ShoppingCart, Cpu, Building2, Smartphone, ShieldCheck, Check, Rocket
 } from 'lucide-react';
 import { twMerge } from 'tailwind-merge';
 
@@ -27,20 +27,52 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const projectTypes = [
-  { id: 'growth-platform', title: 'ATRAER CLIENTES', desc: 'Soluciones que te consiguen presencia activa y prospectos', icon: TrendingUp },
-  { id: 'conversion-engine', title: 'VENDER ONLINE', desc: 'Sistemas para pagos, descargas o reservas directas', icon: BarChart3 },
-  { id: 'enterprise-system', title: 'PORTAL CORPORATIVO', desc: 'Tu oficina oficial en internet como líder del negocio', icon: Building2 },
-  { id: 'saas-infrastructure', title: 'APP PRIVADA / SAAS', desc: 'Software para manejar las reglas internas de tu equipo', icon: Cloud },
-  { id: 'strategic-mvp', title: 'VALIDAR UN PROYECTO', desc: 'La parte técnica veloz para que presentes una idea seria', icon: Rocket },
-  { id: 'security-audit', title: 'MODERNIZAR SISTEMA', desc: 'Arreglar páginas rotas o lentas que espantan tu público', icon: ShieldCheck },
+  { id: 'landing-page', title: 'LANDING PAGE', desc: 'Página de alta conversión para atraer clientes rápidamente', icon: Rocket },
+  { id: 'website', title: 'SITIO WEB COMPLETO', desc: 'Presencia digital profesional con múltiples secciones', icon: Globe },
+  { id: 'ecommerce', title: 'E-COMMERCE', desc: 'Tienda virtual lista para vender tus productos 24/7', icon: ShoppingCart },
+  { id: 'automation', title: 'AUTOMATIZACIONES', desc: 'Ahorra tiempo automatizando procesos con n8n', icon: Cpu },
+  { id: 'enterprise-crm', title: 'SISTEMAS & CRM', desc: 'Software empresarial y gestión corporativa a la medida', icon: Building2 },
+  { id: 'app-support', title: 'APPS & SOPORTE', desc: 'Aplicaciones móviles y mantenimiento web continuo', icon: Smartphone },
 ];
 
-const investmentOptions = [
-  { id: 'c1', title: 'Módulo Básico', desc: 'Inversión enfocada a plataformas sólidas de información', price: 1200 },
-  { id: 'c2', title: 'Comercio Dinámico', desc: 'Ideal para quienes procesan compras y citas activamente', price: 2500 },
-  { id: 'c3', title: 'Sistemas Pro', desc: 'Apps grandes en la nube y sincronizadas a otros puntos', price: 5000 },
-  { id: 'c4', title: 'Acompañamiento Abierto', desc: 'La máxima prioridad ejecutando requerimientos mensuales', price: 10000 },
-];
+const investmentOptionsData: Record<string, { id: string, title: string, desc: string, price: number }[]> = {
+  'landing-page': [
+    { id: 'lp1', title: 'Básica (1-3 Secciones)', desc: 'Diseño UX en Figma + Desarrollo Rápido. Ideal para validar un producto.', price: 150 },
+    { id: 'lp2', title: 'Estándar (4-6 Secciones)', desc: 'Diseño avanzado en Figma + Desarrollo + Lead Magnet.', price: 250 },
+    { id: 'lp3', title: 'Avanzada (+7 Secciones)', desc: 'Diseño Premium UX/UI + Animaciones complejas + SEO básico.', price: 400 },
+    { id: 'lp4', title: 'A/B Testing Continuo', desc: 'Múltiples versiones diseñadas para encontrar la que convierte mejor.', price: 800 },
+  ],
+  'website': [
+    { id: 'ws1', title: 'Informativo (Hasta 3 Páginas)', desc: 'Home, Nosotros, Contacto. Diseño previo en Figma incluido.', price: 300 },
+    { id: 'ws2', title: 'Corporativo (Hasta 6 Páginas)', desc: 'Estructura sólida para presencia corporativa seria.', price: 500 },
+    { id: 'ws3', title: 'Web Administrable (CMS)', desc: 'Incluye blog o panel para que actualices contenido sin código.', price: 800 },
+    { id: 'ws4', title: 'Web Premium Multi-idioma', desc: 'Soporte y traducciones, SEO avanzado y animaciones GSAP.', price: 1200 },
+  ],
+  'ecommerce': [
+    { id: 'ec1', title: 'Tienda Inicial (< 30 Prods)', desc: 'Catálogo online con pagos locales (Diseño en Figma incluido).', price: 500 },
+    { id: 'ec2', title: 'Tienda Estándar (< 100 Prods)', desc: 'Filtros, inventario automatizado y diseño de alta conversión.', price: 850 },
+    { id: 'ec3', title: 'E-Commerce Pro', desc: 'Sincronización de stock, integraciones con ERP, marketing emails.', price: 1500 },
+    { id: 'ec4', title: 'Marketplace / Multivendedor', desc: 'Plataforma compleja con múltiples vendedores y logística propia.', price: 3000 },
+  ],
+  'automation': [
+    { id: 'au1', title: 'Flujo Básico (n8n)', desc: 'Ej: Conectar Facebook Leads a Google Sheets + Alerta por correo.', price: 100 },
+    { id: 'au2', title: 'Generación de Leads (Medio)', desc: 'Integrar WhatsApp, CRM, campañas publicitarias y equipo de ventas.', price: 250 },
+    { id: 'au3', title: 'Ecosistema de Procesos', desc: 'Conectar la facturación, soporte, ventas y métricas empresariales.', price: 500 },
+    { id: 'au4', title: 'Setup de Servidor n8n', desc: 'Montaje de tu propio servidor n8n en la nube + mantenimiento.', price: 800 },
+  ],
+  'enterprise-crm': [
+    { id: 'crm1', title: 'Configuración Inicial (MVP)', desc: 'Ajuste de embudos para centralizar los contactos de tus vendedores.', price: 400 },
+    { id: 'crm2', title: 'CRM + WhatsApp Automático', desc: 'Asignación automática de leads y recordatorios directos.', price: 800 },
+    { id: 'crm3', title: 'Sistema Web Propio a Medida', desc: 'Desarrollo corporativo para la logística específica de tu negocio.', price: 1500 },
+    { id: 'crm4', title: 'ERP y App de Gestión Full', desc: 'Desarrollo de gran escala que digitaliza por completo tu empresa.', price: 3500 },
+  ],
+  'app-support': [
+    { id: 'sup1', title: 'Mantenimiento y Soporte Web', desc: 'Soporte mensual a páginas, mejoras de seguridad y pequeños cambios.', price: 100 },
+    { id: 'sup2', title: 'Soporte + Optimización SEO', desc: 'Gestión mensual enfocada en ganar posiciones en Google.', price: 250 },
+    { id: 'sup3', title: 'Diseño UX/UI de App en Figma', desc: 'Prototipo interactivo listo para levantar capital o ser validado.', price: 500 },
+    { id: 'sup4', title: 'MVP / App Móvil Híbrida', desc: 'Desarrollo inicial de aplicación móvil para tiendas (iOS / Android).', price: 2000 },
+  ]
+};
 
 export default function ContactoForm() {
   const [step, setStep] = useState<1 | 2 | 3>(1);
@@ -50,7 +82,7 @@ export default function ContactoForm() {
 
   const {
     register,
-    handleSubmit,
+    handleSubmit,fea
     formState: { errors },
     reset
   } = useForm<ContactFormData>({
@@ -58,11 +90,12 @@ export default function ContactoForm() {
   });
 
   const totalEstimate = useMemo(() => {
+    if (!selectedProjectType || !investmentOptionsData[selectedProjectType]) return 0;
     return selectedInvestments.reduce((total, cid) => {
-      const option = investmentOptions.find(o => o.id === cid);
+      const option = investmentOptionsData[selectedProjectType].find(o => o.id === cid);
       return total + (option?.price || 0);
     }, 0);
-  }, [selectedInvestments]);
+  }, [selectedInvestments, selectedProjectType]);
 
   const toggleInvestment = (id: string) => {
     setSelectedInvestments(prev => 
@@ -153,7 +186,10 @@ export default function ContactoForm() {
           <div className="mt-16 flex justify-end">
              <button
                 disabled={!selectedProjectType}
-                onClick={() => setStep(2)}
+                onClick={() => {
+                  setSelectedInvestments([]);
+                  setStep(2);
+                }}
                 className="pill-cta pill-cta-primary px-16 py-5 font-bold text-base tracking-[0.1em] disabled:opacity-30 disabled:grayscale transition-all"
               >
                 CONTINUAR →
@@ -171,7 +207,7 @@ export default function ContactoForm() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/5 mb-16">
-            {investmentOptions.map(c => {
+            {selectedProjectType && investmentOptionsData[selectedProjectType]?.map(c => {
               const isSelected = selectedInvestments.includes(c.id);
 
               return (
@@ -207,6 +243,12 @@ export default function ContactoForm() {
 
           <div className="pt-20 border-t border-white/5">
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-16 gap-12">
+              <button
+                onClick={() => setStep(1)}
+                className="text-silver/60 hover:text-white font-bold tracking-[0.1em] text-sm uppercase transition-colors"
+              >
+                ← VOLVER A TIPO DE PROYECTO
+              </button>
               <div>
                 <h4 className="font-display font-bold text-white uppercase tracking-[0.2em] text-xs mb-4">MAPA DE INVERSIÓN PROYECTADO</h4>
                 <p className="text-silver text-lg font-light max-w-md leading-relaxed">Este valor representa el núcleo de ingeniería. Optimizaciones específicas se refinarán en la auditoría inicial.</p>
