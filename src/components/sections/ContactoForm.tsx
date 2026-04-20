@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { 
-  CheckCircle, Globe, ShoppingCart, Cpu, Building2, Smartphone, ShieldCheck, Check, Rocket
+  CheckCircle, Globe, ShoppingCart, Cpu, Building2, Smartphone, Check, Rocket
 } from 'lucide-react';
 import { twMerge } from 'tailwind-merge';
 
@@ -112,8 +112,8 @@ export default function ContactoForm() {
 
   if (status === 'success') {
     return (
-      <div className="bg-black border border-white/10 p-12 md:p-20 text-center animate-in fade-in max-w-[1400px] mx-auto relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-orange to-transparent"></div>
+      <div className="bg-black border border-white/10 p-12 md:p-20 text-center animate-in fade-in max-w-350 mx-auto relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-20 bg-linear-to-b from-orange to-transparent"></div>
         <CheckCircle className="mx-auto text-orange mb-8" size={80} strokeWidth={1} />
         <h3 className="text-white font-display font-bold text-4xl mb-6 tracking-[-0.05em]">ORDEN RECONOCIDA</h3>
         <p className="text-silver text-xl font-light max-w-2xl mx-auto leading-relaxed">
@@ -135,7 +135,7 @@ export default function ContactoForm() {
   }
 
   return (
-    <div className="w-full max-w-[1400px] mx-auto px-4">
+    <div className="w-full max-w-350 mx-auto px-4">
       
       {/* Header General */}
       {step < 3 && (
@@ -165,8 +165,8 @@ export default function ContactoForm() {
                   key={pt.id}
                   onClick={() => setSelectedProjectType(pt.id)}
                   className={twMerge(
-                    "relative text-left p-8 sm:p-12 bg-black transition-colors duration-500 group outline-none min-h-[250px] flex flex-col justify-end",
-                    isSelected ? "bg-white/[0.03]" : "hover:bg-white/[0.01]"
+                    "relative text-left p-8 sm:p-12 bg-black transition-colors duration-500 group outline-none min-h-62.5 flex flex-col justify-end",
+                    isSelected ? "bg-white/3" : "hover:bg-white/1"
                   )}
                 >
                   <div className={twMerge("mb-12 transition-transform duration-500 will-change-transform", isSelected ? "text-orange scale-110" : "text-silver/40 group-hover:text-white")}>
@@ -190,7 +190,7 @@ export default function ContactoForm() {
                   setSelectedInvestments([]);
                   setStep(2);
                 }}
-                className="pill-cta pill-cta-primary px-16 py-5 font-bold text-base tracking-[0.1em] disabled:opacity-30 disabled:grayscale transition-all"
+                className="pill-cta pill-cta-primary px-16 py-5 font-bold text-base tracking-widest disabled:opacity-30 disabled:grayscale transition-all"
               >
                 CONTINUAR →
               </button>
@@ -216,12 +216,12 @@ export default function ContactoForm() {
                   onClick={() => toggleInvestment(c.id)}
                   className={twMerge(
                     "w-full flex flex-col md:flex-row items-start md:items-center justify-between p-8 md:p-16 gap-6 md:gap-0 bg-black transition-colors duration-500 group outline-none",
-                    isSelected ? "bg-white/[0.03]" : "hover:bg-white/[0.01]"
+                    isSelected ? "bg-white/3" : "hover:bg-white/1"
                   )}
                 >
                   <div className="flex items-start md:items-center gap-6 md:gap-10">
                     <div className={twMerge(
-                      "w-4 h-4 rounded-full border border-white/20 flex-shrink-0 flex items-center justify-center transition-all duration-500 will-change-transform mt-1 md:mt-0",
+                      "w-4 h-4 rounded-full border border-white/20 shrink-0 flex items-center justify-center transition-all duration-500 will-change-transform mt-1 md:mt-0",
                       isSelected ? "bg-orange border-orange scale-125" : "bg-transparent group-hover:border-white"
                     )}>
                       {isSelected && <Check size={10} strokeWidth={4} className="text-white" />}
@@ -245,7 +245,7 @@ export default function ContactoForm() {
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-16 gap-12">
               <button
                 onClick={() => setStep(1)}
-                className="text-silver/60 hover:text-white font-bold tracking-[0.1em] text-sm uppercase transition-colors"
+                className="text-silver/60 hover:text-white font-bold tracking-widest text-sm uppercase transition-colors"
               >
                 ← VOLVER A TIPO DE PROYECTO
               </button>

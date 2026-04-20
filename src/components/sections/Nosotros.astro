@@ -11,9 +11,9 @@ const stats = [
 
 <section id="nosotros" class="py-24 md:py-40 bg-black overflow-hidden relative border-y border-white/5">
   <!-- Subtle pattern background -->
-  <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+  <div class="absolute inset-0 opacity-3 pointer-events-none" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
 
-  <div class="max-w-[1400px] mx-auto px-6 relative z-10">
+  <div class="max-w-350 mx-auto px-6 relative z-10">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
       
       <!-- Text Area -->
@@ -40,7 +40,7 @@ const stats = [
       <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/5 border border-white/5 p-px h-full nosotros-stats">
         {stats.map(stat => {
           return (
-            <div class="bg-black p-8 md:p-12 flex flex-col justify-center items-center text-center group hover:bg-white/[0.02] transition-colors relative overflow-hidden">
+            <div class="bg-black p-8 md:p-12 flex flex-col justify-center items-center text-center group hover:bg-white/2 transition-colors relative overflow-hidden">
               <p class="font-display font-bold text-5xl md:text-6xl text-white mb-4 group-hover:text-orange transition-colors relative z-10">{stat.value}</p>
               <p class="text-silver/90 font-bold text-[10px] tracking-[0.25em] uppercase relative z-10">{stat.label}</p>
               

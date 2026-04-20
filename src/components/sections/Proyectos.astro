@@ -1,46 +1,10 @@
 ---
 import Badge from "../common/Badge.astro";
+import proyectosData from "../../data/proyectos.json";
 
-const proyectos = [
-  {
-    name: "Gadea Fotografía",
-    desc: "Plataforma visual de alto rendimiento para exhibición de portafolios.",
-    url: "https://www.gadeafotografia.com/",
-    image:
-      "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776530416/krdb7bkqstvs3vlgpflo.png",
-    tag: "PORTAFOLIO",
-    color: "orange",
-  },
-  {
-    name: "Roca Business",
-    desc: "Sistema corporativo moderno para consultoría de negocios.",
-    url: "https://www.rocabusiness.net/",
-    image:
-      "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776532688/btczko7jzpu7y2p4jeff.png",
-    tag: "CORPORATIVO",
-    color: "blue",
-  },
-  {
-    name: "D. Rodríguez Psicóloga",
-    desc: "Presencia digital con agendamiento para servicios de salud mental.",
-    url: "https://www.danielarodriguezpsicologa.com/",
-    image:
-      "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776530715/kbjggnqcqhvbvagsl6nq.png",
-    tag: "SALUD",
-    color: "green",
-  },
-  {
-    name: "Emy & Asociados",
-    desc: "Estructura digital sólida para firma de servicios legales.",
-    url: "https://emyasociados.net/",
-    image:
-      "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776529470/e7fn31bsjlkukvbmza9z.png",
-    tag: "LEGAL",
-    color: "cyan",
-  },
-];
+const proyectos = proyectosData.proyectos;
 
-const colorMap = {
+const colorMap: Record<string, any> = {
   orange: {
     bg: "bg-[#ff801f]/10",
     border: "border-[#ff801f]/20",
@@ -85,29 +49,32 @@ const colorMap = {
       class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch max-w-5xl mx-auto wrap-planes"
     >
       {
-        proyectos.map((p) => (
+        proyectos.map((p) => {
+          const colorKey = p.color || "cyan";
+          const pColor = colorMap[colorKey] || colorMap["cyan"];
+          const imgUrl = "image" in p ? (p as any).image : p.heroImage;
+          
+          return (
           <a
-            href={p.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group relative flex w-full md:max-w-[520px] md:mx-auto flex-col rounded-[16px] bg-transparent border border-[#d6ebfd]/10 transition-all duration-500 hover:border-[#d6ebfd]/30 hover:shadow-[rgba(176,199,217,0.145)_0px_0px_0px_1px] overflow-hidden"
+            href={`/proyecto/${p.id}`}
+            class="group relative flex w-full md:max-w-130 md:mx-auto flex-col rounded-2xl bg-transparent border border-[#d6ebfd]/10 transition-all duration-500 hover:border-[#d6ebfd]/30 hover:shadow-[rgba(176,199,217,0.145)_0px_0px_0px_1px] overflow-hidden"
           >
-            <div class="absolute inset-0 bg-white/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div class="absolute inset-0 bg-white/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-            <div class="relative z-10 aspect-[16/9] md:aspect-[16/9] overflow-hidden border-b border-white/10">
+            <div class="relative z-10 aspect-video md:aspect-video overflow-hidden border-b border-white/10">
               <img
-                src={p.image}
+                src={imgUrl}
                 alt={`Vista previa del proyecto ${p.name}`}
                 loading="lazy"
                 class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              <div class="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent" />
             </div>
 
             <div class="relative z-10 p-4 md:p-5 flex flex-col gap-3">
               <div class="flex justify-between items-start gap-4">
                 <div
-                  class={`inline-flex items-center justify-center ${colorMap[p.color as keyof typeof colorMap].bg} border ${colorMap[p.color as keyof typeof colorMap].border} ${colorMap[p.color as keyof typeof colorMap].text} text-[10px] uppercase font-semibold tracking-wider py-1.5 px-3 rounded-full`}
+                  class={`inline-flex items-center justify-center ${pColor.bg} border ${pColor.border} ${pColor.text} text-[10px] uppercase font-semibold tracking-wider py-1.5 px-3 rounded-full`}
                 >
                   {p.tag}
                 </div>
@@ -145,7 +112,8 @@ const colorMap = {
               </div>
             </div>
           </a>
-        ))
+        );
+        })
       }
     </div>
   </div>

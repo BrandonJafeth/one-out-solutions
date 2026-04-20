@@ -1,0 +1,351 @@
+{
+  "proyectos": [
+    {
+      "id": "gadea-fotografia",
+      "tag": "PORTAFOLIO",
+      "duration": "2 meses",
+      "teamSize": "2 desarrolladores",
+      "color": "orange",
+      "name": "Gadea Fotografía",
+      "desc": "Landing page y CRM visual de alto rendimiento para exhibición y gestión de portafolios.",
+      "heroImage": "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776530416/krdb7bkqstvs3vlgpflo.png",
+      "challenge": "El cliente requería una página de inicio impactante (landing page) y a la vez una plataforma interna (CRM) veloz que organizara toda la información de servicios, múltiples secciones y le permitiera controlar categoríazaciones sin limitar la calidad visual de sus imágenes.",
+      "solution": "Se implementó Astro para la generación estática (SSG) de la interfaz y Cloudinary para la optimización dinámica y entrega de las fotografías en formatos modernos como WebP y AVIF.",
+      "results": [
+        "Velocidad de carga inicial menor a 1s",
+        "Puntaje de 100/100 en métricas de rendimiento en Lighthouse",
+        "Optimización de imágenes con distribución global"
+      ],
+      "stack": [
+        {
+          "category": "Frontend Framework",
+          "items": [
+            { "name": "Astro", "desc": "Generación estática para un rendimiento inigualable" },
+            { "name": "Tailwind CSS", "desc": "Estilos limpios y altamente responsivos" }
+          ]
+        },
+        {
+          "category": "Media & Storage",
+          "items": [
+            { "name": "Cloudinary", "desc": "CDN especializado para optimización de medios on-the-fly" }
+          ]
+        }
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Diseño y UX",
+          "duration": "2 semanas",
+          "desc": "Elaboración de wireframes priorizando las galerías visuales con estética minimalista.",
+          "deliverables": [ "Diseños en Figma", "Arquitectura de información" ]
+        },
+        {
+          "step": 2,
+          "title": "Desarrollo y Optimización",
+          "duration": "4 semanas",
+          "desc": "Codificación del frente e integración inteligente con Cloudinary.",
+          "deliverables": [ "Galerías funcionales", "Pipeline de optimización de imágenes" ]
+        }
+      ],
+      "features": [
+        "Landing page enfocada en conversión",
+        "CRM personalizado para administrar el portafolio",
+        "Gestor de servicios y contenido de secciones y categorías",
+        "Galería Masonry Responsiva",
+        "Lazy loading agresivo y caché estático",
+        "Diseño minimalist-dark"
+      ],
+      "gallery": [
+        "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776530416/krdb7bkqstvs3vlgpflo.png",
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800"
+      ]
+    },
+    {
+      "id": "roca-business",
+      "tag": "CORPORATIVO",
+      "duration": "3 meses",
+      "teamSize": "3 desarrolladores",
+      "color": "blue",
+      "name": "Roca Business",
+      "desc": "Sistema corporativo moderno para consultoría de negocios.",
+      "heroImage": "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776532688/btczko7jzpu7y2p4jeff.png",
+      "challenge": "Roca Business necesitaba transicionar de una gestión manual en hojas de cálculo a un dashboard donde sus clientes pudieran ver el progreso de las consultorías y reportes corporativos.",
+      "solution": "Creación de un panel seguro y robusto con React y Node.js, incluyendo autenticación, manejo de roles y vistas parametrizadas según perfiles de inversión.",
+      "results": [
+        "Centralización total en un solo sistema web",
+        "Reportes financieros automatizados",
+        "Más de 20 horas a la semana ahorradas en trabajo manual"
+      ],
+      "stack": [
+        {
+          "category": "Frontend & Dashboard",
+          "items": [
+            { "name": "React", "desc": "Construcción rápida de interfaces dinámicas" },
+            { "name": "Astro", "desc": "Landing marketing y punto de entrada" }
+          ]
+        },
+        {
+          "category": "Backend",
+          "items": [
+            { "name": "Node.js", "desc": "Lógica de servidor para gestión de data" },
+            { "name": "MongoDB", "desc": "Esquema flexible para la información de clientes" }
+          ]
+        }
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Bases y Arquitectura",
+          "duration": "3 semanas",
+          "desc": "Definición del modelo de datos y diseño del ecosistema de autenticación.",
+          "deliverables": [ "Diagrama DER", "Wireframes del dashboard" ]
+        },
+        {
+          "step": 2,
+          "title": "Implementación del Dashboard",
+          "duration": "6 semanas",
+          "desc": "Construcción de la plataforma de la mano de gráficos, reportes exportables y manejo de estado.",
+          "deliverables": [ "Roles y permisos", "Exportación de reportes PDF/CSV" ]
+        }
+      ],
+      "features": [
+        "Autenticación segura (RBAC)",
+        "Dashboards personalizados",
+        "Gestión de Perfiles"
+      ],
+      "gallery": []
+    },
+    {
+      "id": "daniela-rodriguez-psicologa",
+      "tag": "SALUD",
+      "duration": "1.5 meses",
+      "teamSize": "2 desarrolladores",
+      "color": "green",
+      "name": "D. Rodríguez Psicóloga",
+      "desc": "Presencia digital con agendamiento para servicios de salud mental.",
+      "heroImage": "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776530715/kbjggnqcqhvbvagsl6nq.png",
+      "challenge": "El consultorio de Daniela necesitaba automatizar sus reservaciones y contar con una plataforma para proyectar credibilidad a sus pacientes, reduciendo las idas y venidas de mensajes.",
+      "solution": "Sitio web hiperoptimizado conectando APIs de calendario (Calendly API) embebidas de forma nativa para que el paciente hiciera la reserva sin fricción, cuidando una estética cálida y relajante.",
+      "results": [
+        "Aumento de un 60% en consultas completadas desde la web",
+        "Disminución drástica de ausentismo mediante recordatorios",
+        "Mejor SEO local en Google"
+      ],
+      "stack": [
+        {
+          "category": "Desarrollo Web",
+          "items": [
+            { "name": "Astro", "desc": "Velocidad extrema y SEO Out-of-the-box" },
+            { "name": "Tailwind CSS", "desc": "Personalización del esquema visual de la marca" }
+          ]
+        },
+        {
+          "category": "Integraciones",
+          "items": [
+            { "name": "Calendly API", "desc": "Motor de agendas sincronizado" },
+            { "name": "Formspree", "desc": "Captación de leads pasivos" }
+          ]
+        }
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Configuración e Interfaces",
+          "duration": "2 semanas",
+          "desc": "Diseño en base psicología del color e implementación del Frontend.",
+          "deliverables": [ "Landing Page", "Formulario Inteligente" ]
+        },
+        {
+          "step": 2,
+          "title": "Flujo de Agendamiento",
+          "duration": "2 semanas",
+          "desc": "Integración sólida con Calendly y pruebas del funel.",
+          "deliverables": [ "Agendamiento 24/7 operativo", "Manejo de zonas horarias" ]
+        }
+      ],
+      "features": [
+        "Calendario Interactivo",
+        "Reservas Self-Service",
+        "Estética orientada al nicho de bienestar"
+      ],
+      "gallery": []
+    },
+    {
+      "id": "emy-asociados",
+      "tag": "LEGAL",
+      "duration": "2 meses",
+      "teamSize": "2 desarrolladores",
+      "color": "cyan",
+      "name": "Emy & Asociados",
+      "desc": "Estructura digital sólida para firma de servicios legales.",
+      "heroImage": "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776529470/e7fn31bsjlkukvbmza9z.png",
+      "challenge": "El bufete requería plasmar formalidad jurídica en un formato moderno y confiable, proveyendo áreas donde pudieran describir especialidades y captar prospectos online.",
+      "solution": "Sitio multipágina y escalable (centrado en Astro) con una arquitectura de contenido orientada a posicionar cada especialidad por separado en motores de búsqueda.",
+      "results": [
+        "Posicionamiento sólido orgánico por especialidad",
+        "Aumento en correos entrantes para consultoría legal",
+        "Recepción adaptativa para móviles logrando mejor retención del usuario"
+      ],
+      "stack": [
+        {
+          "category": "Frontend & SEO",
+          "items": [
+            { "name": "Astro", "desc": "Renderización super rápida sin JS innecesario" },
+            { "name": "TypeScript", "desc": "Seguridad de tipos y control de errores en desarrollo" }
+          ]
+        },
+        {
+          "category": "Estilización",
+          "items": [
+            { "name": "Tailwind", "desc": "Gestión eficiente de clases utilitarias" }
+          ]
+        }
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Estrategia de Contenido",
+          "duration": "2 semanas",
+          "desc": "Recolección de las verticales jurídicas y creación del sitio basado en un mapa del sitio fuerte.",
+          "deliverables": [ "Estructura SEO", "Wireframes" ]
+        },
+        {
+          "step": 2,
+          "title": "Desarrollo",
+          "duration": "4 semanas",
+          "desc": "Implementación de todas las páginas de servicios con formularios enrutados.",
+          "deliverables": [ "Páginas publicadas", "Flujo de envíos (Leads) configurado" ]
+        }
+      ],
+      "features": [
+        "Contenido dividido por especialidad jurídica",
+        "Optimizaciones avanzadas para metas de búsqueda",
+        "Diseño sobrio y elegante"
+      ],
+      "gallery": []
+    },
+    {
+      "id": "sistema-inventario",
+      "tag": "Backend System",
+      "duration": "4 meses",
+      "teamSize": "5 desarrolladores",
+      "color": "cyan",
+      "name": "Sistema de Inventario Inteligente",
+      "desc": "Plataforma backend robusta con arquitectura modular, gestión de stock en tiempo real y APIs RESTful para integración empresarial.",
+      "heroImage": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2070",
+      "challenge": "La empresa manejaba más de 50,000 SKUs con múltiples bodegas distribuidas geográficamente. El sistema legacy presentaba inconsistencias en el stock, reportes lentos y falta de visibilidad en tiempo real de los movimientos de inventario.",
+      "solution": "Implementamos una arquitectura de microservicios con NestJS, utilizando PostgreSQL para datos transaccionales y Redis para caché de alta velocidad. Event-driven architecture para sincronización entre servicios y WebSockets para actualizaciones en tiempo real.",
+      "results": [
+        "Reducción del 95% en inconsistencias de inventario",
+        "Mejora de 10x en velocidad de consultas complejas",
+        "Tiempo de respuesta promedio < 100ms para operaciones críticas",
+        "Sincronización en tiempo real entre 12 bodegas",
+        "Escalabilidad probada hasta 100,000 transacciones/día"
+      ],
+      "stack": [
+        {
+          "category": "Backend Framework",
+          "items": [
+            {
+              "name": "NestJS",
+              "desc": "Framework principal con arquitectura modular y dependency injection"
+            },
+            {
+              "name": "TypeScript",
+              "desc": "Type safety y mejor developer experience"
+            },
+            {
+              "name": "Express",
+              "desc": "HTTP server subyacente"
+            }
+          ]
+        },
+        {
+          "category": "Base de Datos",
+          "items": [
+            {
+              "name": "PostgreSQL",
+              "desc": "Base de datos principal con soporte ACID"
+            },
+            {
+              "name": "TypeORM",
+              "desc": "ORM con migrations y query builder"
+            },
+            {
+              "name": "Redis",
+              "desc": "Caché distribuido y session store"
+            }
+          ]
+        }
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Discovery & Planning",
+          "duration": "2 semanas",
+          "desc": "Análisis profundo del sistema legacy, mapeo de procesos de negocio y definición de requerimientos técnicos y funcionales.",
+          "deliverables": [
+            "Documento de arquitectura técnica",
+            "Modelo de datos normalizado",
+            "API specification (OpenAPI 3.0)",
+            "Plan de migración de datos"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Core Development",
+          "duration": "8 semanas",
+          "desc": "Desarrollo de módulos core: autenticación, gestión de productos, movimientos de inventario, reportes y APIs públicas.",
+          "deliverables": [
+            "Módulos NestJS funcionales",
+            "Endpoints RESTful documentados",
+            "Sistema de permisos RBAC",
+            "Integration tests (>80% coverage)"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Real-time Features",
+          "duration": "3 semanas",
+          "desc": "Implementación de WebSockets para notificaciones en tiempo real, sistema de alertas automáticas y dashboard live con métricas.",
+          "deliverables": [
+            "WebSocket gateway configurado",
+            "Sistema de eventos pub/sub",
+            "Alertas automáticas de stock crítico",
+            "Dashboard de monitoreo en tiempo real"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Data Migration",
+          "duration": "2 semanas",
+          "desc": "Migración controlada de datos legacy con validación, ETL process y verificación de integridad referencial.",
+          "deliverables": [
+            "Scripts de migración automatizados",
+            "Data validation reports",
+            "Rollback procedures documentados",
+            "Migración exitosa de 50,000+ SKUs"
+          ]
+        }
+      ],
+      "features": [
+        "Gestión multi-bodega con sincronización automática",
+        "Sistema de alertas inteligentes por stock mínimo",
+        "Reportes avanzados con filtros dinámicos",
+        "API RESTful con documentación Swagger",
+        "Trazabilidad completa de movimientos",
+        "Roles y permisos granulares (RBAC)",
+        "Auditoría automática de todas las operaciones",
+        "Integración con sistemas ERP externos",
+        "Dashboard analytics en tiempo real",
+        "Exportación de datos a Excel/CSV/PDF"
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800"
+      ]
+    }
+  ]
+}
