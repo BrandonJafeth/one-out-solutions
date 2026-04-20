@@ -9,14 +9,18 @@ import { ImageAutoSlider } from '../../components/ui/ImageAutoSlider';
 export async function getStaticPaths() {
   return data.proyectos.map((proyecto) => ({
     params: { slug: proyecto.id },
-    props: { proyecto },
   }));
 }
 
-const { proyecto } = Astro.props;
+const { slug } = Astro.params;
+const proyecto = data.proyectos.find((item) => item.id === slug);
+
+if (!proyecto) {
+  throw new Error(`Proyecto no encontrado: ${slug}`);
+}
 ---
 
-<Layout title={`${proyecto.name} | One Out Solutions`} description={proyecto.desc}>
+<Layout title={`${proyecto.name} | One Out Solutions`} description={proyecto.resumen}>
   <Navbar />
 
   <main class="bg-black text-white selection:bg-orange selection:text-white pt-24">
@@ -51,7 +55,7 @@ const { proyecto } = Astro.props;
       </h1>
 
       <p class="text-xl md:text-2xl text-silver font-light max-w-3xl leading-relaxed">
-        {proyecto.desc}
+        {proyecto.resumen}
       </p>
     </header>
 
@@ -78,7 +82,7 @@ const { proyecto } = Astro.props;
       <section class="scroll-anim opacity-0 translate-y-8">
         <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-white tracking-[-0.05em]">Resumen del Proyecto</h2>
         <p class="text-lg md:text-xl text-silver mb-16 max-w-4xl leading-relaxed">
-          Sistema empresarial de gestión de inventario diseñado para manejar operaciones de alta demanda con precisión en tiempo real. La arquitectura modular permite escalabilidad horizontal y vertical según las necesidades del negocio.
+          {proyecto.resumen}
         </p>
 
         <div class="grid md:grid-cols-2 gap-12 md:gap-20">
@@ -102,7 +106,7 @@ const { proyecto } = Astro.props;
         <h2 class="font-display text-4xl md:text-5xl font-bold mb-10 text-white tracking-[-0.05em]">Resultados Obtenidos</h2>
         <div class="grid md:grid-cols-2 gap-6">
           {proyecto.results.map((res: string) => (
-            <div class="bg-black border border-[#d6ebfd]/19 p-6 rounded-xl flex items-start gap-4">
+            <div class="bg-black border border-[#d6ebfd]/19 p-6 rounded-xl flex items-start gap-4 hover:border-orange transition-colors">
               <svg class="text-orange shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
               <p class="text-[#f0f0f0] md:text-lg">{res}</p>
             </div>
@@ -119,7 +123,7 @@ const { proyecto } = Astro.props;
               <h3 class="text-xl font-bold text-orange mb-6 tracking-tight">{category.category}</h3>
               <div class="grid md:grid-cols-2 gap-6">
                 {category.items.map((item: any) => (
-                  <div class="bg-black border border-[#d6ebfd]/19 p-6 md:p-8 rounded-xl transition-colors hover:border-[#3b9eff]">
+                  <div class="bg-black border border-[#d6ebfd]/19 p-6 md:p-8 rounded-xl transition-colors hover:border-orange">
                     <h4 class="font-display font-bold text-xl md:text-2xl mb-2 text-[#f0f0f0]">{item.name}</h4>
                     <p class="text-silver">{item.desc}</p>
                   </div>
