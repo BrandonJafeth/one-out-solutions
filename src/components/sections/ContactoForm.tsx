@@ -82,7 +82,7 @@ export default function ContactoForm() {
 
   const {
     register,
-    handleSubmit,fea
+    handleSubmit,
     formState: { errors },
     reset
   } = useForm<ContactFormData>({
