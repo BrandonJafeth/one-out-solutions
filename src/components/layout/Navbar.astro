@@ -2,34 +2,36 @@
 import NavbarMobile from './NavbarMobile';
 ---
 
-<header class="fixed top-0 inset-x-0 z-50 bg-black border-b border-[rgba(214,235,253,0.19)] transition-all duration-300">
-  <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
+<header class="fixed top-0 inset-x-0 z-50 bg-black border-b border-white/5 transition-all duration-300">
+  <div class="max-w-350 mx-auto px-6 h-20 flex items-center justify-between">
     
-    <a href="#" class="font-display font-bold text-xl tracking-tight text-[#f0f0f0] flex items-center gap-2 group">
-      ONE OUT <span class="text-[#a1a4a5] group-hover:text-[#f0f0f0] transition-colors duration-500">SOLUTIONS.</span>
+    <a href="/#" class="font-display font-bold text-xl tracking-tighter text-white flex items-center gap-2 group">
+      ONE OUT <span class="text-silver group-hover:text-orange transition-colors duration-500">SOLUTIONS.</span>
     </a>
 
     <!-- Desktop Nav -->
     <nav class="hidden md:flex items-center gap-12">
       <div class="flex items-center gap-8">
         {[
-          { name: 'Nosotros', href: '#nosotros' },
-          { name: 'Servicios', href: '#servicios' },
-          { name: 'Proceso', href: '#proceso' },
-          { name: 'Proyectos', href: '#proyectos' },
+          { name: 'Nosotros', href: '/#nosotros' },
+          { name: 'Servicios', href: '/#servicios' },
+          { name: 'Proceso', href: '/#proceso' },
+          { name: 'Proyectos', href: '/#proyectos' },
         ].map((link) => (
           <a 
             href={link.href} 
-            class="font-sans text-[14px] font-medium tracking-[0.35px] text-[#a1a4a5] hover:text-[#f0f0f0] transition-colors duration-300"
-            style="font-feature-settings: 'ss01', 'ss03', 'ss04'"
+            class="font-display text-sm font-bold tracking-widest uppercase text-white/60 hover:text-orange hover:scale-105 transition-all duration-300"
           >
             {link.name}
           </a>
         ))}
       </div>
       
-      <a href="#contacto" class="bg-white text-black text-[14px] font-medium tracking-[0.35px] py-[5px] px-[12px] rounded-full hover:bg-neutral-200 transition-colors duration-300" style="font-feature-settings: 'ss01', 'ss03', 'ss04'">
-        Iniciar Crecimiento
+      <a 
+        href="/#contacto" 
+        class="bg-orange text-white font-display font-bold tracking-widest uppercase text-xs px-6 py-3 rounded-full border border-orange hover:bg-black hover:text-orange transition-all duration-300"
+      >
+        Iniciar Cotización
       </a>
     </nav>
 

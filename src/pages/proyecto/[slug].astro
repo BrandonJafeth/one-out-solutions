@@ -4,6 +4,7 @@ import Navbar from '../../components/layout/Navbar.astro';
 import Footer from '../../components/layout/Footer.astro';
 import Badge from '../../components/common/Badge.astro';
 import data from '../../data/proyectos.json';
+import { ImageAutoSlider } from '../../components/ui/ImageAutoSlider';
 
 export async function getStaticPaths() {
   return data.proyectos.map((proyecto) => ({
@@ -23,15 +24,15 @@ const { proyecto } = Astro.props;
     <header class="max-w-7xl mx-auto px-6 pt-8 md:pt-16 pb-12 relative z-10">
       
       <div class="mb-12">
-        <a href="/#proyectos" class="inline-flex items-center gap-2 text-white/60 hover:text-white hover:text-cyan transition-colors duration-300 font-display text-sm tracking-widest uppercase mb-8">
+        <a href="/#proyectos" class="inline-flex items-center gap-2 text-silver hover:text-white hover:text-orange transition-colors duration-300 font-display text-sm tracking-widest uppercase mb-8">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
           Volver a Proyectos
         </a>
       </div>
 
-      <div class="flex flex-wrap items-center gap-4 md:gap-6 mb-8 text-sm md:text-base font-display text-white/70">
-        <Badge className="border-cyan/30 text-cyan bg-cyan/10">
-          <span class="bg-cyan! before:bg-cyan!">{proyecto.tag}</span>
+      <div class="flex flex-wrap items-center gap-4 md:gap-6 mb-8 text-sm md:text-base font-display text-silver">
+        <Badge className="border-orange/20 text-orange bg-orange/10">
+          {proyecto.tag}
         </Badge>
         
         <div class="flex items-center gap-2">
@@ -49,21 +50,21 @@ const { proyecto } = Astro.props;
         {proyecto.name}
       </h1>
 
-      <p class="text-xl md:text-2xl text-white/70 font-light max-w-3xl leading-relaxed">
+      <p class="text-xl md:text-2xl text-silver font-light max-w-3xl leading-relaxed">
         {proyecto.desc}
       </p>
     </header>
 
     <!-- Hero Image -->
     <section class="max-w-7xl mx-auto px-6 mb-24 md:mb-40 project-hero-img opacity-0">
-      <div class="relative rounded-2xl md:rounded-4xl overflow-hidden border border-white/5 bg-surface">
+      <div class="relative rounded-2xl md:rounded-4xl overflow-hidden border border-[#d6ebfd]/19 bg-black shadow-[0_0_0_1px_rgba(176,199,217,0.145)]">
         <img 
           src={proyecto.heroImage} 
           alt={proyecto.name} 
           class="w-full h-auto object-cover object-center max-h-[80vh]" 
           loading="eager"
         />
-        <div class="absolute inset-0 bg-linear-to-t from-black/60 to-transparent pointer-events-none"></div>
+        <div class="absolute inset-0 bg-transparent pointer-events-none"></div>
       </div>
     </section>
 
@@ -72,21 +73,21 @@ const { proyecto } = Astro.props;
 
       <!-- Resumen: Desafío vs Solución -->
       <section class="scroll-anim opacity-0 translate-y-8">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-cyan">Resumen del Proyecto</h2>
-        <p class="text-lg md:text-xl text-white/70 mb-16 max-w-4xl leading-relaxed">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-white tracking-[-0.05em]">Resumen del Proyecto</h2>
+        <p class="text-lg md:text-xl text-silver mb-16 max-w-4xl leading-relaxed">
           Sistema empresarial de gestión de inventario diseñado para manejar operaciones de alta demanda con precisión en tiempo real. La arquitectura modular permite escalabilidad horizontal y vertical según las necesidades del negocio.
         </p>
 
         <div class="grid md:grid-cols-2 gap-12 md:gap-20">
           <div>
-            <h3 class="font-display text-3xl font-bold mb-6 text-cyan">El Desafío</h3>
-            <p class="text-white/70 text-lg leading-relaxed">
+            <h3 class="font-display text-3xl font-bold mb-6 text-orange tracking-[-0.05em]">El Desafío</h3>
+            <p class="text-silver text-lg leading-relaxed">
               {proyecto.challenge}
             </p>
           </div>
           <div>
-            <h3 class="font-display text-3xl font-bold mb-6 text-cyan">La Solución</h3>
-            <p class="text-white/70 text-lg leading-relaxed">
+            <h3 class="font-display text-3xl font-bold mb-6 text-orange tracking-[-0.05em]">La Solución</h3>
+            <p class="text-silver text-lg leading-relaxed">
               {proyecto.solution}
             </p>
           </div>
@@ -95,12 +96,12 @@ const { proyecto } = Astro.props;
 
       <!-- Resultados -->
       <section class="scroll-anim opacity-0 translate-y-8">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-10 text-cyan">Resultados Obtenidos</h2>
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-10 text-white tracking-[-0.05em]">Resultados Obtenidos</h2>
         <div class="grid md:grid-cols-2 gap-6">
           {proyecto.results.map((res: string) => (
-            <div class="bg-surface/50 border border-white/5 p-6 rounded-xl flex items-start gap-4">
-              <svg class="text-cyan shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-              <p class="text-white/80 md:text-lg">{res}</p>
+            <div class="bg-black border border-[#d6ebfd]/19 p-6 rounded-xl flex items-start gap-4">
+              <svg class="text-orange shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              <p class="text-[#f0f0f0] md:text-lg">{res}</p>
             </div>
           ))}
         </div>
@@ -108,16 +109,16 @@ const { proyecto } = Astro.props;
 
       <!-- Stack -->
       <section class="scroll-anim opacity-0 translate-y-8">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-12 text-cyan">Stack Tecnológico</h2>
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-12 text-white tracking-[-0.05em]">Stack Tecnológico</h2>
         <div class="flex flex-col gap-12">
           {proyecto.stack.map((category: any) => (
             <div>
-              <h3 class="text-xl font-bold text-cyan mb-6">{category.category}</h3>
+              <h3 class="text-xl font-bold text-orange mb-6 tracking-tight">{category.category}</h3>
               <div class="grid md:grid-cols-2 gap-6">
                 {category.items.map((item: any) => (
-                  <div class="bg-[#0f0f0f] border border-white/5 p-6 md:p-8 rounded-xl hover:border-cyan/30 transition-colors">
-                    <h4 class="font-display font-bold text-xl md:text-2xl mb-2 text-white">{item.name}</h4>
-                    <p class="text-white/60">{item.desc}</p>
+                  <div class="bg-black border border-[#d6ebfd]/19 p-6 md:p-8 rounded-xl transition-colors hover:border-[#3b9eff]">
+                    <h4 class="font-display font-bold text-xl md:text-2xl mb-2 text-[#f0f0f0]">{item.name}</h4>
+                    <p class="text-silver">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -129,36 +130,36 @@ const { proyecto } = Astro.props;
       <!-- Proceso -->
       <section class="scroll-anim opacity-0 translate-y-8">
         <div class="flex items-center gap-4 mb-12">
-          <svg class="text-cyan" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="m17 5-5-3-5 3"></path><path d="m19 19-7 3-7-3"></path><path d="M22 12h-4"></path><path d="M6 12H2"></path></svg>
-          <h2 class="font-display text-4xl md:text-5xl font-bold text-cyan">Proceso de Desarrollo</h2>
+          <svg class="text-orange" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="m17 5-5-3-5 3"></path><path d="m19 19-7 3-7-3"></path><path d="M22 12h-4"></path><path d="M6 12H2"></path></svg>
+          <h2 class="font-display text-4xl md:text-5xl font-bold text-white tracking-[-0.05em]">Proceso de Desarrollo</h2>
         </div>
 
-        <div class="relative ml-4 md:ml-8 border-l border-white/10 flex flex-col gap-16 pb-8">
+        <div class="relative ml-4 md:ml-8 border-l border-[#d6ebfd]/19 flex flex-col gap-16 pb-8">
           {proyecto.process.map((step: any, index: number) => (
             <div class="relative pl-10 md:pl-16">
               <!-- Timeline Dot -->
-              <span class="absolute -left-1.25 top-2 w-2.25 h-2.25 rounded-full bg-cyan shadow-[0_0_10px_2px_rgba(36,186,239,0.5)]"></span>
+              <span class="absolute -left-1.25 top-2 w-2.25 h-2.25 rounded-full bg-orange shadow-[0_0_10px_2px_rgba(255,128,31,0.5)]"></span>
               
               <div class="flex flex-wrap items-center gap-4 mb-4">
                 <h3 class="font-display font-bold text-2xl md:text-3xl text-white">
                   {step.step}. {step.title}
                 </h3>
-                <span class="px-4 py-1 text-xs font-bold tracking-widest uppercase border border-cyan/20 text-cyan rounded-full bg-cyan/5">
+                <span class="px-4 py-1 text-xs font-bold tracking-widest uppercase border border-orange/20 text-orange rounded-full bg-orange/5">
                   {step.duration}
                 </span>
               </div>
               
-              <p class="text-white/70 text-lg mb-6 leading-relaxed max-w-3xl">
+              <p class="text-silver text-lg mb-6 leading-relaxed max-w-3xl">
                 {step.desc}
               </p>
 
               <div>
-                <h4 class="text-white/40 uppercase tracking-widest text-sm font-bold mb-4">Entregables:</h4>
+                <h4 class="text-silver/60 uppercase tracking-widest text-sm font-bold mb-4">Entregables:</h4>
                 <ul class="grid md:grid-cols-2 gap-4">
                   {step.deliverables.map((item: string) => (
                     <li class="flex items-start gap-3">
-                      <span class="text-cyan text-xl leading-none mt-1">&bull;</span>
-                      <span class="text-white/80">{item}</span>
+                      <span class="text-orange text-xl leading-none mt-1">&bull;</span>
+                      <span class="text-[#f0f0f0]">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -170,11 +171,11 @@ const { proyecto } = Astro.props;
 
       <!-- Características -->
       <section class="scroll-anim opacity-0 translate-y-8">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-10 text-cyan">Características Principales</h2>
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-10 text-white tracking-[-0.05em]">Características Principales</h2>
         <div class="grid md:grid-cols-2 gap-4">
           {proyecto.features.map((feature: string) => (
-            <div class="bg-[#0b0b0b] border border-white/5 py-4 px-6 rounded-lg text-white/80 hover:bg-surface transition-colors flex items-start gap-3">
-              <span class="text-cyan/50">—</span>
+            <div class="bg-black border border-[#d6ebfd]/19 py-4 px-6 rounded-lg text-[#f0f0f0] hover:bg-black hover:border-orange/50 transition-colors flex items-start gap-3">
+              <span class="text-orange/50">—</span>
               {feature}
             </div>
           ))}
@@ -185,35 +186,17 @@ const { proyecto } = Astro.props;
       {(!proyecto.gallery || proyecto.gallery.length === 0) && (
         <section class="scroll-anim opacity-0 translate-y-8">
           <h2 class="font-display text-4xl md:text-5xl font-bold mb-10 text-cyan">Galería</h2>
-          <div class="grid md:grid-cols-3 gap-6 mb-16">
-            <div class="rounded-xl overflow-hidden aspect-4/3 border border-white/5 bg-surface group">
-              <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=800" alt="Galería del proyecto" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
-            </div>
-            <div class="rounded-xl overflow-hidden aspect-4/3 border border-white/5 bg-surface group">
-              <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=800" alt="Galería del proyecto" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
-            </div>
-            <div class="rounded-xl overflow-hidden aspect-4/3 border border-white/5 bg-surface group">
-              <img src="https://images.unsplash.com/photo-1493804714600-6edb1cd93080?auto=format&fit=crop&q=80&w=800" alt="Galería del proyecto" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
-            </div>
-          </div>
+          <ImageAutoSlider client:visible images={proyecto.gallery} />
         </section>
       )}
 
       <!-- Galería si existe -->
       {proyecto.gallery && proyecto.gallery.length > 0 && (
-        <section class="scroll-anim opacity-0 translate-y-8">
-          <h2 class="font-display text-4xl md:text-5xl font-bold mb-10 text-cyan">Galería</h2>
-          <div class="grid md:grid-cols-3 gap-6 mb-16">
-            {proyecto.gallery.map((img: string) => (
-              <div class="rounded-xl overflow-hidden aspect-4/3 border border-white/5 bg-surface group">
-                <img 
-                  src={img} 
-                  alt="Galería del proyecto" 
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-              </div>
-            ))}
+        <section class="scroll-anim opacity-0 translate-y-8 overflow-hidden w-[100vw] relative left-1/2 -translate-x-1/2">
+          <div class="max-w-6xl mx-auto px-6 mb-10">
+            <h2 class="font-display text-4xl md:text-5xl font-bold text-white tracking-[-0.05em]">Galería</h2>
           </div>
+          <ImageAutoSlider client:visible images={proyecto.gallery} />
         </section>
       )}
     </div>
