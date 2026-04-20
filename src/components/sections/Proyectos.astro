@@ -66,9 +66,12 @@ const colorMap: Record<string, any> = {
                 src={imgUrl}
                 alt={`Vista previa del proyecto ${p.name}`}
                 loading="lazy"
-                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                width="600"
+                height="338"
+                decoding="async"
+                class="h-full w-full object-cover transition-opacity duration-700 ease-out group-hover:opacity-80"
               />
-              <div class="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent" />
+              <div class="absolute inset-0 bg-transparent pointer-events-none" />
             </div>
 
             <div class="relative z-10 p-4 md:p-5 flex flex-col gap-3">

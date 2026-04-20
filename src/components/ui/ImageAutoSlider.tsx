@@ -55,9 +55,10 @@ export const ImageAutoSlider = ({ images = [], className }: ImageAutoSliderProps
               >
                 <img
                   src={image}
-                  alt={`Project gallery ${index + 1}`}
+                  alt={`Captura ${index + 1} del proyecto en portafolio`}
                   className="w-full h-full object-cover transition-opacity duration-500 ease-out group-hover:opacity-80"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
             ))}
