@@ -155,7 +155,7 @@ export default function ContactoForm() {
             <h3 className="font-display font-bold text-white tracking-[0.2em] text-xs uppercase">ELIGE EL OBJETIVO PARA TU NEGOCIO</h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5 mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5 mx-auto relative z-20">
             {projectTypes.map(pt => {
               const Icon = pt.icon;
               const isSelected = selectedProjectType === pt.id;
@@ -163,10 +163,14 @@ export default function ContactoForm() {
               return (
                 <button
                   key={pt.id}
-                  onClick={() => setSelectedProjectType(pt.id)}
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setSelectedProjectType(pt.id);
+                  }}
                   className={twMerge(
-                    "relative text-left p-8 sm:p-12 bg-black transition-colors duration-500 group outline-none min-h-62.5 flex flex-col justify-end",
-                    isSelected ? "bg-white/3" : "hover:bg-white/1"
+                    "cursor-pointer relative text-left p-8 sm:p-12 bg-black transition-colors duration-500 group outline-none min-h-62.5 flex flex-col justify-end border border-transparent z-10",
+                    isSelected ? "bg-white/5 border-orange/50 shadow-[0_0_20px_rgba(219,105,35,0.1)]" : "hover:bg-white/2 hover:border-white/10"
                   )}
                 >
                   <div className={twMerge("mb-12 transition-transform duration-500 will-change-transform", isSelected ? "text-orange scale-110" : "text-silver/40 group-hover:text-white")}>
@@ -176,21 +180,23 @@ export default function ContactoForm() {
                   <p className="text-silver text-base font-light transition-colors duration-500">{pt.desc}</p>
                   
                   {isSelected && (
-                    <div className="absolute top-8 right-8 w-2 h-2 bg-orange rounded-full shadow-[0_0_15px_rgba(219,105,35,0.8)]"></div>
+                    <div className="absolute top-8 right-8 w-2.5 h-2.5 bg-orange rounded-full shadow-[0_0_15px_rgba(219,105,35,0.8)]"></div>
                   )}
                 </button>
               )
             })}
           </div>
 
-          <div className="mt-16 flex justify-end">
+          <div className="mt-16 flex justify-end relative z-20">
              <button
+                type="button"
                 disabled={!selectedProjectType}
-                onClick={() => {
+                onClick={(e) => {
+                  e.preventDefault();
                   setSelectedInvestments([]);
                   setStep(2);
                 }}
-                className="pill-cta pill-cta-primary px-16 py-5 font-bold text-base tracking-widest disabled:opacity-30 disabled:grayscale transition-all"
+                className="cursor-pointer pill-cta pill-cta-primary px-16 py-5 font-bold text-base tracking-widest disabled:opacity-30 disabled:cursor-not-allowed transition-all border border-orange/50 hover:bg-orange/20"
               >
                 CONTINUAR →
               </button>
@@ -206,17 +212,21 @@ export default function ContactoForm() {
             <h3 className="font-display font-bold text-white tracking-[0.2em] text-xs uppercase">ESCALA DE INVERSIÓN ESTRATÉGICA</h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/5 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/5 mb-16 relative z-20">
             {selectedProjectType && investmentOptionsData[selectedProjectType]?.map(c => {
               const isSelected = selectedInvestments.includes(c.id);
 
               return (
                 <button
                   key={c.id}
-                  onClick={() => toggleInvestment(c.id)}
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    toggleInvestment(c.id);
+                  }}
                   className={twMerge(
-                    "w-full flex flex-col md:flex-row items-start md:items-center justify-between p-8 md:p-16 gap-6 md:gap-0 bg-black transition-colors duration-500 group outline-none",
-                    isSelected ? "bg-white/3" : "hover:bg-white/1"
+                    "cursor-pointer w-full flex flex-col md:flex-row items-start md:items-center justify-between p-8 md:p-16 gap-6 md:gap-0 bg-black transition-colors duration-500 group outline-none z-10 border border-transparent",
+                    isSelected ? "bg-white/5 border-orange/50 shadow-[0_0_20px_rgba(219,105,35,0.1)]" : "hover:bg-white/2 hover:border-white/10"
                   )}
                 >
                   <div className="flex items-start md:items-center gap-6 md:gap-10">
@@ -242,10 +252,14 @@ export default function ContactoForm() {
           </div>
 
           <div className="pt-20 border-t border-white/5">
-            <div className="flex flex-col md:flex-row md:items-center justify-between mb-16 gap-12">
+            <div className="flex flex-col md:flex-row md:items-center justify-between mb-16 gap-12 relative z-20">
               <button
-                onClick={() => setStep(1)}
-                className="text-silver/60 hover:text-white font-bold tracking-widest text-sm uppercase transition-colors"
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setStep(1);
+                }}
+                className="cursor-pointer text-silver/60 hover:text-white font-bold tracking-widest text-sm uppercase transition-colors"
               >
                 ← VOLVER A TIPO DE PROYECTO
               </button>
@@ -259,21 +273,27 @@ export default function ContactoForm() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 relative z-20">
               <button
+                type="button"
                 disabled={selectedInvestments.length === 0}
-                onClick={() => setStep(3)}
-                className="flex-1 pill-cta pill-cta-primary py-3.5 md:py-4 font-bold text-xs md:text-sm tracking-[0.15em] uppercase order-1 sm:order-2"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setStep(3);
+                }}
+                className="cursor-pointer flex-1 pill-cta pill-cta-primary py-3.5 md:py-4 font-bold text-xs md:text-sm tracking-[0.15em] uppercase order-1 sm:order-2 disabled:opacity-30 disabled:cursor-not-allowed"
               >
                 FORMALIZAR ESTRATEGIA
               </button>
               <button
-                onClick={() => {
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
                   setStep(1);
                   setSelectedInvestments([]);
                   setSelectedProjectType(null);
                 }}
-                className="pill-cta pill-cta-secondary px-8 md:px-12 py-3.5 md:py-4 font-bold text-xs tracking-[0.2em] uppercase order-2 sm:order-1"
+                className="cursor-pointer pill-cta pill-cta-secondary px-8 md:px-12 py-3.5 md:py-4 font-bold text-xs tracking-[0.2em] uppercase order-2 sm:order-1"
               >
                 REINICIAR
               </button>
