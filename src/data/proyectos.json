@@ -110,15 +110,15 @@
   "color": "blue",
   "name": "Roca Business",
   "desc": "Plataforma donde los usuarios pueden ver propiedades, mientras la empresa gestiona toda la información desde un sistema interno.",
-  "resumen": "Se creó una plataforma donde la empresa puede llevar el control de sus consultorías, generar reportes automáticamente y permitir que sus clientes vean su progreso de forma clara y ordenada.",
+  "resumen": "Se creó una plataforma donde la empresa puede organizar y gestionar sus propiedades, y permitir que sus clientes vean la información de forma clara y ordenada.",
   "heroImage": "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776532688/btczko7jzpu7y2p4jeff.png",
-  "challenge": "La empresa manejaba toda su información en diferentes redes sociales y procesos manuales, lo que hacía difícil organizar los datos, generar reportes y dar seguimiento claro a cada cliente. Necesitaban una forma más ordenada, rápida y profesional de trabajar.",
-  "solution": "Se desarrolló un sistema web donde toda la información se centraliza en un solo lugar. Cada usuario puede iniciar sesión de forma segura y ver únicamente la información que le corresponde. Además, el sistema genera reportes automáticamente y muestra el progreso de cada consultoría de manera clara.",
+  "challenge": "La empresa manejaba toda su información en diferentes redes sociales y procesos manuales, lo que hacía difícil organizar los datos y dar seguimiento claro a cada propiedad y cliente. Necesitaban una forma más ordenada, rápida y profesional de trabajar.",
+  "solution": "Se desarrolló un sistema web donde toda la información se centraliza en un solo lugar. Cada usuario puede iniciar sesión de forma segura y ver únicamente la información que le corresponde. Además, el sistema permite gestionar propiedades y mostrar su información de manera clara.",
   "results": [
     "Toda la información ahora está organizada en una sola plataforma",
-    "Los reportes se generan automáticamente, ahorrando tiempo",
+    "Gestión más sencilla y ordenada de las propiedades",
     "Se redujo significativamente el trabajo manual semanal",
-    "Los clientes pueden ver su progreso de forma clara y en tiempo real"
+    "Los clientes pueden ver la información de forma clara y en tiempo real"
   ],
   "stack": [
     {
