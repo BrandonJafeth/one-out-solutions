@@ -1,3 +1,8 @@
+---
+name: animations
+description: Standard GSAP setups, scroll animation, and staggered reveal flows.
+---
+
 # SKILL: Animations with GSAP
 
 ## Setup
