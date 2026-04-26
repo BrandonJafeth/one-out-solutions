@@ -1,3 +1,8 @@
+---
+name: astro
+description: Astro framework specifics, component guidelines, and performance tips
+---
+
 # SKILL: Astro Framework
 
 ## When to Use

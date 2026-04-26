@@ -6,21 +6,53 @@ import Badge from '../../components/common/Badge.astro';
 import data from '../../data/proyectos.json';
 import { ImageAutoSlider } from '../../components/ui/ImageAutoSlider';
 
+interface StackItem {
+  name: string;
+  desc: string;
+}
+
+interface StackCategory {
+  category: string;
+  items: StackItem[];
+}
+
+interface ProcessStep {
+  step: number;
+  title: string;
+  duration: string;
+  desc: string;
+  deliverables: string[];
+}
+
+interface Proyecto {
+  id: string;
+  tag: string;
+  duration: string;
+  teamSize: string;
+  color: string;
+  name: string;
+  desc: string;
+  heroImage: string;
+  challenge: string;
+  solution: string;
+  results: string[];
+  stack: StackCategory[];
+  process: ProcessStep[];
+  features: string[];
+  gallery: string[];
+}
+
 export async function getStaticPaths() {
   return data.proyectos.map((proyecto) => ({
     params: { slug: proyecto.id },
+    props: { proyecto },
   }));
 }
 
-const { slug } = Astro.params;
-const proyecto = data.proyectos.find((item) => item.id === slug);
-
-if (!proyecto) {
-  throw new Error(`Proyecto no encontrado: ${slug}`);
-}
+const { proyecto } = Astro.props as { proyecto: Proyecto };
 ---
 
-<Layout title={`${proyecto.name} | One Out Solutions`} description={proyecto.resumen}>
+<Layout title={`${proyecto.name} | One Out Solutions`} description={proyecto.desc}>
   <Navbar />
 
   <main class="bg-black text-white selection:bg-orange selection:text-white pt-24">
@@ -28,7 +60,7 @@ if (!proyecto) {
     <header class="max-w-7xl mx-auto px-6 pt-8 md:pt-16 pb-12 relative z-10">
       
       <div class="mb-12">
-        <a href="/#proyectos" class="inline-flex items-center gap-2 text-silver hover:text-white hover:text-orange transition-colors duration-300 font-display text-sm tracking-widest uppercase mb-8">
+        <a href="/#proyectos" class="inline-flex items-center gap-2 text-silver hover:text-orange transition-colors duration-300 font-display text-sm tracking-widest uppercase mb-8">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
           Volver a Proyectos
         </a>
@@ -82,7 +114,7 @@ if (!proyecto) {
       <section class="scroll-anim opacity-0 translate-y-8">
         <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-white tracking-[-0.05em]">Resumen del Proyecto</h2>
         <p class="text-lg md:text-xl text-silver mb-16 max-w-4xl leading-relaxed">
-          {proyecto.resumen}
+          {proyecto.desc}
         </p>
 
         <div class="grid md:grid-cols-2 gap-12 md:gap-20">
@@ -118,12 +150,12 @@ if (!proyecto) {
       <section class="scroll-anim opacity-0 translate-y-8">
         <h2 class="font-display text-4xl md:text-5xl font-bold mb-12 text-white tracking-[-0.05em]">Stack Tecnológico</h2>
         <div class="flex flex-col gap-12">
-          {proyecto.stack.map((category: any) => (
+          {proyecto.stack.map((category: StackCategory) => (
             <div>
               <h3 class="text-xl font-bold text-orange mb-6 tracking-tight">{category.category}</h3>
               <div class="grid md:grid-cols-2 gap-6">
-                {category.items.map((item: any) => (
-                  <div class="bg-black border border-[#d6ebfd]/19 p-6 md:p-8 rounded-xl transition-colors hover:border-orange">
+                {category.items.map((item: StackItem) => (
+                  <div class="bg-black border border-[#d6ebfd]/19 p-6 md:p-8 rounded-xl transition-colors hover:border-[#3b9eff]">
                     <h4 class="font-display font-bold text-xl md:text-2xl mb-2 text-[#f0f0f0]">{item.name}</h4>
                     <p class="text-silver">{item.desc}</p>
                   </div>
@@ -142,7 +174,7 @@ if (!proyecto) {
         </div>
 
         <div class="relative ml-4 md:ml-8 border-l border-[#d6ebfd]/19 flex flex-col gap-16 pb-8">
-          {proyecto.process.map((step: any, index: number) => (
+          {proyecto.process.map((step: ProcessStep) => (
             <div class="relative pl-10 md:pl-16">
               <!-- Timeline Dot -->
               <span class="absolute -left-1.25 top-2 w-2.25 h-2.25 rounded-full bg-orange shadow-[0_0_10px_2px_rgba(255,128,31,0.5)]"></span>
@@ -189,17 +221,9 @@ if (!proyecto) {
         </div>
       </section>
 
-      <!-- Galería -->
-      {(!proyecto.gallery || proyecto.gallery.length === 0) && (
-        <section class="scroll-anim opacity-0 translate-y-8">
-          <h2 class="font-display text-4xl md:text-5xl font-bold mb-10 text-cyan">Galería</h2>
-          <ImageAutoSlider client:visible images={proyecto.gallery} />
-        </section>
-      )}
-
       <!-- Galería si existe -->
       {proyecto.gallery && proyecto.gallery.length > 0 && (
-        <section class="scroll-anim opacity-0 translate-y-8 overflow-hidden w-[100vw] relative left-1/2 -translate-x-1/2">
+        <section class="scroll-anim opacity-0 translate-y-8 overflow-hidden w-screen relative left-1/2 -translate-x-1/2">
           <div class="max-w-6xl mx-auto px-6 mb-10">
             <h2 class="font-display text-4xl md:text-5xl font-bold text-white tracking-[-0.05em]">Galería</h2>
           </div>

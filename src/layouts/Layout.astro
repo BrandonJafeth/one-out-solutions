@@ -1,7 +1,6 @@
 ---
 import { ClientRouter } from 'astro:transitions';
-// @ts-ignore
-import '@fontsource-variable/inter'; // or whatever font you are actually using
+import '@fontsource-variable/outfit';
 import '../styles/global.css';
 
 interface Props {
@@ -32,12 +31,13 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url} />
+    <meta property="og:url" content={Astro.url.toString()} />
     <meta property="og:site_name" content="One Out Solutions" />
+    <meta property="og:image" content={new URL('/og-image.png', Astro.site ?? 'https://oneoutsolutions.com').toString()} />
     
     <ClientRouter />
     
-    <script type="application/ld+json">
+    <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
         "@type": "Organization",
@@ -82,15 +82,20 @@ const {
 
       gsap.registerPlugin(ScrollTrigger);
 
-      // Optimización GSAP: Evitar recalculos innecesarios por barras de URL en móviles
-      ScrollTrigger.config({
-        ignoreMobileResize: true,
+      ScrollTrigger.config({ ignoreMobileResize: true });
+
+      let lenis: InstanceType<typeof Lenis> | null = null;
+
+      document.addEventListener('astro:before-preparation', () => {
+        if (lenis) {
+          lenis.destroy();
+          lenis = null;
+        }
+        ScrollTrigger.getAll().forEach((t) => t.kill());
       });
 
-      // Define a custom setup on Astro page transitions
       document.addEventListener('astro:page-load', () => {
-        // Inicializar Smooth Scroll con Lenis
-        const lenis = new Lenis({
+        lenis = new Lenis({
           duration: 1.2,
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
           orientation: 'vertical',
@@ -100,10 +105,8 @@ const {
           touchMultiplier: 2,
         });
 
-        // Sincronizar Lenis con GSAP ScrollTrigger
         lenis.on('scroll', ScrollTrigger.update);
 
-        // Botón Volver Arriba logic
         const scrollToTopBtn = document.getElementById('scrollToTopBtn');
         if (scrollToTopBtn) {
           lenis.on('scroll', () => {
@@ -118,12 +121,12 @@ const {
           });
 
           scrollToTopBtn.addEventListener('click', () => {
-            lenis.scrollTo(0, { duration: 1.5, easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+            lenis!.scrollTo(0, { duration: 1.5, easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
           });
         }
 
         gsap.ticker.add((time) => {
-          lenis.raf(time * 1000);
+          lenis!.raf(time * 1000);
         });
 
         gsap.ticker.lagSmoothing(0);

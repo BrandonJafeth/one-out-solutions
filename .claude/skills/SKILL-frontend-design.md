@@ -1,3 +1,8 @@
+---
+name: frontend-design
+description: Design system guidelines, color palette, and general styling
+---
+
 # SKILL: Frontend Design
 
 ## Paleta (CSS Variables)

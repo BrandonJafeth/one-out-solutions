@@ -4,7 +4,13 @@ import proyectosData from "../../data/proyectos.json";
 
 const proyectos = proyectosData.proyectos;
 
-const colorMap: Record<string, any> = {
+interface ColorStyle {
+  bg: string;
+  border: string;
+  text: string;
+}
+
+const colorMap: Record<string, ColorStyle> = {
   orange: {
     bg: "bg-[#ff801f]/10",
     border: "border-[#ff801f]/20",
@@ -46,14 +52,14 @@ const colorMap: Record<string, any> = {
     </div>
 
     <div
-      class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch max-w-5xl mx-auto wrap-planes"
+      class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch max-w-5xl mx-auto wrap-proyectos"
     >
       {
         proyectos.map((p) => {
           const colorKey = p.color || "cyan";
           const pColor = colorMap[colorKey] || colorMap["cyan"];
-          const imgUrl = "image" in p ? (p as any).image : p.heroImage;
-
+          const imgUrl = p.heroImage;
+          
           return (
             <a
               href={`/proyecto/${p.id}`}

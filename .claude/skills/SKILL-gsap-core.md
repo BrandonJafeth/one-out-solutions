@@ -1,3 +1,8 @@
+---
+name: gsap-core
+description: Core GSAP animation methods, properties, and best practices.
+---
+
 # SKILL: GSAP Core
 
 ## When to Use

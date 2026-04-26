@@ -30,108 +30,48 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 document.addEventListener('astro:page-load', () => {
-  gsap.registerPlugin(ScrollTrigger);
-
-  // 1. Hero Animations - Handled inside Hero component for immediate feel
-  
-  // 2. Nosotros Reveal
-  gsap.fromTo('.nosotros-reveal', 
+  // Nosotros Reveal
+  gsap.fromTo('.nosotros-reveal',
     { y: 60, autoAlpha: 0 },
     {
-      scrollTrigger: {
-        trigger: '#nosotros',
-        start: 'top 80%',
-      },
-      y: 0,
-      autoAlpha: 1,
-      duration: 1.2,
-      ease: "power3.out"
+      scrollTrigger: { trigger: '#nosotros', start: 'top 80%' },
+      y: 0, autoAlpha: 1, duration: 1.2, ease: 'power3.out'
     }
   );
 
-  gsap.fromTo('.nosotros-stats > div', 
+  gsap.fromTo('.nosotros-stats > div',
     { y: 40, autoAlpha: 0 },
     {
-      scrollTrigger: {
-        trigger: '.nosotros-stats',
-        start: 'top 85%'
-      },
-      y: 0,
-      autoAlpha: 1,
-      duration: 1,
-      stagger: 0.2,
-      ease: "expo.out"
+      scrollTrigger: { trigger: '.nosotros-stats', start: 'top 85%' },
+      y: 0, autoAlpha: 1, duration: 1, stagger: 0.2, ease: 'expo.out'
     }
   );
 
-  // 3. Servicios Grid
-  gsap.fromTo('.servicio-card', 
+  // Servicios Grid
+  gsap.fromTo('.servicio-card',
     { y: 80, autoAlpha: 0 },
     {
-      scrollTrigger: {
-        trigger: '#servicios',
-        start: 'top 75%'
-      },
-      y: 0,
-      autoAlpha: 1,
-      duration: 1,
-      stagger: 0.15,
-      ease: "power4.out"
+      scrollTrigger: { trigger: '#servicios', start: 'top 75%' },
+      y: 0, autoAlpha: 1, duration: 1, stagger: 0.15, ease: 'power4.out'
     }
   );
 
-  // 4. Proceso Timeline
+  // Proceso Timeline
   const tlProceso = gsap.timeline({
-    scrollTrigger: {
-      trigger: '.wrap-proceso',
-      start: 'top 70%',
-      end: 'bottom bottom',
-    }
+    scrollTrigger: { trigger: '.wrap-proceso', start: 'top 70%', end: 'bottom bottom' }
   });
+  tlProceso.fromTo('.timeline-line', { scaleY: 0 }, { scaleY: 1, duration: 1.5, ease: 'none' });
 
-  tlProceso.fromTo('.timeline-line', 
-    { scaleY: 0 },
-    { scaleY: 1, duration: 1.5, ease: "none" }
-  );
-
-  gsap.fromTo('.timeline-item', 
+  gsap.fromTo('.timeline-item',
     { y: 40, autoAlpha: 0 },
     {
-      scrollTrigger: {
-        trigger: '.wrap-proceso',
-        start: 'top 75%',
-      },
-      y: 0,
-      autoAlpha: 1,
-      duration: 1,
-      stagger: 0.2,
-      ease: "power3.out"
+      scrollTrigger: { trigger: '.wrap-proceso', start: 'top 75%' },
+      y: 0, autoAlpha: 1, duration: 1, stagger: 0.2, ease: 'power3.out'
     }
   );
 
-  // 5. Planes cards
-  gsap.fromTo('.plan-card', 
-    { y: 60, autoAlpha: 0, scale: 0.95 },
-    {
-      scrollTrigger: {
-        trigger: '.wrap-planes',
-        start: 'top 80%'
-      },
-      y: 0,
-      autoAlpha: 1,
-      scale: 1,
-      duration: 1.2,
-      stagger: 0.2,
-      ease: "expo.out"
-    }
-  );
-
-  // Global refresh for any late-loading images
   window.addEventListener('load', () => {
-    // Retrasar el refresh de GSAP usando setTimeout y rAF para evitar el TBT inicial
-    setTimeout(() => {
-      requestAnimationFrame(() => ScrollTrigger.refresh());
-    }, 500);
+    setTimeout(() => requestAnimationFrame(() => ScrollTrigger.refresh()), 500);
   });
 });
 </script>
