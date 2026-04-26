@@ -45,13 +45,14 @@ interface Proyecto {
 export async function getStaticPaths() {
   return data.proyectos.map((proyecto) => ({
     params: { slug: proyecto.id },
+    props: { proyecto },
   }));
 }
 
 const { proyecto } = Astro.props as { proyecto: Proyecto };
 ---
 
-<Layout title={`${proyecto.name} | One Out Solutions`} description={proyecto.resumen}>
+<Layout title={`${proyecto.name} | One Out Solutions`} description={proyecto.desc}>
   <Navbar />
 
   <main class="bg-black text-white selection:bg-orange selection:text-white pt-24">
