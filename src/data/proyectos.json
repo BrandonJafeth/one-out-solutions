@@ -2,6 +2,7 @@
   "proyectos": [
     {
       "id": "gadea-fotografia",
+      "url": "https://www.gadeafotografia.com/",
       "tag": "PORTAFOLIO",
       "duration": "2 meses",
       "teamSize": "2 desarrolladores",
@@ -104,6 +105,7 @@
       ]
     },{
   "id": "roca-business",
+  "url": "https://www.rocabusiness.net/",
   "tag": "CORPORATIVO",
   "duration": "3 meses",
   "teamSize": "2 desarrolladores",
@@ -202,6 +204,7 @@
 },
     {
   "id": "daniela-rodriguez-psicologa",
+  "url": "https://www.danielarodriguezpsicologa.com/",
   "tag": "SALUD",
   "duration": "1 mes",
   "teamSize": "2 desarrolladores",
@@ -287,6 +290,7 @@
 },
     {
   "id": "emy-asociados",
+  "url": "https://emyasociados.net/",
   "tag": "LEGAL",
   "duration": "1 mes",
   "teamSize": "2 desarrolladores",

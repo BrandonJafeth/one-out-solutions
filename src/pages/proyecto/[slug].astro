@@ -27,6 +27,7 @@ interface ProcessStep {
 interface Proyecto {
   id: string;
   tag: string;
+  url?: string;
   duration: string;
   teamSize: string;
   color: string;
@@ -86,9 +87,19 @@ const { proyecto } = Astro.props as { proyecto: Proyecto };
         {proyecto.name}
       </h1>
 
-      <p class="text-xl md:text-2xl text-silver font-light max-w-3xl leading-relaxed">
+      <p class="text-xl md:text-2xl text-silver font-light max-w-3xl leading-relaxed mb-10">
         {proyecto.desc}
       </p>
+
+      {proyecto.url && (
+        <a href={proyecto.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3.5 bg-orange/10 text-orange border border-orange/20 rounded-full hover:bg-orange hover:text-black hover:border-orange transition-all duration-300 font-display font-bold tracking-widest text-xs uppercase" aria-label={`Visitar sitio web de ${proyecto.name}`}>
+          Visitar sitio web
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7" />
+            <polyline points="7 7 17 7 17 17" />
+          </svg>
+        </a>
+      )}
     </header>
 
     <!-- Hero Image -->

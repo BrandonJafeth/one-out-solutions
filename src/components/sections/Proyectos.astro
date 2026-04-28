@@ -61,13 +61,12 @@ const colorMap: Record<string, ColorStyle> = {
           const imgUrl = p.heroImage;
           
           return (
-            <a
-              href={`/proyecto/${p.id}`}
+            <div
               class="group relative flex w-full md:max-w-130 md:mx-auto flex-col rounded-2xl bg-transparent border border-[#d6ebfd]/10 transition-all duration-500 hover:border-[#d6ebfd]/30 hover:shadow-[rgba(176,199,217,0.145)_0px_0px_0px_1px] overflow-hidden"
             >
               <div class="absolute inset-0 bg-white/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div class="relative z-10 aspect-video md:aspect-video overflow-hidden border-b border-white/10">
+              <a href={`/proyecto/${p.id}`} class="relative z-10 aspect-video md:aspect-video overflow-hidden border-b border-white/10 block">
                 <img
                   src={imgUrl}
                   alt={`Vista previa del proyecto ${p.name}`}
@@ -78,7 +77,7 @@ const colorMap: Record<string, ColorStyle> = {
                   class="h-full w-full object-cover transition-opacity duration-700 ease-out group-hover:opacity-80"
                 />
                 <div class="absolute inset-0 bg-transparent pointer-events-none" />
-              </div>
+              </a>
 
               <div class="relative z-10 p-4 md:p-5 flex flex-col gap-3">
                 <div class="flex justify-between items-start gap-4">
@@ -87,40 +86,42 @@ const colorMap: Record<string, ColorStyle> = {
                   >
                     {p.tag}
                   </div>
-                  <div class="text-[#d6ebfd]/30 group-hover:text-white transition-colors duration-300">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <>
-                        <line x1="7" y1="17" x2="17" y2="7" />
-                        <polyline points="7 7 17 7 17 17" />
-                      </>
-                    </svg>
-                  </div>
+                  {p.url && (
+                    <a href={p.url} target="_blank" rel="noopener noreferrer" class="text-[#d6ebfd]/30 hover:text-orange transition-colors duration-300 z-20" aria-label={`Visitar sitio web de ${p.name}`}>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <>
+                          <line x1="7" y1="17" x2="17" y2="7" />
+                          <polyline points="7 7 17 7 17 17" />
+                        </>
+                      </svg>
+                    </a>
+                  )}
                 </div>
 
                 <div class="space-y-1.5">
                   <h3 class="font-display font-bold text-2xl md:text-[1.75rem] leading-[0.95] text-white tracking-[-0.02em] group-hover:text-[#d6ebfd] transition-colors">
-                    {p.name}
+                    <a href={`/proyecto/${p.id}`} class="hover:underline">{p.name}</a>
                   </h3>
                   <p class="font-light text-silver/80 text-base md:text-base leading-snug max-w-sm">
                     {p.desc}
                   </p>
                 </div>
 
-                <div class="font-display text-base md:text-lg font-semibold tracking-[-0.02em] text-white/70 group-hover:text-white transition-colors inline-flex items-center gap-2 pt-1">
+                <a href={`/proyecto/${p.id}`} class="font-display text-base md:text-lg font-semibold tracking-[-0.02em] text-white/70 hover:text-orange transition-colors inline-flex items-center gap-2 pt-1 self-start z-20">
                   Ver proyecto
                   <span aria-hidden="true">↗</span>
-                </div>
+                </a>
               </div>
-            </a>
+            </div>
           );
         })
       }
