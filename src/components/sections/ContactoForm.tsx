@@ -77,7 +77,7 @@ const investmentOptionsData: Record<string, { id: string, title: string, desc: s
 export default function ContactoForm() {
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [selectedProjectType, setSelectedProjectType] = useState<string | null>(null);
-  const [selectedInvestments, setSelectedInvestments] = useState<string[]>([]);
+  const [selectedInvestment, setSelectedInvestment] = useState<string | null>(null);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const {
@@ -90,18 +90,10 @@ export default function ContactoForm() {
   });
 
   const totalEstimate = useMemo(() => {
-    if (!selectedProjectType || !investmentOptionsData[selectedProjectType]) return 0;
-    return selectedInvestments.reduce((total, cid) => {
-      const option = investmentOptionsData[selectedProjectType].find(o => o.id === cid);
-      return total + (option?.price || 0);
-    }, 0);
-  }, [selectedInvestments, selectedProjectType]);
-
-  const toggleInvestment = (id: string) => {
-    setSelectedInvestments(prev => 
-      prev.includes(id) ? prev.filter(c => c !== id) : [...prev, id]
-    );
-  };
+    if (!selectedProjectType || !selectedInvestment) return 0;
+    const option = investmentOptionsData[selectedProjectType]?.find(o => o.id === selectedInvestment);
+    return option?.price ?? 0;
+  }, [selectedInvestment, selectedProjectType]);
 
   const onSubmit = async (data: ContactFormData) => {
     setStatus('submitting');
@@ -117,14 +109,14 @@ export default function ContactoForm() {
         <CheckCircle className="mx-auto text-orange mb-8" size={80} strokeWidth={1} />
         <h3 className="text-white font-display font-bold text-4xl mb-6 tracking-[-0.05em]">ORDEN RECONOCIDA</h3>
         <p className="text-silver text-xl font-light max-w-2xl mx-auto leading-relaxed">
-          Hemos recibido tu configuración estratégica. Un ingeniero senior analizará tu proyección de inversión de <strong>₡{totalEstimate.toLocaleString('es-CR')} CRC</strong> y se pondrá en contacto en menos de 24 horas.
+          Hemos recibido tu configuración estratégica. Un ingeniero de nuestro equipo analizará tu proyección de inversión de <strong>₡{totalEstimate.toLocaleString('es-CR')}</strong> y se pondrá en contacto en menos de 24 horas.
         </p>
         <button 
           onClick={() => {
             setStatus('idle');
             setStep(1);
             setSelectedProjectType(null);
-            setSelectedInvestments([]);
+            setSelectedInvestment(null);
           }}
           className="mt-12 pill-cta pill-cta-secondary px-12 py-4 font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all"
         >
@@ -193,7 +185,7 @@ export default function ContactoForm() {
                 disabled={!selectedProjectType}
                 onClick={(e) => {
                   e.preventDefault();
-                  setSelectedInvestments([]);
+                  setSelectedInvestment(null);
                   setStep(2);
                 }}
                 className="cursor-pointer pill-cta pill-cta-primary px-16 py-5 font-bold text-base tracking-widest disabled:opacity-30 disabled:cursor-not-allowed transition-all border border-orange/50 hover:bg-orange/20"
@@ -214,7 +206,7 @@ export default function ContactoForm() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/5 mb-16 relative z-20">
             {selectedProjectType && investmentOptionsData[selectedProjectType]?.map(c => {
-              const isSelected = selectedInvestments.includes(c.id);
+              const isSelected = selectedInvestment === c.id;
 
               return (
                 <button
@@ -222,7 +214,7 @@ export default function ContactoForm() {
                   type="button"
                   onClick={(e) => {
                     e.preventDefault();
-                    toggleInvestment(c.id);
+                    setSelectedInvestment(c.id);
                   }}
                   className={twMerge(
                     "cursor-pointer w-full flex flex-col md:flex-row items-start md:items-center justify-between p-5 sm:p-8 md:p-10 lg:p-16 gap-4 md:gap-0 bg-black transition-colors duration-500 group outline-none z-10 border border-transparent",
@@ -244,7 +236,6 @@ export default function ContactoForm() {
                   
                   <div className="text-left md:text-right pl-10 md:pl-0 w-full md:w-auto">
                     <span className={twMerge("font-display font-bold text-lg sm:text-2xl md:text-3xl lg:text-5xl tracking-tighter transition-colors duration-500", isSelected ? "text-orange" : "text-white/20")}>₡{c.price.toLocaleString('es-CR')}</span>
-                    <span className="text-silver/40 text-[10px] block font-bold tracking-[0.2em] uppercase mt-2">CRC</span>
                   </div>
                 </button>
               )
@@ -276,7 +267,7 @@ export default function ContactoForm() {
             <div className="flex flex-col sm:flex-row gap-4 md:gap-6 relative z-20">
               <button
                 type="button"
-                disabled={selectedInvestments.length === 0}
+                disabled={!selectedInvestment}
                 onClick={(e) => {
                   e.preventDefault();
                   setStep(3);
@@ -290,7 +281,7 @@ export default function ContactoForm() {
                 onClick={(e) => {
                   e.preventDefault();
                   setStep(1);
-                  setSelectedInvestments([]);
+                  setSelectedInvestment(null);
                   setSelectedProjectType(null);
                 }}
                 className="cursor-pointer pill-cta pill-cta-secondary px-8 md:px-12 py-3.5 md:py-4 font-bold text-xs tracking-[0.2em] uppercase order-2 sm:order-1"
