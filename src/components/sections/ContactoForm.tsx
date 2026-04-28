@@ -77,7 +77,7 @@ const investmentOptionsData: Record<string, { id: string, title: string, desc: s
 export default function ContactoForm() {
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [selectedProjectType, setSelectedProjectType] = useState<string | null>(null);
-  const [selectedInvestments, setSelectedInvestments] = useState<string[]>([]);
+  const [selectedInvestment, setSelectedInvestment] = useState<string | null>(null);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const {
@@ -90,18 +90,10 @@ export default function ContactoForm() {
   });
 
   const totalEstimate = useMemo(() => {
-    if (!selectedProjectType || !investmentOptionsData[selectedProjectType]) return 0;
-    return selectedInvestments.reduce((total, cid) => {
-      const option = investmentOptionsData[selectedProjectType].find(o => o.id === cid);
-      return total + (option?.price || 0);
-    }, 0);
-  }, [selectedInvestments, selectedProjectType]);
-
-  const toggleInvestment = (id: string) => {
-    setSelectedInvestments(prev => 
-      prev.includes(id) ? prev.filter(c => c !== id) : [...prev, id]
-    );
-  };
+    if (!selectedProjectType || !selectedInvestment) return 0;
+    const option = investmentOptionsData[selectedProjectType]?.find(o => o.id === selectedInvestment);
+    return option?.price ?? 0;
+  }, [selectedInvestment, selectedProjectType]);
 
   const onSubmit = async (data: ContactFormData) => {
     setStatus('submitting');
@@ -117,14 +109,14 @@ export default function ContactoForm() {
         <CheckCircle className="mx-auto text-orange mb-8" size={80} strokeWidth={1} />
         <h3 className="text-white font-display font-bold text-4xl mb-6 tracking-[-0.05em]">ORDEN RECONOCIDA</h3>
         <p className="text-silver text-xl font-light max-w-2xl mx-auto leading-relaxed">
-          Hemos recibido tu configuración estratégica. Un ingeniero senior analizará tu proyección de inversión de <strong>₡{totalEstimate.toLocaleString('es-CR')} CRC</strong> y se pondrá en contacto en menos de 24 horas.
+          Hemos recibido tu configuración estratégica. Un ingeniero de nuestro equipo analizará tu proyección de inversión de <strong>₡{totalEstimate.toLocaleString('es-CR')}</strong> y se pondrá en contacto en menos de 24 horas.
         </p>
         <button 
           onClick={() => {
             setStatus('idle');
             setStep(1);
             setSelectedProjectType(null);
-            setSelectedInvestments([]);
+            setSelectedInvestment(null);
           }}
           className="mt-12 pill-cta pill-cta-secondary px-12 py-4 font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all"
         >
@@ -139,11 +131,11 @@ export default function ContactoForm() {
       
       {/* Header General */}
       {step < 3 && (
-        <div className="text-center mb-24 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <h2 className="font-display font-bold text-5xl md:text-7xl leading-[0.9] tracking-[-0.07em] text-white mb-6">
+        <div className="text-center mb-10 md:mb-24 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <h2 className="font-display font-bold text-3xl sm:text-5xl md:text-7xl leading-[0.9] tracking-[-0.07em] text-white mb-4 md:mb-6">
             ES HORA DE AUMENTAR <span className="text-orange italic">TUS RESULTADOS.</span>
           </h2>
-          <p className="text-silver text-xl font-light tracking-wide">Da el salto definitivo. Cuéntanos tu problema y lo destruimos con software.</p>
+          <p className="text-silver text-base md:text-xl font-light tracking-wide">Da el salto definitivo. Cuéntanos tu problema y lo destruimos con software.</p>
         </div>
       )}
 
@@ -169,7 +161,7 @@ export default function ContactoForm() {
                     setSelectedProjectType(pt.id);
                   }}
                   className={twMerge(
-                    "cursor-pointer relative text-left p-8 sm:p-12 bg-black transition-colors duration-500 group outline-none min-h-62.5 flex flex-col justify-end border border-transparent z-10",
+                    "cursor-pointer relative text-left p-6 sm:p-8 md:p-12 bg-black transition-colors duration-500 group outline-none min-h-48 sm:min-h-62.5 flex flex-col justify-end border border-transparent z-10",
                     isSelected ? "bg-white/5 border-orange/50 shadow-[0_0_20px_rgba(219,105,35,0.1)]" : "hover:bg-white/2 hover:border-white/10"
                   )}
                 >
@@ -193,7 +185,7 @@ export default function ContactoForm() {
                 disabled={!selectedProjectType}
                 onClick={(e) => {
                   e.preventDefault();
-                  setSelectedInvestments([]);
+                  setSelectedInvestment(null);
                   setStep(2);
                 }}
                 className="cursor-pointer pill-cta pill-cta-primary px-16 py-5 font-bold text-base tracking-widest disabled:opacity-30 disabled:cursor-not-allowed transition-all border border-orange/50 hover:bg-orange/20"
@@ -214,7 +206,7 @@ export default function ContactoForm() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/5 mb-16 relative z-20">
             {selectedProjectType && investmentOptionsData[selectedProjectType]?.map(c => {
-              const isSelected = selectedInvestments.includes(c.id);
+              const isSelected = selectedInvestment === c.id;
 
               return (
                 <button
@@ -222,10 +214,10 @@ export default function ContactoForm() {
                   type="button"
                   onClick={(e) => {
                     e.preventDefault();
-                    toggleInvestment(c.id);
+                    setSelectedInvestment(c.id);
                   }}
                   className={twMerge(
-                    "cursor-pointer w-full flex flex-col md:flex-row items-start md:items-center justify-between p-8 md:p-16 gap-6 md:gap-0 bg-black transition-colors duration-500 group outline-none z-10 border border-transparent",
+                    "cursor-pointer w-full flex flex-col md:flex-row items-start md:items-center justify-between p-5 sm:p-8 md:p-10 lg:p-16 gap-4 md:gap-0 bg-black transition-colors duration-500 group outline-none z-10 border border-transparent",
                     isSelected ? "bg-white/5 border-orange/50 shadow-[0_0_20px_rgba(219,105,35,0.1)]" : "hover:bg-white/2 hover:border-white/10"
                   )}
                 >
@@ -243,16 +235,15 @@ export default function ContactoForm() {
                   </div>
                   
                   <div className="text-left md:text-right pl-10 md:pl-0 w-full md:w-auto">
-                    <span className={twMerge("font-display font-bold text-3xl md:text-5xl tracking-tighter transition-colors duration-500", isSelected ? "text-orange" : "text-white/20")}>₡{c.price.toLocaleString('es-CR')}</span>
-                    <span className="text-silver/40 text-[10px] block font-bold tracking-[0.2em] uppercase mt-2">CRC</span>
+                    <span className={twMerge("font-display font-bold text-lg sm:text-2xl md:text-3xl lg:text-5xl tracking-tighter transition-colors duration-500", isSelected ? "text-orange" : "text-white/20")}>₡{c.price.toLocaleString('es-CR')}</span>
                   </div>
                 </button>
               )
             })}
           </div>
 
-          <div className="pt-20 border-t border-white/5">
-            <div className="flex flex-col md:flex-row md:items-center justify-between mb-16 gap-12 relative z-20">
+          <div className="pt-10 md:pt-20 border-t border-white/5">
+            <div className="flex flex-col md:flex-row md:items-center justify-between mb-10 md:mb-16 gap-6 md:gap-12 relative z-20">
               <button
                 type="button"
                 onClick={(e) => {
@@ -268,7 +259,7 @@ export default function ContactoForm() {
                 <p className="text-silver text-lg font-light max-w-md leading-relaxed">Este valor representa el núcleo de ingeniería. Optimizaciones específicas se refinarán en la auditoría inicial.</p>
               </div>
               <div className="text-right">
-                <span className="font-display font-bold text-white text-[3rem] md:text-[6rem] tracking-tighter leading-none">₡{totalEstimate.toLocaleString('es-CR')}</span>
+                <span className="font-display font-bold text-white text-[1.5rem] sm:text-[2.25rem] md:text-[4rem] lg:text-[6rem] tracking-tighter leading-none">₡{totalEstimate.toLocaleString('es-CR')}</span>
                 <span className="text-orange text-[10px] md:text-xs block font-bold tracking-[0.3em] uppercase mt-4">INVERSIÓN TOTAL ESTIMADA</span>
               </div>
             </div>
@@ -276,7 +267,7 @@ export default function ContactoForm() {
             <div className="flex flex-col sm:flex-row gap-4 md:gap-6 relative z-20">
               <button
                 type="button"
-                disabled={selectedInvestments.length === 0}
+                disabled={!selectedInvestment}
                 onClick={(e) => {
                   e.preventDefault();
                   setStep(3);
@@ -290,7 +281,7 @@ export default function ContactoForm() {
                 onClick={(e) => {
                   e.preventDefault();
                   setStep(1);
-                  setSelectedInvestments([]);
+                  setSelectedInvestment(null);
                   setSelectedProjectType(null);
                 }}
                 className="cursor-pointer pill-cta pill-cta-secondary px-8 md:px-12 py-3.5 md:py-4 font-bold text-xs tracking-[0.2em] uppercase order-2 sm:order-1"
@@ -305,15 +296,15 @@ export default function ContactoForm() {
       {/* STEP 3: Final Form */}
       {step === 3 && (
         <div className="max-w-4xl mx-auto animate-in fade-in slide-in-from-right-8 duration-700">
-           <div className="text-center mb-20">
-              <Badge className="mb-8 border-orange/20 bg-orange/5 text-orange">FINAL DEPLOYMENT</Badge>
-              <h2 className="font-display font-bold text-5xl md:text-7xl leading-[0.9] tracking-[-0.07em] text-white">
+           <div className="text-center mb-10 md:mb-20">
+              <Badge className="mb-6 md:mb-8 border-orange/20 bg-orange/5 text-orange">FINAL DEPLOYMENT</Badge>
+              <h2 className="font-display font-bold text-3xl sm:text-5xl md:text-7xl leading-[0.9] tracking-[-0.07em] text-white">
                 NÚCLEO DE <span className="text-orange">AUTORIDAD.</span>
               </h2>
            </div>
 
-           <form onSubmit={handleSubmit(onSubmit)} className="space-y-12">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
+           <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 md:space-y-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12">
               <div className="relative group">
                 <label htmlFor="name" className="block text-[10px] font-bold text-white/80 uppercase tracking-[0.3em] mb-4 group-focus-within:text-orange transition-colors">
                   NOMBRE COMPLETO <span className="text-orange">*</span>
@@ -377,19 +368,19 @@ export default function ContactoForm() {
               {errors.message && <p className="text-error text-[10px] absolute -bottom-6 font-bold tracking-widest uppercase">{errors.message.message}</p>}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-8 pt-12">
-              <button 
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-8 pt-8 md:pt-12">
+              <button
                   type="button"
                   disabled={status === 'submitting'}
                   onClick={() => setStep(2)}
-                  className="pill-cta pill-cta-secondary px-12 py-6 font-bold text-xs tracking-[0.2em] transition-all"
+                  className="pill-cta pill-cta-secondary px-8 md:px-12 py-4 md:py-6 font-bold text-xs tracking-[0.2em] transition-all"
                 >
                   VOLVER
               </button>
-              <button 
+              <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="flex-1 pill-cta pill-cta-primary py-6 font-bold text-base tracking-[0.2em] relative overflow-hidden group/btn"
+                className="flex-1 pill-cta pill-cta-primary py-4 md:py-6 font-bold text-sm md:text-base tracking-[0.2em] relative overflow-hidden group/btn"
               >
                 <div className="relative z-10 flex items-center justify-center gap-4">
                   {status === 'submitting' ? 'PROCESANDO ESTRUCTURA...' : 'DESPLEGAR ESTRATEGIA'}
