@@ -37,40 +37,40 @@ const projectTypes = [
 
 const investmentOptionsData: Record<string, { id: string, title: string, desc: string, price: number }[]> = {
   'landing-page': [
-    { id: 'lp1', title: 'Básica (1-3 Secciones)', desc: 'Diseño UX en Figma + Desarrollo Rápido. Ideal para validar un producto.', price: 150 },
-    { id: 'lp2', title: 'Estándar (4-6 Secciones)', desc: 'Diseño avanzado en Figma + Desarrollo + Lead Magnet.', price: 250 },
-    { id: 'lp3', title: 'Avanzada (+7 Secciones)', desc: 'Diseño Premium UX/UI + Animaciones complejas + SEO básico.', price: 400 },
-    { id: 'lp4', title: 'A/B Testing Continuo', desc: 'Múltiples versiones diseñadas para encontrar la que convierte mejor.', price: 800 },
+    { id: 'lp1', title: 'Básica (1-3 Secciones)', desc: 'Diseño UX en Figma + Desarrollo Rápido. Ideal para validar un producto.', price: 75000 },
+    { id: 'lp2', title: 'Estándar (4-6 Secciones)', desc: 'Diseño avanzado en Figma + Desarrollo + Lead Magnet.', price: 125000 },
+    { id: 'lp3', title: 'Avanzada (+7 Secciones)', desc: 'Diseño Premium UX/UI + Animaciones complejas + SEO básico.', price: 200000 },
+    { id: 'lp4', title: 'A/B Testing Continuo', desc: 'Múltiples versiones diseñadas para encontrar la que convierte mejor.', price: 400000 },
   ],
   'website': [
-    { id: 'ws1', title: 'Informativo (Hasta 3 Páginas)', desc: 'Home, Nosotros, Contacto. Diseño previo en Figma incluido.', price: 300 },
-    { id: 'ws2', title: 'Corporativo (Hasta 6 Páginas)', desc: 'Estructura sólida para presencia corporativa seria.', price: 500 },
-    { id: 'ws3', title: 'Web Administrable (CMS)', desc: 'Incluye blog o panel para que actualices contenido sin código.', price: 800 },
-    { id: 'ws4', title: 'Web Premium Multi-idioma', desc: 'Soporte y traducciones, SEO avanzado y animaciones GSAP.', price: 1200 },
+    { id: 'ws1', title: 'Informativo (Hasta 3 Páginas)', desc: 'Home, Nosotros, Contacto. Diseño previo en Figma incluido.', price: 150000 },
+    { id: 'ws2', title: 'Corporativo (Hasta 6 Páginas)', desc: 'Estructura sólida para presencia corporativa seria.', price: 250000 },
+    { id: 'ws3', title: 'Web Administrable (CMS)', desc: 'Incluye blog o panel para que actualices contenido sin código.', price: 400000 },
+    { id: 'ws4', title: 'Web Premium Multi-idioma', desc: 'Soporte y traducciones, SEO avanzado y animaciones GSAP.', price: 600000 },
   ],
   'ecommerce': [
-    { id: 'ec1', title: 'Tienda Inicial (< 30 Prods)', desc: 'Catálogo online con pagos locales (Diseño en Figma incluido).', price: 500 },
-    { id: 'ec2', title: 'Tienda Estándar (< 100 Prods)', desc: 'Filtros, inventario automatizado y diseño de alta conversión.', price: 850 },
-    { id: 'ec3', title: 'E-Commerce Pro', desc: 'Sincronización de stock, integraciones con ERP, marketing emails.', price: 1500 },
-    { id: 'ec4', title: 'Marketplace / Multivendedor', desc: 'Plataforma compleja con múltiples vendedores y logística propia.', price: 3000 },
+    { id: 'ec1', title: 'Tienda Inicial (< 30 Prods)', desc: 'Catálogo online con pagos locales (Diseño en Figma incluido).', price: 250000 },
+    { id: 'ec2', title: 'Tienda Estándar (< 100 Prods)', desc: 'Filtros, inventario automatizado y diseño de alta conversión.', price: 425000 },
+    { id: 'ec3', title: 'E-Commerce Pro', desc: 'Sincronización de stock, integraciones con ERP, marketing emails.', price: 750000 },
+    { id: 'ec4', title: 'Marketplace / Multivendedor', desc: 'Plataforma compleja con múltiples vendedores y logística propia.', price: 1500000 },
   ],
   'automation': [
-    { id: 'au1', title: 'Flujo Básico (n8n)', desc: 'Ej: Conectar Facebook Leads a Google Sheets + Alerta por correo.', price: 100 },
-    { id: 'au2', title: 'Generación de Leads (Medio)', desc: 'Integrar WhatsApp, CRM, campañas publicitarias y equipo de ventas.', price: 250 },
-    { id: 'au3', title: 'Ecosistema de Procesos', desc: 'Conectar la facturación, soporte, ventas y métricas empresariales.', price: 500 },
-    { id: 'au4', title: 'Setup de Servidor n8n', desc: 'Montaje de tu propio servidor n8n en la nube + mantenimiento.', price: 800 },
+    { id: 'au1', title: 'Flujo Básico (n8n)', desc: 'Ej: Conectar Facebook Leads a Google Sheets + Alerta por correo.', price: 50000 },
+    { id: 'au2', title: 'Generación de Leads (Medio)', desc: 'Integrar WhatsApp, CRM, campañas publicitarias y equipo de ventas.', price: 125000 },
+    { id: 'au3', title: 'Ecosistema de Procesos', desc: 'Conectar la facturación, soporte, ventas y métricas empresariales.', price: 250000 },
+    { id: 'au4', title: 'Setup de Servidor n8n', desc: 'Montaje de tu propio servidor n8n en la nube + mantenimiento.', price: 400000 },
   ],
   'enterprise-crm': [
-    { id: 'crm1', title: 'Configuración Inicial (MVP)', desc: 'Ajuste de embudos para centralizar los contactos de tus vendedores.', price: 400 },
-    { id: 'crm2', title: 'CRM + WhatsApp Automático', desc: 'Asignación automática de leads y recordatorios directos.', price: 800 },
-    { id: 'crm3', title: 'Sistema Web Propio a Medida', desc: 'Desarrollo corporativo para la logística específica de tu negocio.', price: 1500 },
-    { id: 'crm4', title: 'ERP y App de Gestión Full', desc: 'Desarrollo de gran escala que digitaliza por completo tu empresa.', price: 3500 },
+    { id: 'crm1', title: 'Configuración Inicial (MVP)', desc: 'Ajuste de embudos para centralizar los contactos de tus vendedores.', price: 200000 },
+    { id: 'crm2', title: 'CRM + WhatsApp Automático', desc: 'Asignación automática de leads y recordatorios directos.', price: 400000 },
+    { id: 'crm3', title: 'Sistema Web Propio a Medida', desc: 'Desarrollo corporativo para la logística específica de tu negocio.', price: 750000 },
+    { id: 'crm4', title: 'ERP y App de Gestión Full', desc: 'Desarrollo de gran escala que digitaliza por completo tu empresa.', price: 1750000 },
   ],
   'app-support': [
-    { id: 'sup1', title: 'Mantenimiento y Soporte Web', desc: 'Soporte mensual a páginas, mejoras de seguridad y pequeños cambios.', price: 100 },
-    { id: 'sup2', title: 'Soporte + Optimización SEO', desc: 'Gestión mensual enfocada en ganar posiciones en Google.', price: 250 },
-    { id: 'sup3', title: 'Diseño UX/UI de App en Figma', desc: 'Prototipo interactivo listo para levantar capital o ser validado.', price: 500 },
-    { id: 'sup4', title: 'MVP / App Móvil Híbrida', desc: 'Desarrollo inicial de aplicación móvil para tiendas (iOS / Android).', price: 2000 },
+    { id: 'sup1', title: 'Mantenimiento y Soporte Web', desc: 'Soporte mensual a páginas, mejoras de seguridad y pequeños cambios.', price: 50000 },
+    { id: 'sup2', title: 'Soporte + Optimización SEO', desc: 'Gestión mensual enfocada en ganar posiciones en Google.', price: 125000 },
+    { id: 'sup3', title: 'Diseño UX/UI de App en Figma', desc: 'Prototipo interactivo listo para levantar capital o ser validado.', price: 250000 },
+    { id: 'sup4', title: 'MVP / App Móvil Híbrida', desc: 'Desarrollo inicial de aplicación móvil para tiendas (iOS / Android).', price: 1000000 },
   ]
 };
 
@@ -117,7 +117,7 @@ export default function ContactoForm() {
         <CheckCircle className="mx-auto text-orange mb-8" size={80} strokeWidth={1} />
         <h3 className="text-white font-display font-bold text-4xl mb-6 tracking-[-0.05em]">ORDEN RECONOCIDA</h3>
         <p className="text-silver text-xl font-light max-w-2xl mx-auto leading-relaxed">
-          Hemos recibido tu configuración estratégica. Un ingeniero senior analizará tu proyección de inversión de <strong>${totalEstimate.toLocaleString('en-US')} USD</strong> y se pondrá en contacto en menos de 24 horas.
+          Hemos recibido tu configuración estratégica. Un ingeniero senior analizará tu proyección de inversión de <strong>₡{totalEstimate.toLocaleString('es-CR')} CRC</strong> y se pondrá en contacto en menos de 24 horas.
         </p>
         <button 
           onClick={() => {
@@ -243,8 +243,8 @@ export default function ContactoForm() {
                   </div>
                   
                   <div className="text-left md:text-right pl-10 md:pl-0 w-full md:w-auto">
-                    <span className={twMerge("font-display font-bold text-3xl md:text-5xl tracking-tighter transition-colors duration-500", isSelected ? "text-orange" : "text-white/20")}>${c.price.toLocaleString('en-US')}</span>
-                    <span className="text-silver/40 text-[10px] block font-bold tracking-[0.2em] uppercase mt-2">USD INIT</span>
+                    <span className={twMerge("font-display font-bold text-3xl md:text-5xl tracking-tighter transition-colors duration-500", isSelected ? "text-orange" : "text-white/20")}>₡{c.price.toLocaleString('es-CR')}</span>
+                    <span className="text-silver/40 text-[10px] block font-bold tracking-[0.2em] uppercase mt-2">CRC</span>
                   </div>
                 </button>
               )
@@ -268,7 +268,7 @@ export default function ContactoForm() {
                 <p className="text-silver text-lg font-light max-w-md leading-relaxed">Este valor representa el núcleo de ingeniería. Optimizaciones específicas se refinarán en la auditoría inicial.</p>
               </div>
               <div className="text-right">
-                <span className="font-display font-bold text-white text-[3rem] md:text-[6rem] tracking-tighter leading-none">${totalEstimate.toLocaleString('en-US')}</span>
+                <span className="font-display font-bold text-white text-[3rem] md:text-[6rem] tracking-tighter leading-none">₡{totalEstimate.toLocaleString('es-CR')}</span>
                 <span className="text-orange text-[10px] md:text-xs block font-bold tracking-[0.3em] uppercase mt-4">INVERSIÓN TOTAL ESTIMADA</span>
               </div>
             </div>
