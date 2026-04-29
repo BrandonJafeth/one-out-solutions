@@ -12,10 +12,13 @@ const INTERNAL_TO = 'brandoncarrilloalvarez123@gmail.com';
 const internalEmail = (
   name: string,
   email: string,
+  phone: string,
+  contactMethod: string,
   message: string,
   company?: string,
   projectType?: string,
   investment?: string,
+  supportAdded?: string,
   estimatedTotal?: string,
 ) => `<!DOCTYPE html>
 <html lang="es">
@@ -46,6 +49,19 @@ const internalEmail = (
                 <p style="margin:0 0 4px;font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#888;">CORREO</p>
                 <p style="margin:0;font-size:16px;color:#DB6923;">${email}</p>
               </td></tr>
+              <tr><td style="padding:20px 0 0;">
+                <p style="margin:0 0 4px;font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#888;">TELÉFONO / WHATSAPP</p>
+                <p style="margin:0;font-size:16px;">
+                  <a href="https://wa.me/${phone.replace(/\D/g, '')}" target="_blank" style="color:#24BAEF;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;">
+                    <span style="font-size:18px;margin-right:6px;">💬</span> Ir al Chat (+${phone.replace(/\D/g, '')})
+                  </a>
+                </p>
+                <p style="margin:6px 0 0;font-size:14px;color:#f5f5f5;">Original: ${phone}</p>
+              </td></tr>
+              <tr><td style="padding:20px 0 0;">
+                <p style="margin:0 0 4px;font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#888;">MEDIO DE CONTACTO PREFERIDO</p>
+                <p style="margin:0;font-size:16px;color:#DB6923;">${contactMethod}</p>
+              </td></tr>
               ${company ? `<tr><td style="padding:20px 0 0;">
                 <p style="margin:0 0 4px;font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#888;">EMPRESA</p>
                 <p style="margin:0;font-size:16px;color:#f5f5f5;">${company}</p>
@@ -57,6 +73,12 @@ const internalEmail = (
               ${investment ? `<tr><td style="padding:20px 0 0;">
                 <p style="margin:0 0 4px;font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#888;">INVERSIÓN SELECCIONADA</p>
                 <p style="margin:0;font-size:16px;color:#f5f5f5;">${investment}</p>
+              </td></tr>` : ''}
+              ${supportAdded ? `<tr><td style="padding:20px 0 0;">
+                <div style="background:#1A1A1A; border-left:4px solid #DB6923; padding:16px;">
+                  <p style="margin:0 0 4px;font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#888;">MANTENIMIENTO Y SOPORTE AÑADIDO</p>
+                  <p style="margin:0;font-size:16px;color:#f5f5f5;font-weight:700;">${supportAdded}</p>
+                </div>
               </td></tr>` : ''}
               ${estimatedTotal ? `<tr><td style="padding:20px 0 0;">
                 <p style="margin:0 0 4px;font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#888;">ESTIMADO TOTAL</p>
@@ -84,6 +106,7 @@ const confirmationEmail = (
   name: string,
   projectType?: string,
   investment?: string,
+  supportAdded?: string,
   estimatedTotal?: string,
 ) => `<!DOCTYPE html>
 <html lang="es">
@@ -130,6 +153,17 @@ const confirmationEmail = (
                     <td style="font-size:16px;font-weight:700;color:#f5f5f5;">${investment}</td>
                   </tr>
                 </table>` : ''}
+                ${supportAdded ? `
+                <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:12px;">
+                  <tr>
+                    <td>
+                      <div style="background:#1A1A1A; border-left:4px solid #DB6923; padding:16px;">
+                        <p style="margin:0 0 4px;font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#888;">MANTENIMIENTO Y SOPORTE AÑADIDO</p>
+                        <p style="margin:0;font-size:16px;color:#f5f5f5;font-weight:700;">${supportAdded}</p>
+                      </div>
+                    </td>
+                  </tr>
+                </table>` : ''}
                 ${estimatedTotal ? `
                 <table width="100%" cellpadding="0" cellspacing="0">
                   <tr>
@@ -173,9 +207,9 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(JSON.stringify({ error: 'JSON inválido' }), { status: 400 });
   }
 
-  const { name, email, company, message, projectType, investment, estimatedTotal, idempotencyKey } = body;
+  const { name, email, phone, contactMethod, company, message, projectType, investment, supportAdded, estimatedTotal } = body;
 
-  if (!name || !email || !message) {
+  if (!name || !email || !phone || !contactMethod || !message) {
     return new Response(JSON.stringify({ error: 'Campos requeridos faltantes' }), { status: 400 });
   }
 
@@ -186,18 +220,18 @@ export const POST: APIRoute = async ({ request }) => {
         to: [INTERNAL_TO],
         replyTo: email,
         subject: `Nueva consulta — ${projectType ?? 'General'} | ${name}`,
-        html: internalEmail(name, email, message, company, projectType, investment, estimatedTotal),
+        html: internalEmail(name, email, phone, contactMethod, message, company, projectType, investment, supportAdded, estimatedTotal),
       },
       {
         from: FROM,
         to: [email],
         replyTo: INTERNAL_TO,
         subject: 'Recibimos tu consulta — One Out Solutions',
-        html: confirmationEmail(name, projectType, investment, estimatedTotal),
+        html: confirmationEmail(name, projectType, investment, supportAdded, estimatedTotal),
       },
     ],
     {
-      idempotencyKey: `batch-contact-${idempotencyKey ?? `${email}-${Date.now()}`}`,
+      idempotencyKey: `batch-contact-${crypto.randomUUID()}`,
     }
   );
 

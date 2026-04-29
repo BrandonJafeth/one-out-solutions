@@ -20,6 +20,8 @@ const Badge = ({ children, className }: { children: React.ReactNode, className?:
 const contactSchema = z.object({
   name: z.string().min(2, 'El nombre es muy corto'),
   email: z.string().email('Ingresa un correo electrónico válido'),
+  phone: z.string().min(8, 'Ingresa un número de teléfono válido'),
+  contactMethod: z.enum(['WhatsApp', 'Llamada telefónica', 'Correo electrónico']),
   company: z.string().optional(),
   message: z.string().min(10, 'El mensaje es muy corto, cuéntanos un poco más sobre tus objetivos'),
 });
@@ -78,8 +80,8 @@ export default function ContactoForm() {
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [selectedProjectType, setSelectedProjectType] = useState<string | null>(null);
   const [selectedInvestment, setSelectedInvestment] = useState<string | null>(null);
+  const [includeSupport, setIncludeSupport] = useState<boolean>(false);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-  const [idempotencyKey] = useState(() => crypto.randomUUID());
 
   const {
     register,
@@ -93,8 +95,10 @@ export default function ContactoForm() {
   const totalEstimate = useMemo(() => {
     if (!selectedProjectType || !selectedInvestment) return 0;
     const option = investmentOptionsData[selectedProjectType]?.find(o => o.id === selectedInvestment);
-    return option?.price ?? 0;
-  }, [selectedInvestment, selectedProjectType]);
+    const baseValue = option?.price ?? 0;
+    const supportValue = includeSupport ? 50000 : 0;
+    return baseValue + supportValue;
+  }, [selectedInvestment, selectedProjectType, includeSupport]);
 
   const onSubmit = async (data: ContactFormData) => {
     setStatus('submitting');
@@ -112,8 +116,8 @@ export default function ContactoForm() {
         ...data,
         projectType: selectedProjectLabel,
         investment: selectedInvestmentLabel,
+        supportAdded: includeSupport ? "Sí (+₡50,000/mes)" : "No",
         estimatedTotal: totalEstimate > 0 ? totalEstimate.toLocaleString('es-CR') : undefined,
-        idempotencyKey,
       }),
     });
 
@@ -158,6 +162,7 @@ export default function ContactoForm() {
             setStep(1);
             setSelectedProjectType(null);
             setSelectedInvestment(null);
+            setIncludeSupport(false);
           }}
           className="mt-12 pill-cta pill-cta-secondary px-12 py-4 font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all"
         >
@@ -283,6 +288,38 @@ export default function ContactoForm() {
             })}
           </div>
 
+          <div className="mb-10 md:mb-16">
+            <h4 className="font-display font-bold text-white uppercase tracking-[0.2em] text-xs mb-6 px-2">SERVICIOS DE VALOR AÑADIDO</h4>
+            <label className={twMerge(
+                "cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between p-6 md:p-10 transition-colors duration-500 group outline-none z-10 border border-transparent",
+                includeSupport ? "bg-white/5 border-orange/50 shadow-[0_0_20px_rgba(219,105,35,0.1)]" : "bg-black hover:bg-white/2 hover:border-white/10"
+              )}>
+              <div className="flex items-start md:items-center gap-6">
+                <input 
+                  type="checkbox" 
+                  className="hidden" 
+                  checked={includeSupport} 
+                  onChange={(e) => setIncludeSupport(e.target.checked)} 
+                />
+                <div className={twMerge(
+                  "w-4 h-4 rounded-md border flex items-center justify-center transition-all duration-500 shrink-0 mt-1 md:mt-0",
+                  includeSupport ? "bg-orange border-orange scale-125" : "border-white/20 group-hover:border-white"
+                )}>
+                  {includeSupport && <Check size={10} strokeWidth={4} className="text-white" />}
+                </div>
+                <div>
+                  <h4 className="font-display font-bold text-white text-lg md:text-2xl mb-1 tracking-[-0.02em]">Mantenimiento y Soporte Continuo</h4>
+                  <p className="text-silver text-sm">Actualizaciones, copias de seguridad y monitoreo 24/7 de tu proyecto.</p>
+                </div>
+              </div>
+              <div className="text-left sm:text-right pl-12 sm:pl-0 mt-4 sm:mt-0">
+                <span className={twMerge("font-display font-bold text-xl md:text-3xl transition-colors", includeSupport ? "text-orange" : "text-white/20")}>
+                  +₡50,000<span className="text-xs text-silver tracking-widest font-light ml-1 uppercase">/mes</span>
+                </span>
+              </div>
+            </label>
+          </div>
+
           <div className="pt-10 md:pt-20 border-t border-white/5">
             <div className="flex flex-col md:flex-row md:items-center justify-between mb-10 md:mb-16 gap-6 md:gap-12 relative z-20">
               <button
@@ -377,6 +414,50 @@ export default function ContactoForm() {
                   placeholder="email@corporacion.com"
                 />
                 {errors.email && <p className="text-error text-[10px] absolute -bottom-6 font-bold tracking-widest uppercase">{errors.email.message}</p>}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 mt-8 md:mt-12">
+              <div className="relative group">
+                <label htmlFor="phone" className="block text-[10px] font-bold text-white/80 uppercase tracking-[0.3em] mb-4 group-focus-within:text-orange transition-colors">
+                  NÚMERO DE TELÉFONO <span className="text-orange">*</span>
+                </label>
+                <input 
+                  {...register('phone')}
+                  id="phone"
+                  type="tel"
+                  className={twMerge(
+                    "w-full bg-transparent border-b border-white/10 px-0 py-4 text-white text-xl md:text-2xl outline-none focus:border-orange transition-colors placeholder:text-white/50",
+                    errors.phone && "border-error focus:border-error"
+                  )}
+                  placeholder="+506 8888 8888"
+                />
+                {errors.phone && <p className="text-error text-[10px] absolute -bottom-6 font-bold tracking-widest uppercase">{errors.phone.message}</p>}
+              </div>
+
+              <div className="relative group">
+                <label htmlFor="contactMethod" className="block text-[10px] font-bold text-white/80 uppercase tracking-[0.3em] mb-4 group-focus-within:text-orange transition-colors">
+                  MEDIO DE CONTACTO <span className="text-orange">*</span>
+                </label>
+                <div className="relative">
+                  <select 
+                    {...register('contactMethod')}
+                    id="contactMethod"
+                    className={twMerge(
+                      "w-full bg-transparent border-b border-white/10 px-0 py-4 text-white text-xl md:text-2xl outline-none focus:border-orange transition-colors cursor-pointer appearance-none",
+                      errors.contactMethod && "border-error focus:border-error"
+                    )}
+                  >
+                    <option value="" disabled hidden>Selecciona una opción</option>
+                    <option value="WhatsApp" className="bg-black text-white">WhatsApp</option>
+                    <option value="Llamada telefónica" className="bg-black text-white">Llamada telefónica</option>
+                    <option value="Correo electrónico" className="bg-black text-white">Correo electrónico</option>
+                  </select>
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-white/50 group-focus-within:text-orange transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinelinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                  </div>
+                </div>
+                {errors.contactMethod && <p className="text-error text-[10px] absolute -bottom-6 font-bold tracking-widest uppercase">{errors.contactMethod.message}</p>}
               </div>
             </div>
 
