@@ -79,6 +79,7 @@ export default function ContactoForm() {
   const [selectedProjectType, setSelectedProjectType] = useState<string | null>(null);
   const [selectedInvestment, setSelectedInvestment] = useState<string | null>(null);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [idempotencyKey] = useState(() => crypto.randomUUID());
 
   const {
     register,
@@ -97,10 +98,50 @@ export default function ContactoForm() {
 
   const onSubmit = async (data: ContactFormData) => {
     setStatus('submitting');
-    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    const selectedInvestmentLabel = selectedProjectType && selectedInvestment
+      ? investmentOptionsData[selectedProjectType]?.find(o => o.id === selectedInvestment)?.title
+      : undefined;
+
+    const selectedProjectLabel = projectTypes.find(p => p.id === selectedProjectType)?.title;
+
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ...data,
+        projectType: selectedProjectLabel,
+        investment: selectedInvestmentLabel,
+        estimatedTotal: totalEstimate > 0 ? totalEstimate.toLocaleString('es-CR') : undefined,
+        idempotencyKey,
+      }),
+    });
+
+    if (!res.ok) {
+      setStatus('error');
+      return;
+    }
+
     setStatus('success');
     reset();
   };
+
+  if (status === 'error') {
+    return (
+      <div className="bg-black border border-error/30 p-12 md:p-20 text-center max-w-350 mx-auto">
+        <h3 className="text-white font-display font-bold text-4xl mb-6 tracking-[-0.05em]">ERROR DE TRANSMISIÓN</h3>
+        <p className="text-silver text-xl font-light max-w-2xl mx-auto leading-relaxed">
+          No se pudo enviar tu consulta. Intenta nuevamente o contáctanos directamente.
+        </p>
+        <button
+          onClick={() => setStatus('idle')}
+          className="mt-12 pill-cta pill-cta-secondary px-12 py-4 font-bold text-sm tracking-widest uppercase"
+        >
+          REINTENTAR
+        </button>
+      </div>
+    );
+  }
 
   if (status === 'success') {
     return (
@@ -358,9 +399,9 @@ export default function ContactoForm() {
               <textarea 
                 {...register('message')}
                 id="message"
-                rows={3}
+                rows={1}
                 className={twMerge(
-                  "w-full bg-transparent border-b border-white/10 px-0 py-4 text-white text-xl md:text-2xl outline-none focus:border-orange transition-colors resize-none placeholder:text-white/50",
+                  "w-full bg-transparent border-b border-white/10 px-0 py-4 text-white text-xl md:text-2xl outline-none focus:border-orange transition-colors resize-y placeholder:text-white/50",
                   errors.message && "border-error focus:border-error"
                 )}
                 placeholder="Descríbenos tu meta de crecimiento..."
