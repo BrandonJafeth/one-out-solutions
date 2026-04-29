@@ -7,7 +7,6 @@ import vercel from "@astrojs/vercel";
 export default defineConfig({
   site: "https://oneoutsolutions.com",
   adapter: vercel(),
-  output: "hybrid",
   vite: {
     plugins: [tailwindcss()],
   },
