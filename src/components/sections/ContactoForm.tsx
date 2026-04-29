@@ -40,13 +40,13 @@ const investmentOptionsData: Record<string, { id: string, title: string, desc: s
     { id: 'lp1', title: 'Básica (1-3 Secciones)', desc: 'Diseño UX en Figma + Desarrollo Rápido. Ideal para validar un producto.', price: 75000 },
     { id: 'lp2', title: 'Estándar (4-6 Secciones)', desc: 'Diseño avanzado en Figma + Desarrollo + Lead Magnet.', price: 125000 },
     { id: 'lp3', title: 'Avanzada (+7 Secciones)', desc: 'Diseño Premium UX/UI + Animaciones complejas + SEO básico.', price: 200000 },
-    { id: 'lp4', title: 'A/B Testing Continuo', desc: 'Múltiples versiones diseñadas para encontrar la que convierte mejor.', price: 400000 },
+    { id: 'lp4', title: 'Landing Page Pro con Integraciones', desc: 'Landing completa con formularios, WhatsApp y correo integrados para convertir visitas en clientes reales.', price: 400000 },
   ],
   'website': [
-    { id: 'ws1', title: 'Informativo (Hasta 3 Páginas)', desc: 'Home, Nosotros, Contacto. Diseño previo en Figma incluido.', price: 150000 },
+    { id: 'ws1', title: 'Informativo (Hasta 3 Páginas)', desc: 'Pagina Inicio, Nosotros, Contacto. Diseño previo del prototipo incluido.', price: 150000 },
     { id: 'ws2', title: 'Corporativo (Hasta 6 Páginas)', desc: 'Estructura sólida para presencia corporativa seria.', price: 250000 },
-    { id: 'ws3', title: 'Web Administrable (CMS)', desc: 'Incluye blog o panel para que actualices contenido sin código.', price: 400000 },
-    { id: 'ws4', title: 'Web Premium Multi-idioma', desc: 'Soporte y traducciones, SEO avanzado y animaciones GSAP.', price: 600000 },
+    { id: 'ws3', title: 'Web Administrable (CMS)', desc: 'Incluye sistema para actualizar textos e imágenes de forma sencilla.', price: 400000 },
+    { id: 'ws4', title: 'Web Premium Multi-idioma', desc: 'Soporte y traducciones, SEO avanzado y animaciones.', price: 600000 },
   ],
   'ecommerce': [
     { id: 'ec1', title: 'Tienda Inicial (< 30 Prods)', desc: 'Catálogo online con pagos locales (Diseño en Figma incluido).', price: 250000 },
@@ -64,7 +64,7 @@ const investmentOptionsData: Record<string, { id: string, title: string, desc: s
     { id: 'crm1', title: 'Configuración Inicial (MVP)', desc: 'Ajuste de embudos para centralizar los contactos de tus vendedores.', price: 200000 },
     { id: 'crm2', title: 'CRM + WhatsApp Automático', desc: 'Asignación automática de leads y recordatorios directos.', price: 400000 },
     { id: 'crm3', title: 'Sistema Web Propio a Medida', desc: 'Desarrollo corporativo para la logística específica de tu negocio.', price: 750000 },
-    { id: 'crm4', title: 'ERP y App de Gestión Full', desc: 'Desarrollo de gran escala que digitaliza por completo tu empresa.', price: 1750000 },
+    { id: 'crm4', title: 'ERP y App de Gestión Full', desc: 'Desarrollo de gran escala que digitaliza por completo tu empresa.', price: 1500000 },
   ],
   'app-support': [
     { id: 'sup1', title: 'Mantenimiento y Soporte Web', desc: 'Soporte mensual a páginas, mejoras de seguridad y pequeños cambios.', price: 50000 },
