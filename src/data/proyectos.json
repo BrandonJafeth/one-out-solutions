@@ -1,384 +1,461 @@
 {
   "proyectos": [
     {
-      "id": "gadea-fotografia",
-      "url": "https://www.gadeafotografia.com/",
-      "tag": "PORTAFOLIO",
-      "duration": "2 meses",
-      "teamSize": "2 desarrolladores",
+      "id": "jireh-adventure",
+      "url": "https://jirehadventure.brandon-carrillo-alvarez.workers.dev/",
+      "tag": "TURISMO",
+      "duration": "1 semana",
+      "teamSize": "1 desarrollador",
       "color": "orange",
-      "name": "Gadea Fotografía",
-      "desc": "Landing page y CRM visual de alto rendimiento para exhibición y gestión de portafolios.",
-      "resumen": "Se desarrolló una plataforma web para un negocio de fotografía que combina una página pública para atraer clientes con un sistema interno para gestionar el negocio. Esto permite mostrar el portafolio, recibir reservas y administrar clientes y servicios desde un solo lugar de forma sencilla.",
-      "heroImage": "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776530416/krdb7bkqstvs3vlgpflo.png",
-      "challenge": "El reto principal fue crear una solución que uniera una página atractiva para los clientes con un sistema interno fácil de usar. Todo debía ser intuitivo, permitiendo al fotógrafo gestionar su contenido, reservas y clientes sin conocimientos técnicos ni depender de terceros.",
-      "solution": "Se creó una plataforma integral con una página moderna para los usuarios y un panel administrativo simple para el fotógrafo. Esto le permite actualizar su contenido, gestionar reservas y organizar su negocio de manera rápida, todo desde un mismo sistema.",
-     "results": [
-    "La página carga en menos de un segundo, ofreciendo una experiencia rápida desde el inicio",
-    "Excelente rendimiento general, lo que hace que la navegación sea fluida y sin interrupciones",
-    "Imágenes optimizadas que cargan rápido sin perder calidad, sin importar desde dónde acceda el usuario"
-  ],
+      "name": "Jireh Adventure",
+      "desc": "Landing page optimizada para atraer clientes y mostrar servicios de aventuras turísticas.",
+      "resumen": "Se desarrolló un sitio web rápido y atractivo para una empresa de turismo de aventura. El foco fue entender las necesidades del cliente y el mercado para crear un diseño adaptado al público meta, con pruebas de rendimiento exhaustivas.",
+      "heroImage": "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777499085/520shots_so_lfogrw.jpg",
+      "challenge": "El reto principal fue diseñar una plataforma rápida que captara la atención del mercado y comunicara eficazmente los servicios de aventura al público objetivo, todo dentro de una semana de desarrollo.",
+      "solution": "Comenzando con un análisis del mercado y las necesidades del cliente, se creó un diseño enfocado en la experiencia del usuario y luego se implementó utilizando únicamente Astro, asegurando máxima velocidad y rendimiento.",
+      "results": [
+        "Diseño atractivo que conecta con el público objetivo",
+        "Rendimiento optimizado para carga instantánea",
+        "Mejora en la captación y presentación de servicios turísticos"
+      ],
+      "stack": [
+        {
+          "category": "Desarrollo Web",
+          "items": [
+            {
+              "name": "Astro",
+              "desc": "Generación estática para un rendimiento inigualable"
+            }
+          ]
+        }
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Reunión y requerimientos",
+          "duration": "1 día",
+          "desc": "Reunión con el cliente para entender sus necesidades, el objetivo del negocio y los servicios que querían destacar.",
+          "deliverables": [
+            "Requerimientos definidos"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Análisis de mercado",
+          "duration": "1 día",
+          "desc": "Se investigó el mercado y la competencia para proponer un diseño orientado al público meta.",
+          "deliverables": [
+            "Análisis de competencia"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Diseño y UX",
+          "duration": "2 días",
+          "desc": "Creación de un diseño visual atractivo y adaptado a las expectativas de los usuarios.",
+          "deliverables": [
+            "Diseño y prototipo"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Desarrollo",
+          "duration": "2 días",
+          "desc": "Se desarrolló la plataforma web completa usando exclusivamente Astro, priorizando rendimiento.",
+          "deliverables": [
+            "Código funcional"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Pruebas y entrega",
+          "duration": "1 día",
+          "desc": "Se realizaron pruebas de rendimiento y usabilidad antes de la entrega final.",
+          "deliverables": [
+            "Sitio en producción"
+          ]
+        }
+      ],
+      "features": [
+        "Diseño enfocado en turismo",
+        "Alta velocidad de carga con Astro",
+        "Adaptado al mercado meta"
+      ],
+      "gallery": []
+    },
+    {
+      "id": "roca-business",
+      "url": "https://www.rocabusiness.net/",
+      "tag": "CORPORATIVO",
+      "duration": "3 meses",
+      "teamSize": "2 desarrolladores",
+      "color": "blue",
+      "name": "Roca Business",
+      "desc": "Plataforma donde los usuarios pueden ver propiedades, mientras la empresa gestiona toda la información desde un sistema interno.",
+      "resumen": "Se creó una plataforma donde la empresa puede organizar y gestionar sus propiedades, y permitir que sus clientes vean la información de forma clara y ordenada.",
+      "heroImage": "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776532688/btczko7jzpu7y2p4jeff.png",
+      "challenge": "La empresa manejaba toda su información en diferentes redes sociales y procesos manuales, lo que hacía difícil organizar los datos y dar seguimiento claro a cada propiedad y cliente. Necesitaban una forma más ordenada, rápida y profesional de trabajar.",
+      "solution": "Se desarrolló un sistema web donde toda la información se centraliza en un solo lugar. Cada usuario puede iniciar sesión de forma segura y ver únicamente la información que le corresponde. Además, el sistema permite gestionar propiedades y mostrar su información de manera clara.",
+      "results": [
+        "Toda la información ahora está organizada en una sola plataforma",
+        "Gestión más sencilla y ordenada de las propiedades",
+        "Se redujo significativamente el trabajo manual semanal",
+        "Los clientes pueden ver la información de forma clara y en tiempo real"
+      ],
       "stack": [
         {
           "category": "Interfaz del sistema",
           "items": [
-            { "name": "Astro", "desc": "Generación estática para un rendimiento inigualable" },
-            { "name": "Next.js", "desc": "Framework de React para aplicaciones del lado del servidor" },
-            { "name": "Tailwind CSS", "desc": "Estilos limpios y altamente responsivos" }
+            {
+              "name": "Next.js",
+              "desc": "Framework de React para aplicaciones del lado del servidor"
+            },
+            {
+              "name": "Astro",
+              "desc": "Se utilizó para la página principal del sistema"
+            },
+            {
+              "name": "Tailwind CSS",
+              "desc": "Estilos limpios y altamente responsivos"
+            }
           ]
         },
         {
           "category": "Lógica y datos",
           "items": [
-            { "name": "Supabase", "desc": "Base de datos y backend serverless" }
+            {
+              "name": "Supabase",
+              "desc": "Base de datos y backend en la nube"
+            }
           ]
         },
         {
           "category": "Media & Storage",
           "items": [
-            { "name": "Cloudinary", "desc": "CDN especializado para optimización de medios on-the-fly" }
+            {
+              "name": "Cloudinary",
+              "desc": "CDN especializado para optimización de medios on-the-fly"
+            }
           ]
-        }, 
+        },
         {
           "category": "Hosting & Deployment",
           "items": [
-            { "name": "Vercel", "desc": "Plataforma de despliegue para aplicaciones web" }
+            {
+              "name": "Vercel",
+              "desc": "Plataforma de despliegue para aplicaciones web"
+            }
           ]
         }
       ],
-     "process": [
-    {
-      "step": 1,
-      "title": "Reunión y Levantamiento de Requerimientos",
-      "duration": "1 semana",
-      "desc": "Se realizaron reuniones con el cliente para entender sus necesidades, objetivos del negocio y funcionalidades clave del sistema, definiendo el alcance del proyecto.",
-      "deliverables": [ "Documento de requerimientos", "Definición de alcance", "Historias de usuario" ]
-    },
-    {
-      "step": 2,
-      "title": "Definición de Tecnologías",
-      "duration": "1 día",
-      "desc": "Se seleccionaron las herramientas y tecnologías más adecuadas según los requerimientos del proyecto, priorizando rendimiento, escalabilidad y facilidad de uso.",
-      "deliverables": [ "Stack tecnológico definido", "Arquitectura inicial" ]
-    },
-    {
-      "step": 3,
-      "title": "Diseño y UX",
-      "duration": "1 semana",
-      "desc": "Se elaboraron wireframes y diseños enfocados en una experiencia visual atractiva, priorizando la presentación de las galerías y la facilidad de navegación.",
-      "deliverables": [ "Diseños en Figma", "Arquitectura de información", "Prototipo visual" ]
-    },
-    {
-      "step": 4,
-      "title": "Desarrollo",
-      "duration": "1 semana",
-      "desc": "Se desarrolló la plataforma completa, incluyendo la página pública y el panel administrativo, integrando servicios como almacenamiento de imágenes y base de datos.",
-      "deliverables": [ "Frontend funcional", "Backend integrado", "Panel administrativo operativo" ]
-    },
-    {
-      "step": 5,
-      "title": "Pruebas y Ajustes",
-      "duration": "1 semana",
-      "desc": "Se realizaron pruebas funcionales y de usabilidad para asegurar el correcto funcionamiento del sistema, corrigiendo errores y optimizando detalles.",
-      "deliverables": [ "Corrección de bugs", "Optimización de rendimiento", "Validación con el cliente" ]
-    },
-    {
-      "step": 6,
-      "title": "Entrega del Proyecto",
-      "duration": "1 día",
-      "desc": "Se realizó la entrega final del sistema, incluyendo despliegue, configuración y explicación al cliente sobre el uso de la plataforma.",
-      "deliverables": [ "Sistema en producción", "Capacitación al cliente", "Documentación básica" ]
-    }
-  ],
-  "features": [
-    "Página principal diseñada para atraer clientes y generar contactos",
-    "Sistema para organizar y administrar clientes y trabajos",
-    "Herramienta para editar servicios, textos y contenido de la página",
-    "Galería de fotos adaptable a cualquier pantalla",
-    "Carga rápida de imágenes para mejorar la experiencia del usuario",
-    "Diseño moderno con estilo oscuro y elegante"
-  ],
-      "gallery": [
-        "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776530416/krdb7bkqstvs3vlgpflo.png",
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=800"
-      ]
-    },{
-  "id": "roca-business",
-  "url": "https://www.rocabusiness.net/",
-  "tag": "CORPORATIVO",
-  "duration": "3 meses",
-  "teamSize": "2 desarrolladores",
-  "color": "blue",
-  "name": "Roca Business",
-  "desc": "Plataforma donde los usuarios pueden ver propiedades, mientras la empresa gestiona toda la información desde un sistema interno.",
-  "resumen": "Se creó una plataforma donde la empresa puede organizar y gestionar sus propiedades, y permitir que sus clientes vean la información de forma clara y ordenada.",
-  "heroImage": "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776532688/btczko7jzpu7y2p4jeff.png",
-  "challenge": "La empresa manejaba toda su información en diferentes redes sociales y procesos manuales, lo que hacía difícil organizar los datos y dar seguimiento claro a cada propiedad y cliente. Necesitaban una forma más ordenada, rápida y profesional de trabajar.",
-  "solution": "Se desarrolló un sistema web donde toda la información se centraliza en un solo lugar. Cada usuario puede iniciar sesión de forma segura y ver únicamente la información que le corresponde. Además, el sistema permite gestionar propiedades y mostrar su información de manera clara.",
-  "results": [
-    "Toda la información ahora está organizada en una sola plataforma",
-    "Gestión más sencilla y ordenada de las propiedades",
-    "Se redujo significativamente el trabajo manual semanal",
-    "Los clientes pueden ver la información de forma clara y en tiempo real"
-  ],
-  "stack": [
-    {
-      "category": "Interfaz del sistema",
-      "items": [
-        { "name": "Next.js", "desc": "Framework de React para aplicaciones del lado del servidor" },
-        { "name": "Astro", "desc": "Se utilizó para la página principal del sistema" },
-        { "name": "Tailwind CSS", "desc": "Estilos limpios y altamente responsivos" }
-      ]
-    },
-    {
-      "category": "Lógica y datos",
-      "items": [
-        { "name": "Supabase", "desc": "Base de datos y backend en la nube" }
-      ]
-    },
-    {
-          "category": "Media & Storage",
-          "items": [
-            { "name": "Cloudinary", "desc": "CDN especializado para optimización de medios on-the-fly" }
-          ]
-        }, 
+      "process": [
         {
-          "category": "Hosting & Deployment",
-          "items": [
-            { "name": "Vercel", "desc": "Plataforma de despliegue para aplicaciones web" }
+          "step": 1,
+          "title": "Reunión y requerimientos",
+          "duration": "1 semana",
+          "desc": "Se realizaron reuniones con el cliente para entender cómo trabajaban, qué problemas tenían y qué necesitaban mejorar en la gestión de propiedades y clientes.",
+          "deliverables": [
+            "Requerimientos definidos",
+            "Flujo del sistema",
+            "Objetivos del proyecto"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Definición de tecnologías",
+          "duration": "1 día",
+          "desc": "Se eligieron las herramientas y tecnologías más adecuadas para crear un sistema rápido, seguro y fácil de usar tanto para la empresa como para los usuarios.",
+          "deliverables": [
+            "Stack tecnológico",
+            "Arquitectura del sistema"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Diseño y experiencia",
+          "duration": "1 semana",
+          "desc": "Se diseñaron las pantallas del sistema, tanto la parte pública para ver propiedades como el panel interno para la gestión, buscando que todo fuera claro y fácil de usar.",
+          "deliverables": [
+            "Diseños en Figma",
+            "Prototipo del sistema"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Desarrollo",
+          "duration": "2 semanas",
+          "desc": "Se construyó la plataforma completa, incluyendo la visualización de propiedades y el sistema interno para administrar toda la información.",
+          "deliverables": [
+            "Sistema funcional",
+            "Panel administrativo",
+            "Base de datos integrada"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Pruebas y mejoras",
+          "duration": "1 semana",
+          "desc": "Se realizaron pruebas para asegurar que todo funcionara correctamente, corrigiendo errores y mejorando la experiencia del usuario.",
+          "deliverables": [
+            "Corrección de errores",
+            "Optimización del sistema",
+            "Validación final"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Entrega",
+          "duration": "2 días",
+          "desc": "Se entregó el sistema listo para su uso, explicando al cliente cómo utilizarlo y dejándolo preparado para operar.",
+          "deliverables": [
+            "Sistema en producción",
+            "Capacitación",
+            "Documentación básica"
           ]
         }
-  ],
-  "process": [
-    {
-      "step": 1,
-      "title": "Reunión y requerimientos",
-      "duration": "1 semana",
-      "desc": "Se realizaron reuniones con el cliente para entender cómo trabajaban, qué problemas tenían y qué necesitaban mejorar en la gestión de propiedades y clientes.",
-      "deliverables": [ "Requerimientos definidos", "Flujo del sistema", "Objetivos del proyecto" ]
+      ],
+      "features": [
+        "Inicio de sesión seguro para cada usuario",
+        "Paneles personalizados según el tipo de usuario",
+        "Visualización clara del progreso de cada cliente",
+        "Organización completa de la información en un solo lugar"
+      ],
+      "gallery": []
     },
     {
-      "step": 2,
-      "title": "Definición de tecnologías",
-      "duration": "1 día",
-      "desc": "Se eligieron las herramientas y tecnologías más adecuadas para crear un sistema rápido, seguro y fácil de usar tanto para la empresa como para los usuarios.",
-      "deliverables": [ "Stack tecnológico", "Arquitectura del sistema" ]
+      "id": "daniela-rodriguez-psicologa",
+      "url": "https://www.danielarodriguezpsicologa.com/",
+      "tag": "SALUD",
+      "duration": "1 mes",
+      "teamSize": "2 desarrolladores",
+      "color": "green",
+      "name": "D. Rodríguez Psicóloga",
+      "desc": "Página web donde los pacientes pueden conocer los servicios de psicología y agendar citas fácilmente en línea.",
+      "resumen": "Se desarrolló un sitio web enfocado en generar confianza y facilitar la reserva de citas, permitiendo a los pacientes agendar de forma rápida sin necesidad de intercambiar mensajes.",
+      "heroImage": "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776530715/kbjggnqcqhvbvagsl6nq.png",
+      "challenge": "El consultorio manejaba las citas de forma manual, lo que generaba desorden, pérdida de tiempo y dificultad para coordinar con los pacientes. Además, necesitaban una presencia en línea que transmitiera confianza y profesionalismo.",
+      "solution": "Se creó un sitio web rápido y sencillo donde los usuarios pueden ver la información del servicio y agendar citas directamente mediante un calendario en línea. El contenido es estático, lo que permite una carga muy rápida, y el diseño transmite tranquilidad y confianza.",
+      "results": [
+        "Más personas agendan citas directamente desde la página web",
+        "Se redujo el tiempo dedicado a coordinar citas manualmente",
+        "Mejor presencia en Google y mayor visibilidad local",
+        "Proceso de reserva más rápido y sencillo para los pacientes"
+      ],
+      "stack": [
+        {
+          "category": "Desarrollo Web",
+          "items": [
+            {
+              "name": "Astro",
+              "desc": "Permite crear páginas muy rápidas usando contenido estático"
+            },
+            {
+              "name": "Tailwind CSS",
+              "desc": "Se utilizó para lograr un diseño limpio, moderno y adaptable"
+            }
+          ]
+        },
+        {
+          "category": "Integraciones",
+          "items": [
+            {
+              "name": "Resend",
+              "desc": "Herramienta para enviar correos electrónicos de forma sencilla"
+            }
+          ]
+        }
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Reunión y requerimientos",
+          "duration": "1 semana",
+          "desc": "Se conversó con la cliente para entender sus necesidades, cómo gestionaba sus citas y qué quería transmitir a sus pacientes.",
+          "deliverables": [
+            "Requerimientos definidos",
+            "Objetivos del sitio"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Definición de herramientas",
+          "duration": "3 días",
+          "desc": "Se eligieron tecnologías enfocadas en velocidad y simplicidad, utilizando contenido estático y herramientas externas para el agendamiento.",
+          "deliverables": [
+            "Tecnologías definidas",
+            "Estructura del sitio"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Diseño",
+          "duration": "1 semana",
+          "desc": "Se diseñó una interfaz con colores y estilos que transmiten calma, confianza y profesionalismo.",
+          "deliverables": [
+            "Diseño visual",
+            "Estructura de la página"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Desarrollo",
+          "duration": "2 semanas",
+          "desc": "Se construyó la página web y se integró el sistema de reservas para que los pacientes pudieran agendar fácilmente.",
+          "deliverables": [
+            "Página funcional",
+            "Sistema de citas integrado"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Pruebas y ajustes",
+          "duration": "3 días",
+          "desc": "Se probaron todas las funciones para asegurar que el agendamiento funcionara correctamente y la experiencia fuera fluida.",
+          "deliverables": [
+            "Corrección de errores",
+            "Optimización"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Entrega",
+          "duration": "2 días",
+          "desc": "Se entregó el sitio listo para su uso, explicando cómo funciona el sistema de citas.",
+          "deliverables": [
+            "Sitio publicado",
+            "Capacitación básica"
+          ]
+        }
+      ],
+      "features": [
+        "Agenda en línea disponible 24/7",
+        "Reserva de citas fácil y rápida",
+        "Diseño que transmite confianza y tranquilidad",
+        "Página rápida y adaptable a cualquier dispositivo"
+      ],
+      "gallery": []
     },
     {
-      "step": 3,
-      "title": "Diseño y experiencia",
-      "duration": "1 semana",
-      "desc": "Se diseñaron las pantallas del sistema, tanto la parte pública para ver propiedades como el panel interno para la gestión, buscando que todo fuera claro y fácil de usar.",
-      "deliverables": [ "Diseños en Figma", "Prototipo del sistema" ]
-    },
-    {
-      "step": 4,
-      "title": "Desarrollo",
-      "duration": "2 semanas",
-      "desc": "Se construyó la plataforma completa, incluyendo la visualización de propiedades y el sistema interno para administrar toda la información.",
-      "deliverables": [ "Sistema funcional", "Panel administrativo", "Base de datos integrada" ]
-    },
-    {
-      "step": 5,
-      "title": "Pruebas y mejoras",
-      "duration": "1 semana",
-      "desc": "Se realizaron pruebas para asegurar que todo funcionara correctamente, corrigiendo errores y mejorando la experiencia del usuario.",
-      "deliverables": [ "Corrección de errores", "Optimización del sistema", "Validación final" ]
-    },
-    {
-      "step": 6,
-      "title": "Entrega",
-      "duration": "2 días",
-      "desc": "Se entregó el sistema listo para su uso, explicando al cliente cómo utilizarlo y dejándolo preparado para operar.",
-      "deliverables": [ "Sistema en producción", "Capacitación", "Documentación básica" ]
+      "id": "emy-asociados",
+      "url": "https://emyasociados.net/",
+      "tag": "LEGAL",
+      "duration": "1 mes",
+      "teamSize": "2 desarrolladores",
+      "color": "cyan",
+      "name": "EM y Asociados",
+      "desc": "Página web profesional para un bufete legal donde los usuarios pueden conocer sus servicios y contactarlos fácilmente.",
+      "resumen": "Se creó un sitio web enfocado en mostrar los servicios legales de forma clara, generar confianza y facilitar que los usuarios puedan contactar al bufete.",
+      "heroImage": "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776529470/e7fn31bsjlkukvbmza9z.png",
+      "challenge": "El bufete ya contaba con una página web, pero necesitaba mejorar su diseño para que se viera más profesional y confiable, además de optimizarla para aparecer mejor en Google y atraer más clientes.",
+      "solution": "Se desarrolló una página web clara y ordenada donde cada servicio legal tiene su propio espacio, facilitando que los usuarios encuentren lo que necesitan y puedan contactar fácilmente.",
+      "results": [
+        "Mayor visibilidad en internet para sus servicios legales",
+        "Más consultas recibidas a través de la página web",
+        "Mejor experiencia en celulares y dispositivos móviles",
+        "Mayor confianza de los usuarios al ver información clara y profesional"
+      ],
+      "stack": [
+        {
+          "category": "Desarrollo Web",
+          "items": [
+            {
+              "name": "Astro",
+              "desc": "Permite crear páginas rápidas y optimizadas"
+            },
+            {
+              "name": "Tailwind CSS",
+              "desc": "Estilos limpios y altamente responsivos"
+            }
+          ]
+        },
+        {
+          "category": "Diseño",
+          "items": [
+            {
+              "name": "Figma",
+              "desc": "Herramienta para crear diseños responsivos y atractivos"
+            }
+          ]
+        },
+        {
+          "category": "Media & Storage",
+          "items": [
+            {
+              "name": "Cloudinary",
+              "desc": "Herramienta para gestionar imágenes y contenido multimedia"
+            }
+          ]
+        }
+      ],
+      "process": [
+        {
+          "step": 1,
+          "title": "Reunión y requerimientos",
+          "duration": "1 semana",
+          "desc": "Se trabajó con el cliente para entender sus servicios legales y cómo querían mostrarlos en la página.",
+          "deliverables": [
+            "Estructura del contenido",
+            "Objetivos del sitio"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Definición de herramientas",
+          "duration": "3 días",
+          "desc": "Se eligieron tecnologías enfocadas en crear una página rápida, clara y fácil de encontrar en internet.",
+          "deliverables": [
+            "Tecnologías definidas",
+            "Estructura del sitio"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Diseño",
+          "duration": "1 semana",
+          "desc": "Se diseñó una página con estilo formal y profesional, alineado con el área legal.",
+          "deliverables": [
+            "Diseño visual",
+            "Estructura de páginas"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Desarrollo",
+          "duration": "2 semanas",
+          "desc": "Se construyó la página web completa, incluyendo todas las secciones de servicios y formularios de contacto.",
+          "deliverables": [
+            "Página funcional",
+            "Formularios activos"
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Pruebas y ajustes",
+          "duration": "3 días",
+          "desc": "Se verificó que todo funcionara correctamente, especialmente los formularios y la visualización en distintos dispositivos.",
+          "deliverables": [
+            "Corrección de errores",
+            "Optimización"
+          ]
+        },
+        {
+          "step": 6,
+          "title": "Entrega",
+          "duration": "2 días",
+          "desc": "Se entregó la página lista para su uso y se explicó al cliente cómo gestionarla.",
+          "deliverables": [
+            "Sitio publicado",
+            "Capacitación básica"
+          ]
+        }
+      ],
+      "features": [
+        "Secciones claras para cada servicio legal",
+        "Formulario de contacto fácil de usar",
+        "Diseño profesional y confiable",
+        "Página rápida y adaptable a celulares"
+      ],
+      "gallery": []
     }
-  ],
-  "features": [
-    "Inicio de sesión seguro para cada usuario",
-    "Paneles personalizados según el tipo de usuario",
-    "Visualización clara del progreso de cada cliente",
-    "Organización completa de la información en un solo lugar"
-  ],
-  "gallery": []
-},
-    {
-  "id": "daniela-rodriguez-psicologa",
-  "url": "https://www.danielarodriguezpsicologa.com/",
-  "tag": "SALUD",
-  "duration": "1 mes",
-  "teamSize": "2 desarrolladores",
-  "color": "green",
-  "name": "D. Rodríguez Psicóloga",
-  "desc": "Página web donde los pacientes pueden conocer los servicios de psicología y agendar citas fácilmente en línea.",
-  "resumen": "Se desarrolló un sitio web enfocado en generar confianza y facilitar la reserva de citas, permitiendo a los pacientes agendar de forma rápida sin necesidad de intercambiar mensajes.",
-  "heroImage": "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776530715/kbjggnqcqhvbvagsl6nq.png",
-  "challenge": "El consultorio manejaba las citas de forma manual, lo que generaba desorden, pérdida de tiempo y dificultad para coordinar con los pacientes. Además, necesitaban una presencia en línea que transmitiera confianza y profesionalismo.",
-  "solution": "Se creó un sitio web rápido y sencillo donde los usuarios pueden ver la información del servicio y agendar citas directamente mediante un calendario en línea. El contenido es estático, lo que permite una carga muy rápida, y el diseño transmite tranquilidad y confianza.",
-  "results": [
-    "Más personas agendan citas directamente desde la página web",
-    "Se redujo el tiempo dedicado a coordinar citas manualmente",
-    "Mejor presencia en Google y mayor visibilidad local",
-    "Proceso de reserva más rápido y sencillo para los pacientes"
-  ],
-  "stack": [
-    {
-      "category": "Desarrollo Web",
-      "items": [
-        { "name": "Astro", "desc": "Permite crear páginas muy rápidas usando contenido estático" },
-        { "name": "Tailwind CSS", "desc": "Se utilizó para lograr un diseño limpio, moderno y adaptable" }
-      ]
-    },
-    {
-      "category": "Integraciones",
-      "items": [
-        { "name": "Resend", "desc": "Herramienta para enviar correos electrónicos de forma sencilla" }
-      ]
-    }
-  ],
-  "process": [
-    {
-      "step": 1,
-      "title": "Reunión y requerimientos",
-      "duration": "1 semana",
-      "desc": "Se conversó con la cliente para entender sus necesidades, cómo gestionaba sus citas y qué quería transmitir a sus pacientes.",
-      "deliverables": [ "Requerimientos definidos", "Objetivos del sitio" ]
-    },
-    {
-      "step": 2,
-      "title": "Definición de herramientas",
-      "duration": "3 días",
-      "desc": "Se eligieron tecnologías enfocadas en velocidad y simplicidad, utilizando contenido estático y herramientas externas para el agendamiento.",
-      "deliverables": [ "Tecnologías definidas", "Estructura del sitio" ]
-    },
-    {
-      "step": 3,
-      "title": "Diseño",
-      "duration": "1 semana",
-      "desc": "Se diseñó una interfaz con colores y estilos que transmiten calma, confianza y profesionalismo.",
-      "deliverables": [ "Diseño visual", "Estructura de la página" ]
-    },
-    {
-      "step": 4,
-      "title": "Desarrollo",
-      "duration": "2 semanas",
-      "desc": "Se construyó la página web y se integró el sistema de reservas para que los pacientes pudieran agendar fácilmente.",
-      "deliverables": [ "Página funcional", "Sistema de citas integrado" ]
-    },
-    {
-      "step": 5,
-      "title": "Pruebas y ajustes",
-      "duration": "3 días",
-      "desc": "Se probaron todas las funciones para asegurar que el agendamiento funcionara correctamente y la experiencia fuera fluida.",
-      "deliverables": [ "Corrección de errores", "Optimización" ]
-    },
-    {
-      "step": 6,
-      "title": "Entrega",
-      "duration": "2 días",
-      "desc": "Se entregó el sitio listo para su uso, explicando cómo funciona el sistema de citas.",
-      "deliverables": [ "Sitio publicado", "Capacitación básica" ]
-    }
-  ],
-  "features": [
-    "Agenda en línea disponible 24/7",
-    "Reserva de citas fácil y rápida",
-    "Diseño que transmite confianza y tranquilidad",
-    "Página rápida y adaptable a cualquier dispositivo"
-  ],
-  "gallery": []
-},
-    {
-  "id": "emy-asociados",
-  "url": "https://emyasociados.net/",
-  "tag": "LEGAL",
-  "duration": "1 mes",
-  "teamSize": "2 desarrolladores",
-  "color": "cyan",
-  "name": "EM y Asociados",
-  "desc": "Página web profesional para un bufete legal donde los usuarios pueden conocer sus servicios y contactarlos fácilmente.",
-  "resumen": "Se creó un sitio web enfocado en mostrar los servicios legales de forma clara, generar confianza y facilitar que los usuarios puedan contactar al bufete.",
-  "heroImage": "https://res.cloudinary.com/dxrzwnjee/image/upload/v1776529470/e7fn31bsjlkukvbmza9z.png",
-  "challenge": "El bufete ya contaba con una página web, pero necesitaba mejorar su diseño para que se viera más profesional y confiable, además de optimizarla para aparecer mejor en Google y atraer más clientes.",
-  "solution": "Se desarrolló una página web clara y ordenada donde cada servicio legal tiene su propio espacio, facilitando que los usuarios encuentren lo que necesitan y puedan contactar fácilmente.",
-  "results": [
-    "Mayor visibilidad en internet para sus servicios legales",
-    "Más consultas recibidas a través de la página web",
-    "Mejor experiencia en celulares y dispositivos móviles",
-    "Mayor confianza de los usuarios al ver información clara y profesional"
-  ],
-  "stack": [
-    {
-      "category": "Desarrollo Web",
-      "items": [
-        { "name": "Astro", "desc": "Permite crear páginas rápidas y optimizadas" },
-        { "name": "Tailwind CSS", "desc": "Estilos limpios y altamente responsivos" }
-      ]
-    },
-    {
-      "category": "Diseño",
-      "items": [
-        { "name": "Figma", "desc": "Herramienta para crear diseños responsivos y atractivos" }
-      ]
-    },
-    {
-      "category": "Media & Storage",
-      "items": [
-        { "name": "Cloudinary", "desc": "Herramienta para gestionar imágenes y contenido multimedia" }
-      ]
-    }
-  ],
-  "process": [
-    {
-      "step": 1,
-      "title": "Reunión y requerimientos",
-      "duration": "1 semana",
-      "desc": "Se trabajó con el cliente para entender sus servicios legales y cómo querían mostrarlos en la página.",
-      "deliverables": [ "Estructura del contenido", "Objetivos del sitio" ]
-    },
-    {
-      "step": 2,
-      "title": "Definición de herramientas",
-      "duration": "3 días",
-      "desc": "Se eligieron tecnologías enfocadas en crear una página rápida, clara y fácil de encontrar en internet.",
-      "deliverables": [ "Tecnologías definidas", "Estructura del sitio" ]
-    },
-    {
-      "step": 3,
-      "title": "Diseño",
-      "duration": "1 semana",
-      "desc": "Se diseñó una página con estilo formal y profesional, alineado con el área legal.",
-      "deliverables": [ "Diseño visual", "Estructura de páginas" ]
-    },
-    {
-      "step": 4,
-      "title": "Desarrollo",
-      "duration": "2 semanas",
-      "desc": "Se construyó la página web completa, incluyendo todas las secciones de servicios y formularios de contacto.",
-      "deliverables": [ "Página funcional", "Formularios activos" ]
-    },
-    {
-      "step": 5,
-      "title": "Pruebas y ajustes",
-      "duration": "3 días",
-      "desc": "Se verificó que todo funcionara correctamente, especialmente los formularios y la visualización en distintos dispositivos.",
-      "deliverables": [ "Corrección de errores", "Optimización" ]
-    },
-    {
-      "step": 6,
-      "title": "Entrega",
-      "duration": "2 días",
-      "desc": "Se entregó la página lista para su uso y se explicó al cliente cómo gestionarla.",
-      "deliverables": [ "Sitio publicado", "Capacitación básica" ]
-    }
-  ],
-  "features": [
-    "Secciones claras para cada servicio legal",
-    "Formulario de contacto fácil de usar",
-    "Diseño profesional y confiable",
-    "Página rápida y adaptable a celulares"
-  ],
-  "gallery": []
-}
   ]
 }
