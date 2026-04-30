@@ -81,7 +81,12 @@
         "Alta velocidad de carga con Astro",
         "Adaptado al mercado meta"
       ],
-      "gallery": []
+      "gallery": [
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777507447/756shots_so_lqqceh.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777507447/752shots_so_hoy6hy.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777507448/872shots_so_tubf4q.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777507465/44shots_so_ao5o57.jpg"
+      ]
     },
     {
       "id": "roca-business",
@@ -220,7 +225,18 @@
         "Visualización clara del progreso de cada cliente",
         "Organización completa de la información en un solo lugar"
       ],
-      "gallery": []
+      "gallery": [
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777509455/49shots_so_xumwkr.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777509456/944shots_so_tmcg1d.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777509458/458shots_so_rjlxy7.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777509458/952shots_so_mlqhog.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777509562/78shots_so_wapxab.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777509562/931shots_so_q4bhpk.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777509563/943shots_so_g2l5ol.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777509563/989shots_so_jkjdhw.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777509564/254shots_so_a3k2y4.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777509566/795shots_so_lysbmq.jpg"
+      ]
     },
     {
       "id": "daniela-rodriguez-psicologa",
@@ -333,7 +349,11 @@
         "Diseño que transmite confianza y tranquilidad",
         "Página rápida y adaptable a cualquier dispositivo"
       ],
-      "gallery": []
+      "gallery": [
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777509920/557shots_so_wyoexl.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777509919/862shots_so_xmhuhv.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777509919/855shots_so_mqhwr1.jpg"
+      ]
     },
     {
       "id": "emy-asociados",
@@ -455,7 +475,15 @@
         "Diseño profesional y confiable",
         "Página rápida y adaptable a celulares"
       ],
-      "gallery": []
+      "gallery": [
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777508165/207shots_so_qeytx7.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777508166/344shots_so_elkwfc.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777508167/797shots_so_o9xkih.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777508167/219shots_so_lqbgze.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777508167/547shots_so_dqodza.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777508400/99shots_so_vhavyv.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777508400/169shots_so_xqqmjm.jpg"
+      ]
     }
   ]
 }
