@@ -1,0 +1,6 @@
+name = "one-out-solutions"
+compatibility_date = "2026-06-08"
+pages_build_output_dir = "dist/client"
+
+[build]
+command = "npm run build"
