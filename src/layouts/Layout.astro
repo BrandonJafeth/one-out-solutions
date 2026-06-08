@@ -9,8 +9,8 @@ interface Props {
 }
 
 const { 
-  title = "One Out Solutions | Desarrollo de software", 
-  description = "Soluciones tecnológicas empresariales en Costa Rica. Desarrollo a medida, sistemas escalables y diseño UX." 
+  title = "One Out Solutions | Desarrollo de software en Guanacaste y Costa Rica | Soluciones tecnológicas a medida", 
+  description = "Desarrollo de software en Guanacaste, Costa Rica. Soluciones tecnológicas empresariales, sistemas a medida y diseño UX para impulsar tu negocio." 
 } = Astro.props;
 ---
 
@@ -19,13 +19,13 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="https://res.cloudinary.com/dkwvaxxdw/image/upload/c_pad,b_rgb:e87722,w_180,h_180,f_png,q_auto/v1779290752/Logo_blanco_1_kintyq.png" />
     <meta name="generator" content={Astro.generator} />
     
     <!-- SEO Meta Tags -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site || "https://oneoutsolutions.com")} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site || "https://solutions.oneoutcr.net")} />
     
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
@@ -33,7 +33,19 @@ const {
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.toString()} />
     <meta property="og:site_name" content="One Out Solutions" />
-    <meta property="og:image" content={new URL('/og-image.png', Astro.site ?? 'https://oneoutsolutions.com').toString()} />
+    <meta property="og:image" content="https://res.cloudinary.com/dkwvaxxdw/image/upload/c_pad,b_rgb:0D0D0D,w_1200,h_630,f_png,q_auto/v1779290752/Logo_blanco_1_kintyq.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://res.cloudinary.com/dkwvaxxdw/image/upload/c_pad,b_rgb:0D0D0D,w_1200,h_630,f_png,q_auto/v1779290752/Logo_blanco_1_kintyq.png" />
+    <meta name="twitter:site" content="@oneoutsolutions" />
+    <meta name="twitter:creator" content="@oneoutsolutions" />
+
+    <meta name="google-site-verification" content="_cf3xX-LE5-rVyeixjNeYST9hMWKJW5EMUZlYDO10Fc" />
     
     <ClientRouter />
     
@@ -42,15 +54,25 @@ const {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "One Out Solutions",
-        "url": "https://oneoutsolutions.com",
-        "logo": "https://oneoutsolutions.com/favicon.svg",
+        "url": "https://solutions.oneoutcr.net",
+        "description": "Desarrollo de software en Guanacaste y Costa Rica. Soluciones tecnológicas empresariales, sistemas a medida y diseño UX.",
+        "logo": "https://res.cloudinary.com/dkwvaxxdw/image/upload/c_pad,b_rgb:0D0D0D,w_512,h_512,f_png,q_auto/v1779290752/Logo_blanco_1_kintyq.png",
+        "foundingDate": "2024",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "CR"
+        },
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+506-0000-0000",
+          "telephone": "+506-6225-8331",
           "contactType": "customer service",
           "areaServed": "CR",
-          "availableLanguage": "Spanish"
-        }
+          "availableLanguage": ["Spanish", "English"]
+        },
+        "sameAs": [
+          "https://linkedin.com/company/one-out-solutions",
+          "https://github.com/one-out-solutions"
+        ]
       }
     </script>
     <script type="text/javascript">
