@@ -8,9 +8,9 @@ interface Props {
   description?: string;
 }
 
-const { 
-  title = "One Out Solutions | Desarrollo de software", 
-  description = "Soluciones tecnológicas empresariales en Costa Rica. Desarrollo a medida, sistemas escalables y diseño UX." 
+const {
+  title = "Agencia Digital en Guanacaste, Costa Rica | One Out Solutions",
+  description = "Agencia de desarrollo web en Guanacaste, Costa Rica. Sitios web, e-commerce y sistemas digitales a medida que generan clientes reales. Cotiza en minutos."
 } = Astro.props;
 ---
 
@@ -18,39 +18,70 @@ const {
 <html lang="es" class="overflow-x-hidden">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.clarity.ms" />
     <meta name="generator" content={Astro.generator} />
-    
+
     <!-- SEO Meta Tags -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site || "https://oneoutsolutions.com")} />
-    
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site || "https://solutions.oneoutcr.net")} />
+
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.toString()} />
     <meta property="og:site_name" content="One Out Solutions" />
-    <meta property="og:image" content={new URL('/og-image.png', Astro.site ?? 'https://oneoutsolutions.com').toString()} />
-    
+    <meta property="og:image" content={new URL('/og-image.png', Astro.site ?? 'https://solutions.oneoutcr.net').toString()} />
+
     <ClientRouter />
-    
+
     <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
+        "@type": ["LocalBusiness", "ProfessionalService"],
         "name": "One Out Solutions",
-        "url": "https://oneoutsolutions.com",
-        "logo": "https://oneoutsolutions.com/favicon.svg",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+506-0000-0000",
-          "contactType": "customer service",
-          "areaServed": "CR",
-          "availableLanguage": "Spanish"
-        }
+        "url": "https://solutions.oneoutcr.net",
+        "description": "Agencia de desarrollo web en Guanacaste, Costa Rica. Sitios web, e-commerce y sistemas digitales a medida.",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1779290752/Logo_blanco_1_kintyq.png"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Guanacaste",
+          "addressCountry": "CR"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Costa Rica"
+        },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+50662258331",
+            "contactType": "customer service",
+            "areaServed": "CR",
+            "availableLanguage": "Spanish"
+          },
+          {
+            "@type": "ContactPoint",
+            "telephone": "+50661370493",
+            "contactType": "sales",
+            "areaServed": "CR",
+            "availableLanguage": "Spanish"
+          }
+        ],
+        "email": "oscarzswork@gmail.com",
+        "sameAs": [
+          "https://www.instagram.com/one.out_/",
+          "https://github.com/BrandonJafeth"
+        ]
       }
     </script>
     <script type="text/javascript">

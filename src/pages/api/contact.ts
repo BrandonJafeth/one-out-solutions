@@ -93,7 +93,7 @@ const internalEmail = (
         </tr>
         <tr>
           <td style="padding:24px 32px;border-top:1px solid rgba(214,235,253,0.1);">
-            <p style="margin:0;font-size:11px;color:#555;text-align:center;">One Out Solutions · Costa Rica · oneoutsolutions.com</p>
+            <p style="margin:0;font-size:11px;color:#555;text-align:center;">One Out Solutions · Costa Rica · solutions.oneoutcr.net</p>
           </td>
         </tr>
       </table>
@@ -190,7 +190,7 @@ const confirmationEmail = (
         </tr>
         <tr>
           <td style="padding:20px 32px;border-top:1px solid rgba(214,235,253,0.1);">
-            <p style="margin:0;font-size:11px;color:#555;text-align:center;">One Out Solutions · Costa Rica · <a href="https://oneoutsolutions.com" style="color:#555;text-decoration:none;">oneoutsolutions.com</a></p>
+            <p style="margin:0;font-size:11px;color:#555;text-align:center;">One Out Solutions · Costa Rica · <a href="https://solutions.oneoutcr.net" style="color:#555;text-decoration:none;">solutions.oneoutcr.net</a></p>
           </td>
         </tr>
       </table>

@@ -108,8 +108,8 @@ const { proyecto } = Astro.props as { proyecto: Proyecto };
         <img 
           src={proyecto.heroImage} 
           alt={`Imagen representativa del proyecto ${proyecto.name}`} 
-          class="w-full h-auto object-cover" 
-          decoding="sync"
+          class="w-full h-auto object-cover"
+          decoding="async"
           fetchpriority="high"
         />
         <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl md:rounded-4xl pointer-events-none"></div>
@@ -121,10 +121,7 @@ const { proyecto } = Astro.props as { proyecto: Proyecto };
 
       <!-- Resumen: Desafío vs Solución -->
       <section class="scroll-anim opacity-0 translate-y-8">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-white tracking-[-0.05em]">Resumen del Proyecto</h2>
-        <p class="text-lg md:text-xl text-silver mb-16 max-w-4xl leading-relaxed">
-          {proyecto.desc}
-        </p>
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-16 text-white tracking-[-0.05em]">Resumen del Proyecto</h2>
 
         <div class="grid md:grid-cols-2 gap-12 md:gap-20">
           <div>

@@ -420,6 +420,16 @@
         },
         {
           "step": 2,
+          "title": "Sesión fotográfica",
+          "duration": "1 día",
+          "desc": "Se realizó una sesión de fotos profesional al equipo y las instalaciones del bufete, para usar imágenes reales y auténticas en lugar de fotos genéricas de stock.",
+          "deliverables": [
+            "Fotografías profesionales editadas",
+            "Banco de imágenes para el sitio"
+          ]
+        },
+        {
+          "step": 3,
           "title": "Definición de herramientas",
           "duration": "3 días",
           "desc": "Se eligieron tecnologías enfocadas en crear una página rápida, clara y fácil de encontrar en internet.",
@@ -429,7 +439,7 @@
           ]
         },
         {
-          "step": 3,
+          "step": 4,
           "title": "Diseño",
           "duration": "1 semana",
           "desc": "Se diseñó una página con estilo formal y profesional, alineado con el área legal.",
@@ -439,7 +449,7 @@
           ]
         },
         {
-          "step": 4,
+          "step": 5,
           "title": "Desarrollo",
           "duration": "2 semanas",
           "desc": "Se construyó la página web completa, incluyendo todas las secciones de servicios y formularios de contacto.",
@@ -449,7 +459,7 @@
           ]
         },
         {
-          "step": 5,
+          "step": 6,
           "title": "Pruebas y ajustes",
           "duration": "3 días",
           "desc": "Se verificó que todo funcionara correctamente, especialmente los formularios y la visualización en distintos dispositivos.",
@@ -459,7 +469,7 @@
           ]
         },
         {
-          "step": 6,
+          "step": 7,
           "title": "Entrega",
           "duration": "2 días",
           "desc": "Se entregó la página lista para su uso y se explicó al cliente cómo gestionarla.",

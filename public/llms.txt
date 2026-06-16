@@ -1,0 +1,33 @@
+# One Out Solutions
+
+> Agencia de desarrollo de software en Guanacaste, Costa Rica. Construimos sitios web de alta conversión, tiendas e-commerce, sistemas CRM, automatizaciones y aplicaciones móviles para empresas costarricenses.
+
+## Servicios
+
+- Desarrollo web y landing pages optimizadas para conversión
+- Tiendas e-commerce y catálogos virtuales
+- Sistemas CRM y software empresarial a medida
+- Automatizaciones de procesos con n8n
+- Aplicaciones móviles nativas e híbridas
+- SEO técnico y posicionamiento web activo
+
+## Proyectos destacados
+
+- /proyecto/jireh-adventure — Turismo de aventura, landing page optimizada
+- /proyecto/roca-business — Plataforma inmobiliaria corporativa
+- /proyecto/daniela-rodriguez-psicologa — Sistema de agenda online para salud
+- /proyecto/emy-asociados — Sitio web para bufete legal
+
+## Metodología
+
+1. Análisis y Diagnóstico
+2. Estrategia Digital
+3. Código en Alto Rendimiento
+4. Despliegue y Seguimiento
+
+## Contacto
+
+- WhatsApp: +506 6225 8331 | +506 6137 0493
+- Email: oscarzswork@gmail.com
+- Ubicación: Guanacaste, Costa Rica
+- Sitio web: https://solutions.oneoutcr.net
